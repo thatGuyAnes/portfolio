@@ -1,11 +1,11 @@
 import * as React from "react";
 import Layout from '../components/Layout/index';
-// import Header from '../components/Header/index';
+import Header from '../components/Header/index';
 
 const IndexPage = () => {
   return (
     <Layout>
-      {/* <Header /> */}
+      <Header />
       <main className="container">
         <div className="header__arrow">
           <svg width="30" height="123" viewBox="0 0 30 123" fill="none" xmlns="http://www.w3.org/2000/svg">

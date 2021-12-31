@@ -8,7 +8,7 @@ import './style.scss';
 const Header = () => {
 
   const textRef = React.useRef();
-  const query = gsap.utils.selector(el);
+  const query = gsap.utils.selector(textRef);
 
   React.useEffect(() => {
     gsap.to(query('span'), {
@@ -23,7 +23,7 @@ const Header = () => {
 
   return (
     <header>
-      <div className="header__text" ref={el}>
+      <div className="header__text" ref={textRef}>
         <div className="line">
           <span>front-end</span>
         </div>
