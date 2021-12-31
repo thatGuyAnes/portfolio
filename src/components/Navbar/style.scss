@@ -1,0 +1,112 @@
+.brand {
+  position: fixed;
+  top: 0;
+  /* left: 0; */
+  left: var(--h-gutter);
+  height: var(--header-height);
+  /* padding-left: var(--h-gutter); */
+  display: flex;
+  align-items: center;
+  &__text {
+    text-transform: uppercase;
+    font-size: 3.12vw;
+    & a {
+      text-decoration: none;
+      color: #000;
+    }
+  }
+}
+
+.burger {
+  width: 2vw;
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  right: var(--h-gutter);
+  display: flex;
+  align-items: center;
+  &__open span {
+    width: 2vw;
+    height: 2px;
+    background-color: #000;
+    display: block;
+    margin-bottom: 6px;
+  }
+  & button {
+    position: absolute;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    height: 40px;
+    background: none;
+  }
+}
+
+.main-nav {
+  display: none;
+}
+
+/*
+.logo {
+  position: fixed;
+  left: 0;
+  height: var(--header-height);
+  width: 280px;
+  display: flex;
+  align-items: center;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.logo__img {
+  width: 55px;
+  height: 55px;
+  background: url('../img/img_logo.svg') no-repeat center;
+  background-size: 55px 55px;
+  display: block;
+  position: absolute;
+  left: 1.2vw;
+  transition: opacity 0.3s linear;
+  opacity: 0;
+}
+
+.logo__text {
+  color: var(--text-color);
+  font-size: 3.125vw;
+  font-family: var(--font-headings);
+  letter-spacing: 7px;
+  padding-left: var(--h-gutter);
+  transition: opacity 0.3s linear;
+  opacity: 1;
+  text-transform: uppercase;
+}
+
+.burger {
+  width: var(--burger-width);
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  left: auto;
+  right: var(--h-gutter);
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  transition: transform 0.3s var(--easing);
+  transform: translateX(0);
+}
+.burger__open span {
+  width: var(--burger-width);
+  height: 2px;
+  background-color: #fff;
+  margin: 6px 0;
+  display: block;
+}
+.burger button {
+  position: absolute;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  height: 40px;
+  background: none;
+}
+*/
