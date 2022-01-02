@@ -11,6 +11,7 @@ const Header = () => {
   const query = gsap.utils.selector(textRef);
 
   React.useEffect(() => {
+    console.log('mounted')
     gsap.to(query('span'), {
       y: '0%',
       duration: 0.8,
