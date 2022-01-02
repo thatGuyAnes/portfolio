@@ -1,11 +1,20 @@
 import React from 'react';
 import Header from '../Header/index'
 import Layout from '../Layout';
+import gsap from 'gsap';
 
 
 const Home = () => {
+
+  const layoutRef = React.createRef();
+
+  React.useEffect(() => {
+    console.log(layoutRef)
+
+  }, []);
+
   return (
-    <Layout>
+    <Layout ref={layoutRef}>
       <Header />
       <main className="container">
         {/* Arrow */}

@@ -18,7 +18,6 @@ const Header = () => {
       stagger: 0.3,
       alpha: 1,
       ease: 'Power2.easeOut'
-        // ease: "power2.in"
     })
   }, [query]);
 

@@ -1,28 +1,28 @@
 import * as React from "react";
 import Home from '../components/Home';
+import Loader from '../components/Loader'
 
 const IndexPage = () => {
 
-  const [loaded, setLoaded] = React.useState(false);
+  const [isLoaded, setIsLoaded] = React.useState(false);
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     document.body.classList.add('loading')
-    removeLoad();
   }, []);
 
-  function removeLoad() {
-    setTimeout(() => {
-      document.body.classList.remove('loading');
-      setLoaded(true);
-    }, 2000)
-  }
+  // function removeLoad() {
+  //   setTimeout(() => {
+  //     document.body.classList.remove('loading');
+  //     setLoaded(true);
+  //   }, 2000)
+  // }
 
   return (
     <>
-      {loaded
+      {isLoaded
         ? <Home />
-        : null}
-      </>
+        : <Loader setIsLoaded={setIsLoaded}/>}
+    </>
   )
 };
 

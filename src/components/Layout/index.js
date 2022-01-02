@@ -2,11 +2,17 @@ import React from 'react';
 // import Header from '../Header/index';
 import Navbar from '../Navbar/index';
 import Footer from '../Footer';
+import Cursor from '../Cursor';
 
-const Layout = ({children}) => {
-  const [menuState, setMenuState] = React.useState(false);
+import './style.scss';
+
+const Layout = React.forwardRef(({children}, ref) => {
+
+  // const [menuState, setMenuState] = React.useState(false);
+
   return (
-    <div>
+    <div className="layout" ref={ref}>
+      <Cursor />
       <Navbar />
       {/* <Navbar> */}
       {/*   <Hamburger menuState={menuState} setMenuState={setMenuState} /> */}
@@ -16,6 +22,7 @@ const Layout = ({children}) => {
       <Footer />
     </div>
   )
-};
+
+});
 
 export default Layout;
