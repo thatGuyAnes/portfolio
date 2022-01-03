@@ -11,19 +11,6 @@ body, html {
   font-size: calc(1em + 1vw);
 }
 
-body.loading {
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left:0;
-  background-color: pink;
-}
-
-.intro-wrapper {
-}
-
 .container {
   margin-left: var(--h-gutter);
 }

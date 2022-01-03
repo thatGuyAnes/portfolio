@@ -6,23 +6,28 @@ const IndexPage = () => {
 
   const [isLoaded, setIsLoaded] = React.useState(false);
 
-  React.useLayoutEffect(() => {
-    document.body.classList.add('loading')
-  }, []);
+  // function classChanged() {
+  // };
 
-  // function removeLoad() {
-  //   setTimeout(() => {
-  //     document.body.classList.remove('loading');
-  //     setLoaded(true);
-  //   }, 2000)
-  // }
+  // mutation observer.
+  const ob = new MutationObserver(function () {
+    setIsLoaded(true);
+    // classChanged();
+  });
+
+  ob.observe(document.body, {
+    attributes: true,
+    attributeFilter: ["class"]
+  });
+
 
   return (
     <>
       {isLoaded
         ? <Home />
-        : <Loader setIsLoaded={setIsLoaded}/>}
+        : null}
     </>
+
   )
 };
 

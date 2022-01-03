@@ -1,20 +1,23 @@
 import React from 'react';
+import './style.scss';
 
-const Loader = ({setIsLoaded}) => {
+const Loader = () => {
 
-  React.useLayoutEffect(() => {
-    initLoader();
-  }, []);
-
-  const initLoader = () => {
-    setTimeout(() => {
-      document.body.classList.remove('loading');
-      setIsLoaded(true);
-    }, 2000)
-  };
+//   React.useLayoutEffect(() => {
+//     initLoader();
+//   }, []);
+// 
+//   const initLoader = () => {
+//     setTimeout(() => {
+//       document.body.classList.remove('loading');
+//       setIsLoaded(true);
+//     }, 2000)
+//   };
 
   return (
-    <div className='loader'></div>
+    <div id="loader">
+      <div className="preloader"></div>
+    </div>
   )
 };
 
