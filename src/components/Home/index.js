@@ -8,9 +8,9 @@ import Arrow from '../Arrow';
 const Home = () => {
   return (
     < main className="container" >
+      {/* <Arrow /> */}
       <Header />
       {/* Arrow */}
-      <Arrow />
       {/* <About section> */}
       <Introduction />
       {/* Project section */}

@@ -9,7 +9,7 @@ header {
   & .header__text {
     padding-left: var(--h-gutter);
     padding-top: var(--v-spacing);
-    pointer-events: none;
+    /* pointer-events: none; */
   }
   & .header__text .line {
     overflow: hidden;

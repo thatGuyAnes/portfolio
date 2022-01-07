@@ -19,12 +19,10 @@ const Layout = ({children}) => {
     <>
       <div className="layout" ref={layoutRef}>
         <Navbar />
-
         {children}
-
         <Footer />
-        {/* <Cursor /> */}
       </div>
+      <Cursor />
     </>
   )
 
