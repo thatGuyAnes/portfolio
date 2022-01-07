@@ -1,0 +1,22 @@
+
+.intro {
+  height: 100vh;
+  position: relative;
+  &__title {
+    & span {}
+  }
+  &__image {}
+  &__text {
+    color: red;
+    & p {}
+    & h3 {
+      border: 1px solid red;
+      position: absolute;
+      width: 50vw;
+      right: var(--h-gutter);
+      font-size: 0.5em;
+      line-height: 1.2;
+    }
+  }
+  &__button{}
+}

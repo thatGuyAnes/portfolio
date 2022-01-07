@@ -6,6 +6,7 @@
     left: 0;
     display: block;
     pointer-events: none;
+    z-index: 999;
     &__inner {
       fill: #000;
       stroke: #000;

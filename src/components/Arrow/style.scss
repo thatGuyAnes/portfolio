@@ -1,0 +1,15 @@
+.header__arrow {
+  /* height: 100vh; */
+  /* border: 1px solid blue; */
+  position: fixed;
+  bottom: 0;
+  right: var(--h-gutter);
+  z-index: 5;
+  & svg {
+    /* position: absolute; */
+    /* right: var(--h-gutter); */
+    /* bottom: 0; */
+    /* margin-bottom: 2vh; */
+  }
+}
+

@@ -1,107 +1,124 @@
-import React from 'react';
+import React, {useEffect, useRef, useCallback} from 'react';
+import './style.scss';
 
+// Linear interpolation
+const lerp = (x, y, n) => (1 - n) * x + n * y;
 
-const mouseReducer = (state, {x, y}) => {
+// Gets the mouse position
+const getMousePos = (mouseEvent) => {
+  let posx = 0;
+  let posy = 0;
+  console.log(mouseEvent.pageY, mouseEvent.clientY)
 
+  posx = mouseEvent.pageX;
+  posy = mouseEvent.clientY;
 
-  return {...state, x: x, y: y}
+//   if (!mouseEvent) mouseEvent = window.event;
+// 
+//   if (mouseEvent.pageX || mouseEvent.pageY) {
+//         posx = mouseEvent.pageX;
+//         posy = mouseEvent.pageY;
+//   }
+//   else if (mouseEvent.clientX || mouseEvent.clientY) {
+//         posx = mouseEvent.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+//         posy = mouseEvent.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+//     }
+
+    return { x : posx, y : posy }
 };
+
 
 const initConfig = {
   x: {
     previous: 0,
     current: 0,
-    amt: 0.2
+    amt: 0.1
   },
   y: {
     previous: 0,
     current: 0,
-    amt: 0.2
+    amt: 0.1
   }
 };
 
-// Linear interpolation
-
-const cursorConfigReducer = (state, {mouse, cursorBounds}) => {
-
-  const lerp = (x, y, n) => (1 - n) * x + n * y;
-  // state.x.previous, ...
-  // let previousX = state.x.current;
-  // let previousY = state.y.current;
-
-  // console.log(state.x.previous, state.x.current, state.x.amt)
-  let previousX = lerp(state.x.previous, state.x.current, state.x.amt);
-  let previousY = lerp(state.y.previous, state.y.current, state.y.amt);
-
-  let currentX = mouse.x - cursorBounds.width / 2;
-  let currentY = mouse.y - cursorBounds.height / 2;
-
-  return {
-    ...state,
-    x: {
-      previous: previousX,
-      current: currentX,
-      amt: state.x.amt
-    },
-    y: {
-      previous: previousY,
-      current: currentY,
-      amt: state.y.amt
-    }
-  }
-};
 
 const Cursor = () => {
 
-  // Tracking the mouse position.
-  const [mouse, setMouse] = React.useReducer(mouseReducer, {x: 0, y: 0});
-  const [cursorConfig, setCursorConfig] = React.useReducer(cursorConfigReducer, initConfig);
+  const mouse = useRef({x: 0, y: 0});
+  const configs = useRef(initConfig);
 
-  const cursorRef = React.useRef();
-  let cursorBounds;
+  const requestRef = useRef(null);
 
-  // mousemove handler.
-  const onMouseMove = (mouseEvt) => {
-    // pass the x and y values to the dispatch function.
-    let posx = 0;
-    let posy = 0;
+  const cursorRef = useRef();
+  const bounds = useRef(null);
 
-    if (!mouseEvt) mouseEvt = window.event;
-    if (mouseEvt.pageX || mouseEvt.pageY) {
-      posx = mouseEvt.pageX;
-      posy = mouseEvt.pageY;
-    } else if (mouseEvt.clientX || mouseEvt.clientY) {
-      posx = mouseEvt.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-      posy = mouseEvt.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+  // Get mouse position;
+  const windowMouseMoveHandler = (e) => {
+    mouse.current = getMousePos(e);
+      // console.log(mouse.current.y - 40)
+    };
+
+
+  const animateCursor = useCallback(() => {
+
+    configs.current['x'].current = mouse.current.x - bounds.current.width / 2;
+    configs.current['y'].current = mouse.current.y - bounds.current.height / 2;
+
+    for (const key in configs.current) {
+      configs.current[key].previous = lerp(configs.current[key].previous, configs.current[key].current, configs.current[key].amt);
+      // configs.current[key].previous = configs.current[key].current;
     }
-    setMouse({x: posx, y: posy});
-  };
+
+    // Assigning the cursor's x and y to the HTML cursor element.
+    cursorRef.current.style.transform = `translateX(${(configs.current['x'].previous)}px) translateY(${configs.current['y'].previous}px)`;
+
+    // cursorRef.current.style.top = `${configs.current['y'].previous}px`
+    // cursorRef.current.style.left = `${configs.current['x'].previous}px`
+
+    requestRef.current = requestAnimationFrame(() => animateCursor());
+    // requestAnimationFrame(() => animateCursor());
+  }, []);
+
+  const onMouseMoveEv = useCallback(() => {
+
+    configs.current.x.previous = configs.current.x.current = mouse.current.x - bounds.current.width / 2;
+    configs.current.y.previous = configs.current.y.previous = mouse.current.y - bounds.current.height / 2;
+    // requestRef.current = requestAnimationFrame(() => animateCursor());
+
+    requestRef.current = requestAnimationFrame(() => animateCursor());
+    // requestAnimationFrame(() => animateCursor());
+
+    window.removeEventListener('mousemove', onMouseMoveEv);
+  }, [animateCursor]);
 
 
-  // For mouse coordinates.
-  React.useEffect(() => {
-    window.addEventListener('mousemove', (event) => onMouseMove(event));
+
+  useEffect(() => {
+    bounds.current = cursorRef.current.getBoundingClientRect();
+
+    window.addEventListener('mousemove', onMouseMoveEv);
+
     return () => {
-      console.log('unmounting')
-      window.removeEventListener();
-}   }, []);
+      window.removeEventListener('mousemove', onMouseMoveEv);
+      cancelAnimationFrame(requestRef.current);
+    }
+  }, [onMouseMoveEv]);
 
 
-  // For  cursor coordinates.
-  React.useEffect(() => {
-    cursorBounds = cursorRef.current.getBoundingClientRect();
-    setCursorConfig({mouse, cursorBounds});
-    requestAnimationFrame(() => {
-      if (cursorRef.current) {
-        cursorRef.current.style.transform = `translateX(${cursorConfig['x'].previous}px) translateY(${cursorConfig['y'].previous}px)`
-      }
-    });
-  }, [mouse])
+
+  useEffect(() => {
+    window.addEventListener('mousemove', windowMouseMoveHandler);
+    return () => {
+      window.removeEventListener('mousemove', windowMouseMoveHandler);
+    }
+  }, []);
 
   return (
-    <svg ref={cursorRef} className="cursor" width="80" height="80" viewBox="0 0 80 80">
-      <circle className="cursor__inner" cx="40" cy="40" r="20" />
-    </svg>
+    <div>
+      <svg ref={cursorRef} className="cursor" width="80" height="80" viewBox="0 0 80 80">
+        <circle className="cursor__inner" cx="40" cy="40" r="20" />
+      </svg>
+    </div>
   )
 };
 

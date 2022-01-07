@@ -1,33 +1,33 @@
 import * as React from "react";
 import Home from '../components/Home';
-import Loader from '../components/Loader'
+import Layout from '../components/Layout';
 
 const IndexPage = () => {
 
   const [isLoaded, setIsLoaded] = React.useState(false);
 
-  // function classChanged() {
-  // };
-
-  // mutation observer.
-  const ob = new MutationObserver(function () {
-    setIsLoaded(true);
-    // classChanged();
+  React.useEffect(() => {
+    const ob = new MutationObserver(() => setIsLoaded(true));
+    ob.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["class"]
+    });
   });
 
-  ob.observe(document.body, {
-    attributes: true,
-    attributeFilter: ["class"]
-  });
-
+  const render = () => {
+    return (
+      <Layout>
+        <Home />
+      </Layout>
+    )
+  };
 
   return (
     <>
       {isLoaded
-        ? <Home />
+        ? render()
         : null}
     </>
-
   )
 };
 

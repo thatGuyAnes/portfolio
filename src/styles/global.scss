@@ -15,39 +15,3 @@ body, html {
   margin-left: var(--h-gutter);
 }
 
-.header__arrow {
-  /* height: 100vh; */
-  /* border: 1px solid blue; */
-  position: fixed;
-  bottom: 0;
-  right: var(--h-gutter);
-  z-index: 5;
-  & svg {
-    /* position: absolute; */
-    /* right: var(--h-gutter); */
-    /* bottom: 0; */
-    /* margin-bottom: 2vh; */
-  }
-}
-
-.about {
-  height: 100vh;
-  position: relative;
-  &__title {
-    & span {}
-  }
-  &__image {}
-  &__text {
-    color: red;
-    & p {}
-    & h3 {
-      border: 1px solid red;
-      position: absolute;
-      width: 50vw;
-      right: var(--h-gutter);
-      font-size: 0.5em;
-      line-height: 1.2;
-    }
-  }
-  &__button{}
-}
