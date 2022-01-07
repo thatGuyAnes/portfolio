@@ -1,3 +1,5 @@
+import React from 'react';
+import RootLayout from './src/components/RootLayout';
 import './src/styles/normalize.css';
 import './src/styles/global.scss';
 import './src/styles/loader.scss';
@@ -8,3 +10,10 @@ export const onInitialClientRender = () => {
   // initialize custom cursor
   // const cursor = new Cursor(document.querySelector('.cursor'));
 }
+
+
+export const wrapRootElement = ({element}) => {
+  return (
+    <RootLayout>{element}</RootLayout>
+  )
+};

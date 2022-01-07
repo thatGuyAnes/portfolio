@@ -1,4 +1,5 @@
 import React from 'react';
+// import Cursor from './src/components/Cursor';
 
 export const onRenderBody = ({
   setPreBodyComponents,
@@ -15,6 +16,9 @@ export const onRenderBody = ({
   ]);
   setBodyAttributes({className: 'preloader_on'}); // add class to body.
   // setHeadComponents([<link rel="preload" href="/scripts/preloader.js" as="script" />]);
-  // setPostBodyComponents([<svg className="cursor" width="80" height="80" viewBox="0 0 80 80"> <circle className="cursor__inner" cx="40" cy="40" r="20" /></svg>, <script src='/scripts/preloader.js' />]);
+  // setPostBodyComponents([<Cursor />, <script src='/scripts/preloader.js' />]);
   setPostBodyComponents([<script src='/scripts/preloader.js' />]);
 };
+
+
+export {wrapRootElement} from './gatsby-browser';

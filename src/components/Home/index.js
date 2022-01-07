@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../Header/index'
 import Introduction from '../Introduction';
+import Projects from '../Projects/';
 import Arrow from '../Arrow';
 
 
@@ -12,6 +13,8 @@ const Home = () => {
       <Arrow />
       {/* <About section> */}
       <Introduction />
+      {/* Project section */}
+      <Projects />
     </main >
   )
 };

@@ -8,10 +8,9 @@ const lerp = (x, y, n) => (1 - n) * x + n * y;
 const getMousePos = (mouseEvent) => {
   let posx = 0;
   let posy = 0;
-  console.log(mouseEvent.pageY, mouseEvent.clientY)
 
   posx = mouseEvent.pageX;
-  posy = mouseEvent.clientY;
+  posy =  mouseEvent.clientY;
 
 //   if (!mouseEvent) mouseEvent = window.event;
 // 

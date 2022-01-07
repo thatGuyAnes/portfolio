@@ -19,7 +19,7 @@ const Header = () => {
   }, [query]);
 
   return (
-    <header>
+    <header className='header'>
       <div className="header__text" ref={textRef}>
         <div className="line">
           <span>front-end</span>
