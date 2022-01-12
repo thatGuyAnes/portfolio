@@ -14,10 +14,13 @@ export const onRenderBody = ({
     </div>
 
   ]);
-  setBodyAttributes({className: 'preloader_on'}); // add class to body.
+ // add class to body.
+  setBodyAttributes({className: 'preloader_on scroll-container'});
   // setHeadComponents([<link rel="preload" href="/scripts/preloader.js" as="script" />]);
   // setPostBodyComponents([<Cursor />, <script src='/scripts/preloader.js' />]);
-  setPostBodyComponents([<script src='/scripts/preloader.js' />]);
+  setPostBodyComponents([
+    <script src='/scripts/preloader.js' />
+  ]);
 };
 
 

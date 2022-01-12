@@ -8,20 +8,21 @@ const IndexPage = () => {
   const [isLoaded, setIsLoaded] = React.useState(false);
 
   React.useEffect(() => {
+
     const ob = new MutationObserver(() => setIsLoaded(true));
+
     ob.observe(document.body, {
       attributes: true,
       attributeFilter: ["class"]
     });
+
   });
 
-  const render = () => {
-    return (
+  const render = () => (
       <Layout>
         <Home />
       </Layout>
-    )
-  };
+    );
 
   return (
     <>
