@@ -15,12 +15,11 @@ export const onRenderBody = ({
    // </div>
     <Loader />
   ]);
-  setBodyAttributes({className: 'preloader_on scroll-container'});
+  setBodyAttributes({className: 'preloader_on'});
   setHeadComponents([<link rel="preload" href="/scripts/preloader.js" as="script" />]);
   setPostBodyComponents([
     <script src='/scripts/preloader.js' />
   ]);
 };
-
 
 // export {wrapRootElement} from './gatsby-browser';

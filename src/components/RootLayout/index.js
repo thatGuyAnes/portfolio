@@ -1,14 +1,31 @@
-import React from 'react';
+import React, {useRef} from 'react';
+import {LocomotiveScrollProvider} from 'react-locomotive-scroll'
 import Cursor from '../Cursor'
 
-const RootLayout = ({children}) => {
+
+
+export default function RootLayout({children}) {
+
+  const containerRef = useRef(null)
 
   return (
-    <>
-      {children}
-      {/* <Cursor /> */}
-    </>
+    <LocomotiveScrollProvider
+      options={
+        {
+          smooth: true,
+        }
+      }
+      watch={[]}
+      containerRef={containerRef}
+    >
+      <main
+        data-scroll-container
+        ref={containerRef}
+      >
+        {children}
+      </main>
+      <Cursor />
+    </LocomotiveScrollProvider>
   )
-};
 
-export default RootLayout;
+};

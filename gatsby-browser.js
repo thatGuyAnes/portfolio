@@ -13,8 +13,8 @@ export const onInitialClientRender = () => {
 }
 
 
-// export const wrapRootElement = ({element}) => {
-//   return (
-//     <RootLayout>{element}</RootLayout>
-//   )
-// };
+export const wrapRootElement = ({element}) => {
+  return (
+    <RootLayout>{element}</RootLayout>
+  )
+};
