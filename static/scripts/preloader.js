@@ -11,7 +11,8 @@ document.onreadystatechange = () => {
     setTimeout(() => {
       body.classList.remove('preloader_on');
       body.classList.remove('preloader_off');
-    }, 1000);
+      body.removeChild(document.querySelector('#loader'));
+    }, 300);
 
   }
 };

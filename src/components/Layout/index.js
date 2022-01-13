@@ -1,5 +1,6 @@
 import React, {useRef, useState, useEffect} from 'react';
-import LocomotiveScroll from 'locomotive-scroll';
+// import LocomotiveScroll from 'locomotive-scroll';
+import {LocomotiveScrollProvider} from 'react-locomotive-scroll'
 
 // import  Scrollbar from 'smooth-scrollbar';
 
@@ -10,28 +11,39 @@ import Cursor from '../Cursor';
 import './style.scss';
 
 const Layout = ({children}) => {
-  // const [bodyScrollBar, setBodyScrollBar] = useState();
-  // const layoutRef = useRef();
-  // useEffect(() => {
-  //   setBodyScrollBar(Scrollbar.init(layoutRef.current));
-  // }, []);
 
   const layoutRef = useRef();
 
-  useEffect(() => {
-    const lscroll = new LocomotiveScroll({
-      el: layoutRef.current,
-      smooth: true
-    });
-  }, []);
+  // useEffect(() => {
+  //   const lscroll = new LocomotiveScroll({
+  //     el: layoutRef.current,
+  //     smooth: true
+  //   });
+  //   lscroll.on('scroll', () => {
+  //     console.log('scrolling');
+  //   })
+  // }, []);
+
+
+
 
   return (
     <>
       <Navbar />
-      <div className="layout" ref={layoutRef}>
-        {children}
-        <Footer />
-      </div>
+      <LocomotiveScrollProvider
+        options={
+          {
+            smooth: true,
+          }
+        }
+        watch={[]}
+        layoutRef={layoutRef}
+      >
+        <div className="layout" data-scroll-container ref={layoutRef}>
+          {children}
+          <Footer />
+        </div>
+      </LocomotiveScrollProvider>
       <Cursor />
     </>
   )

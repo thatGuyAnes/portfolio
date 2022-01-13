@@ -7,7 +7,6 @@
 .brand {
   position: fixed;
   top: 0;
-  /* left: 0; */
   left: var(--h-gutter);
   height: var(--header-height);
   /* padding-left: var(--h-gutter); */
@@ -21,6 +20,7 @@
       color: #000;
     }
   }
+  transform: translateX(-100%);
 }
 
 .burger {
@@ -46,6 +46,7 @@
     height: 40px;
     background: none;
   }
+  transform: translateX(50vw);
 }
 
 .main-nav {

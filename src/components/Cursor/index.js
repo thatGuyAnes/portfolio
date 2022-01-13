@@ -1,4 +1,6 @@
 import React, {useEffect, useRef, useCallback} from 'react';
+import gsap from 'gsap';
+
 import './style.scss';
 
 // Linear interpolation
@@ -54,6 +56,7 @@ const Cursor = () => {
   // Get mouse position;
   const windowMouseMoveHandler = (e) => {
     mouse.current = getMousePos(e);
+    gsap.to(cursorRef.current, {autoAlpha: 1, duration: 2});
       // console.log(mouse.current.y - 40)
     };
 
@@ -105,6 +108,7 @@ const Cursor = () => {
 
 
 
+  // we want to listen for the mouse mvt all the time.
   useEffect(() => {
     window.addEventListener('mousemove', windowMouseMoveHandler);
     return () => {

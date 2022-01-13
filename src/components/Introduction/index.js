@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {useRef, useEffect, useState} from 'react';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
 import './style.scss';
 
 const Intro = () => {
+
+  const introRef = useRef();
+
   return (
-        <section className="intro">
+        <section className="intro" ref={introRef}>
           <h2 className="intro__title">
             <span></span>
           </h2>

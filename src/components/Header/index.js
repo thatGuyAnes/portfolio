@@ -1,36 +1,34 @@
 import React from 'react';
 import gsap from 'gsap';
 
+// import "splitting/dist/splitting.css";
+// import "splitting/dist/splitting-cells.css";
+// import Splitting from "splitting";
+
 import './style.scss';
 
 const Header = () => {
 
-  const textRef = React.useRef();
-  const query = gsap.utils.selector(textRef);
-
-  React.useEffect(() => {
-    gsap.to(query('span'), {
-      y: '0%',
-      duration: 0.8,
-      stagger: 0.3,
-      alpha: 1,
-      ease: 'Power2.easeOut'
-    })
-  }, [query]);
 
   return (
     <header className='header'>
-      <div className="header__text" ref={textRef}>
-        <div className="line">
-          <span>front-end</span>
-        </div>
-        <div className="line">
-          <span>web</span>
-        </div>
-        <div className="line">
-          <span>developer</span>
-        </div>
-      </div>
+
+      <h1 className="header__text">
+
+        <span className="line" data-scroll=''>
+          <span data-scroll='' data-scroll-speed={3} data-scroll-position="top">front-end</span>
+        </span>
+
+        <span className="line" data-scroll=''>
+          <span data-scroll='' data-scroll-speed={2} data-scroll-position="top">web</span>
+        </span>
+
+        <span className="line" data-scroll=''>
+          <span data-scroll='' data-scroll-speed={1} data-scroll-position="top">developer</span>
+        </span>
+
+      </h1>
+
     </header>
   )
 

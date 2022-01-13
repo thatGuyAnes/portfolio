@@ -1,4 +1,5 @@
 import React from 'react';
+import Loader from './src/components/Loader';
 // import Cursor from './src/components/Cursor';
 
 export const onRenderBody = ({
@@ -7,17 +8,15 @@ export const onRenderBody = ({
   setHeadComponents,
   setPostBodyComponents
 }) => {
-  // adds Loader componenet to body.
+  // adds the loader element.
   setPreBodyComponents([
-    <div id="loader">
-      <div className="preloader"></div>
-    </div>
-
+   // <div id="loader">
+   //   <div className="preloader"></div>
+   // </div>
+    <Loader />
   ]);
- // add class to body.
   setBodyAttributes({className: 'preloader_on scroll-container'});
-  // setHeadComponents([<link rel="preload" href="/scripts/preloader.js" as="script" />]);
-  // setPostBodyComponents([<Cursor />, <script src='/scripts/preloader.js' />]);
+  setHeadComponents([<link rel="preload" href="/scripts/preloader.js" as="script" />]);
   setPostBodyComponents([
     <script src='/scripts/preloader.js' />
   ]);

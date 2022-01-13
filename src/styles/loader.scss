@@ -14,7 +14,7 @@ body {
     /* position: absolute; */
     /* top: 0; */
     /* left:0; */
-    background-color: pink;
+    background-color: red;
     #loader {
       /* height: auto; */
       /* bottom: 0; */
@@ -27,7 +27,7 @@ body {
     overflow: auto;
     height: auto;
     #loader {
-      animatin: loaderDone 0.5s forwards;
+      animation: loaderDone 0.5s forwards;
       @keyframes loaderDone {
       0% {
         opacity: 1;

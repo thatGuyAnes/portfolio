@@ -5,64 +5,43 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
-  & .header__text {
-    padding-left: var(--h-gutter);
-    padding-top: var(--v-spacing);
-    /* pointer-events: none; */
-  }
-  & .header__text .line {
-    overflow: hidden;
-    /* display: inline; */
-    /* font-size: 3em; */
-    /* font-size: 10.8vmax; */
-    /* font-size: calc(50px + (30000vw - 192000px)/ 1920); */
-    line-height: 0.9;
-    font-size: 15.8vw;
-    font-weight: unset;
-    /* font-size: calc(4em + (100vw) / 100); */
-  }
-  & span {
+  span {
     display: inline-block;
-    transform: translateY(95%);
-    opacity: 0.7;
+  }
+}
+
+.header__text {
+  padding-left: var(--h-gutter);
+  padding-top: var(--v-spacing);
+  line-height: 0.9;
+  padding-bottom: 2.5rem;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+
+  & .line {
+    &:first-child {
+      transition-delay: 0.2s;
+    }
+    &:nth-child(2) {
+      transition-delay: 0.3s;
+    }
+    &:nth-child(3) {
+      transition-delay: 0.4s;
+    }
+  font-size: 15.8vw;
+
+  display: block;
+  opacity: 0;
+  transform: translateY(100%) rotateX(-80deg);
+  transform-origin: center top;
+  transform-style: preserve-3d;
+  transition: opacity 0s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0s cubic-bezier(0.215, 0.61, 0.355, 1);
+    &.is-inview {
+      opacity: 1;
+      transform: none;
+      transition-duration: 800ms;
+    }
   }
 }
 
 
-
-/*
-header {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  flex-direction: column;
-  perspective: 1000px;
-  z-index: 2;
-  margin-bottom: 400px;
-}
-header h1 {
-  font-family: var(--font-headings);
-  font-weight: normal;
-  color: #fff;
-  font-size: 7vw;
-  line-height: 7.4vw;
-  z-index: 1;
-  margin-bottom: 0;
-  pointer-events: none;
-}
-header h1 span {
-  display: block;
-}
-.subtitle {
-  z-index: 1;
-  font-size: 1.3vw;
-  color: #fff;
-  letter-spacing: 0.3vw;
-  transform: translateX(-9vw);
-  font-weight: 300;
-  pointer-events: none;
-}
-*/

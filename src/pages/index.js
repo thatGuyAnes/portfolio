@@ -15,8 +15,11 @@ const IndexPage = () => {
       attributes: true,
       attributeFilter: ["class"]
     });
+    return () => {
+      setIsLoaded(false);
+    }
 
-  });
+  }, []);
 
   const render = () => (
       <Layout>
