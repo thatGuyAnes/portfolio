@@ -1,6 +1,4 @@
 import React from 'react';
-import Loader from './src/components/Loader';
-// import Cursor from './src/components/Cursor';
 
 export const onRenderBody = ({
   setPreBodyComponents,
@@ -10,12 +8,11 @@ export const onRenderBody = ({
 }) => {
   // adds the loader element.
   setPreBodyComponents([
-   // <div id="loader">
-   //   <div className="preloader"></div>
-   // </div>
-    <Loader />
+    <div className="loader-wrapper">
+      <span className="loader" id="loader"></span>
+    </div>
   ]);
-  setBodyAttributes({className: 'preloader_on'});
+  setBodyAttributes({className: 'is-loading'});
   setHeadComponents([<link rel="preload" href="/scripts/preloader.js" as="script" />]);
   setPostBodyComponents([
     <script src='/scripts/preloader.js' />

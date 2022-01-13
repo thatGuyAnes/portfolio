@@ -1,18 +1,15 @@
 const body = document.querySelector('body');
+console.log('script loaded')
 
 document.onreadystatechange = () => {
-
   if (document.readyState === 'complete') {
-    if (!body.classList.contains('preloader_off')) {
-      body.classList.add('preloader_off');
-    }
-
     // Remove preloader classes from body.
+    if (!body.classList.contains('is-ready')) {
+      body.classList.add('is-ready');
+    }
+    body.classList.remove('is-loading');
     setTimeout(() => {
-      body.classList.remove('preloader_on');
-      body.classList.remove('preloader_off');
-      body.removeChild(document.querySelector('#loader'));
+      body.removeChild(document.querySelector('.loader-wrapper'));
     }, 300);
-
   }
 };

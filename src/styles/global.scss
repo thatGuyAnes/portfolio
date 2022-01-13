@@ -12,6 +12,78 @@ body, html {
   height: 100%;
 }
 
+body {
+  &.is-loading {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+  }
+
+  &.is-ready {
+    overflow: auto;
+    height: auto;
+    & .loader-wrapper {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s 0.3s, opacity 0.3s linear;
+    }
+  }
+}
+
+.loader-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: visibility 1s;
+  .loader {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    position: relative;
+    &::after,
+    &::before {
+      content: '';
+      box-sizing: border-box;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 5px solid #eee;
+      position: absolute;
+      left: 0;
+      top: 0;
+      animation: animloader 2s linear infinite;
+    }
+    &::after {
+      animation-delay: 1s;
+    }
+  }
+
+  @keyframes animloader {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+}
+
+
+
 .container {
   margin-left: var(--h-gutter);
 }
