@@ -1,7 +1,6 @@
 import React, {useRef, useState, useEffect} from 'react';
 import {Link} from 'gatsby';
 import gsap from 'gsap';
-
 import './style.scss';
 
 const Navbar = ({children}) => {
@@ -12,15 +11,6 @@ const Navbar = ({children}) => {
   useEffect(() => {
     if (brandRef.current) {
       const tl = gsap.timeline();
-
-      // myTimeline
-      //   .set(imageLargeInside, { backgroundImage: `url(${imagelarge})` })
-      //   .set(imageSmallInside, { backgroundImage: `url(${imagesmall})` })
-      //   .to([imageLarge, imageSmall], { autoAlpha: 1 })
-      //   .to(otherLinks, { color: '#fff', autoAlpha: 0.2 }, 0)
-      //   .to(e.target, { color: '#fff', autoAlpha: 1 }, 0)
-      //   .to(background, { backgroundColor: color, ease: 'none' }, 0);
-
       tl
         .to(brandRef.current, {xPercent: 100, duration: 0.8, ease: 'Power2.easeOut'})
         .to(burgerRef.current, {x: 0, duration: 0.8, ease: 'Power2.easeOut'}, 0)
@@ -28,7 +18,10 @@ const Navbar = ({children}) => {
   }, []);
 
   return (
-    <>
+    <nav
+      data-scroll-sticky=""
+      data-scroll-target="#section0"
+    >
       <div className="brand" ref={brandRef}>
         <span className="brand__img"></span>
         <span className="brand__text">
@@ -54,7 +47,7 @@ const Navbar = ({children}) => {
         </ul>
       </nav>
 
-    </>
+    </nav>
   )
 };
 

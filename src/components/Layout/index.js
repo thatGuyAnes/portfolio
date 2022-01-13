@@ -12,39 +12,13 @@ import './style.scss';
 
 const Layout = ({children}) => {
 
-  const layoutRef = useRef();
-
-  // useEffect(() => {
-  //   const lscroll = new LocomotiveScroll({
-  //     el: layoutRef.current,
-  //     smooth: true
-  //   });
-  //   lscroll.on('scroll', () => {
-  //     console.log('scrolling');
-  //   })
-  // }, []);
-
-
-
-
   return (
     <>
       <Navbar />
-      <LocomotiveScrollProvider
-        options={
-          {
-            smooth: true,
-          }
-        }
-        watch={[]}
-        layoutRef={layoutRef}
-      >
-        <div className="layout" data-scroll-container ref={layoutRef}>
-          {children}
-          <Footer />
-        </div>
-      </LocomotiveScrollProvider>
-      <Cursor />
+      <div className="layout">
+        {children}
+        <Footer />
+      </div>
     </>
   )
 

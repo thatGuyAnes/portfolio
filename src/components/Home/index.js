@@ -7,7 +7,10 @@ import Arrow from '../Arrow';
 
 const Home = () => {
   return (
-    <main className="container" >
+    <main
+      className="container"
+      data-scroll-section
+    >
       {/* <Arrow /> */}
       <Header />
       {/* Arrow */}

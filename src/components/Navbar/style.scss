@@ -1,5 +1,5 @@
 
-.navigation-top{
+.tn{
   position: fixed;
   top: 0;
 }
@@ -9,7 +9,6 @@
   top: 0;
   left: var(--h-gutter);
   height: var(--header-height);
-  /* padding-left: var(--h-gutter); */
   display: flex;
   align-items: center;
   &__text {

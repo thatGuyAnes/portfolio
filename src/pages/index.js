@@ -3,7 +3,7 @@ import Home from '../components/Home';
 import Layout from '../components/Layout';
 
 
-const IndexPage = () => {
+export default function IndexPage() {
 
   const [isLoaded, setIsLoaded] = React.useState(false);
 
@@ -35,5 +35,3 @@ const IndexPage = () => {
     </>
   )
 };
-
-export default IndexPage;
