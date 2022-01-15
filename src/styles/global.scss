@@ -4,6 +4,8 @@
   --h-gutter: 6.6vw;
   --v-spacing: 10vh;
   --header-height: 100px;
+  --svg-height: 1em;
+  --svg-width: 1em;
 }
 
 body, html {
@@ -81,8 +83,6 @@ body {
     }
   }
 }
-
-
 
 .container {
   margin-left: var(--h-gutter);
