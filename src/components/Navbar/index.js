@@ -12,9 +12,15 @@ const Navbar = ({children}) => {
     if (brandRef.current) {
       const tl = gsap.timeline();
       tl
-        .to(brandRef.current, {xPercent: 100, duration: 0.8, ease: 'Power2.easeOut'})
-        .to(burgerRef.current, {x: 0, duration: 0.8, ease: 'Power2.easeOut'}, 0)
+        .to(brandRef.current, { duration: 0.8, transform: "none", ease: 'Power2.easeOut'})
+        .to(burgerRef.current, { duration: 0.8, transform: "none", ease: 'Power2.easeOut'}, 0)
     }
+
+    // brandRef.current.classList.add('ready')
+
+    // const tl = gsap.timeline();
+    // tl.to(brandRef.current, {duration: 0.8, transform: "none"})
+
   }, []);
 
   return (
@@ -22,6 +28,7 @@ const Navbar = ({children}) => {
       data-scroll-sticky=""
       data-scroll-target="#section0"
     >
+    {/* =BRAND= */}
       <div className="brand" ref={brandRef}>
         <span className="brand__img"></span>
         <span className="brand__text">
@@ -29,6 +36,7 @@ const Navbar = ({children}) => {
         </span>
       </div>
 
+      {/* =BURGER= */}
       <div className="burger" ref={burgerRef}>
         <button className="burger__open">
           <span></span>

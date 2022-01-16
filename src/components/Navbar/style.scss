@@ -1,19 +1,24 @@
-
-.tn{
-  position: fixed;
-  top: 0;
+nav {
+  /* margin: 0 var(--h-gutter); */
+  /* border: 1px solid; */
+  /* height: 100%; */
+  /* position: relative; */
+  /* display: flex; */
+  /* justify-content: space-between; */
 }
 
 .brand {
   position: fixed;
   top: 0;
-  left: var(--h-gutter);
+  left: 0;
+  /* left: var(--h-gutter); */
   height: var(--header-height);
   display: flex;
   align-items: center;
   &__text {
     text-transform: uppercase;
     font-size: 3.12vw;
+    padding-left: var(--h-gutter);
     & a {
       text-decoration: none;
       color: #000;
@@ -27,6 +32,7 @@
   height: var(--header-height);
   position: fixed;
   top: 0;
+  left: auto;
   right: var(--h-gutter);
   display: flex;
   align-items: center;
@@ -37,20 +43,23 @@
     display: block;
     margin-bottom: 6px;
   }
-  & button {
-    position: absolute;
-    cursor: pointer;
-    border: none;
-    padding: 0;
-    height: 40px;
-    background: none;
-  }
   transform: translateX(50vw);
+}
+
+.burger button {
+  position: absolute;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  height: 40px;
+  background: none;
 }
 
 .main-nav {
   display: none;
 }
+
+/* ==================================== */
 
 /*
 .logo {

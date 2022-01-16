@@ -21,6 +21,7 @@ export default function RootLayout({children}) {
       <main
         data-scroll-container
         ref={containerRef}
+        className="main-container"
       >
         {children}
       </main>

@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function NotMe() {
+const NotMe =  React.forwardRef((_, ref) => {
   return (
-<svg width="183" height="88" viewBox="0 0 183 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg ref={ref} className="svg-notme" width="183" height="88" viewBox="0 0 183 88" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M94.5209 36.8103C72.6168 41.0977 52.189 52.1482 33.472 64.0717C29.1719 66.811 26.5415 68.5536 24.3149 72.9363" stroke="#FF6464" strokeWidth="2" strokeLinecap="round"/>
 <path d="M16.4148 64.9337C15.7932 65.6077 0.750749 79.8166 4.1982 82.437C9.50135 86.4679 21.0871 81.9236 26.6543 80.1075" stroke="#FF6464" strokeWidth="2" strokeLinecap="round"/>
 <path d="M38.5906 10.0364C38.8052 8.1367 38.9746 6.22577 39.6055 4.40953C40.25 2.55432 38.3111 8.13921 37.9997 10.0783C37.5361 12.9652 37.9049 15.9346 37.5747 18.8425C37.4966 19.5303 36.4379 22.7441 37.4669 21.6824" stroke="#FF6464" strokeWidth="2" strokeLinecap="round"/>
@@ -24,4 +24,6 @@ export default function NotMe() {
 <path d="M55.839 10.1575C55.9587 10.1795 58.5084 10.7982 57.7395 9.84825C57.6773 9.77139 57.5467 9.74904 57.4517 9.77655C56.9872 9.9111 56.7364 9.53589 56.382 10.0692C56.1647 10.3961 56.6882 10.4302 56.8217 10.3381" stroke="#FF6464" strokeWidth="2" strokeLinecap="round"/>
 </svg>
   )
-}
+});
+
+export default NotMe;

@@ -15,6 +15,7 @@ body, html {
 }
 
 body {
+  /* pre loading */
   &.is-loading {
     overflow: hidden;
     width: 100vw;
@@ -25,6 +26,7 @@ body {
     transition: 1s;
   }
 
+  /* post loading */
   &.is-ready {
     overflow: auto;
     height: auto;
@@ -36,6 +38,11 @@ body {
   }
 }
 
+.container {
+  margin:0 var(--h-gutter);
+}
+
+/* loader */
 .loader-wrapper {
   position: absolute;
   top: 0;
@@ -84,7 +91,4 @@ body {
   }
 }
 
-.container {
-  margin-left: var(--h-gutter);
-}
 
