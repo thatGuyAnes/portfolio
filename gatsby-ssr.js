@@ -8,8 +8,8 @@ export const onRenderBody = ({
 }) => {
   // adds the loader element.
   setPreBodyComponents([
-    <div className="loader-wrapper" key={`lodrwrp`}>
-      <span className="loader" id="loader"></span>
+    <div className="c-loader-wrapper" key={`lodrwrp`}>
+      <span className="c-loader" id="loader"></span>
     </div>
   ]);
   setBodyAttributes({className: 'is-loading'});

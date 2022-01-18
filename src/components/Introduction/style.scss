@@ -1,21 +1,46 @@
 .intro {
   height: 100vh;
+  margin: 0 var(--h-gutter);
   position: relative;
   &__title {
     & span {}
   }
   &__image {}
   &__text {
-    color: red;
     & p {}
     & h3 {
-      border: 1px solid red;
+      /* border: 1px solid red; */
       position: absolute;
-      width: 50vw;
-      right: var(--h-gutter);
-      font-size: 0.5em;
-      line-height: 1.2;
+      right: 0;
+      /* width: 855.25px; */
+      width: 68%;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      /* font-size: 52px; */
+      font-size: 3.6vw;
+      line-height: 140.9%;
+      letter-spacing: 1.3px;
     }
   }
   &__button{}
+}
+
+.junior {
+  position: relative;
+  .svg.junior {
+    position: absolute;
+    bottom: 50%;
+    right: 80%;
+  }
+}
+
+.passion {
+  position: relative;
+  .svg.star-left{}
+  .svg.star-right{}
+  .svg.underline{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
 }

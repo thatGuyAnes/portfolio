@@ -1,43 +1,26 @@
-.header-arrow {
-  height: 100vh;
-  /* width: calc(100vw - var(--h-gutter)); */
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0.7;
-  /* background-color: red; */
-  /* z-index: 9999; */
-  overflow: hidden;
-  & .arrow__text {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
-}
-
 /* =Header */
 header.header {
   position: relative;
   /* min-height: 100vh; */
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 12vh;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* padding-top: 12vh; */
   span {
     display: inline-block;
   }
 }
 
 h1.header__content-container {
+  position: absolute;
+  left: 0;
+  bottom: 0;
   font-weight: normal;
   align-self: center;
   line-height: 0.9;
   padding-top: var(--v-spacing);
-  padding-bottom: 2.5rem;
+  /* padding-bottom: 2.5rem; */
   perspective: 1000px;
   -webkit-perspective: 1000px;
   & .header__text {
@@ -58,9 +41,14 @@ h1.header__content-container {
   font-size: 15.8vw;
   display: block;
   opacity: 0;
-  /* @media only screen and (min-width: 1400px) { */
-  /*     font-size: 221px; */
-  /* } */
+
+  @media only screen and (min-width: 1460px) {
+      font-size: 8rem;
+    & .hg__top {
+      max-width: 364.25px;
+      padding-bottom: calc( (9/16) * 364.25px )
+    }
+  }
 
   transform: translateY(100%) rotateX(-80deg);
   transform-origin: center top;
@@ -97,13 +85,13 @@ h1.header__content-container {
 }
 
 /* =svgs= */
-.svg-iam {
+.svg.iam {
   position: absolute;
   bottom: 80%;
   left: -100%;
   height: 0.5em;
 }
-.svg-notme {
+.svg.notme {
   position: absolute;
   bottom: 60%;
   left: 110%;
@@ -122,6 +110,7 @@ h1.header__content-container {
   position: relative;
   padding-bottom: 14.625vw;
   width: 26vw;
+  max-height: 200px;
   border: solid;
   img {
     position: absolute;
@@ -149,5 +138,11 @@ h1.header__content-container {
   }
   100% {
     transform: rotateY(0deg);
+  }
+}
+
+@media only screen and (min-width: 1460px) {
+  .header {
+    /* padding-top: 9vw; */
   }
 }

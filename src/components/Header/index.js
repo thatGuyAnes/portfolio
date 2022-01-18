@@ -2,6 +2,9 @@ import React, {useRef, useState, useEffect} from 'react';
 import Iam from '../svgs/Iam-svg';
 import NotMe from '../svgs/NotMe-svg';
 import HeaderImg from '../../images/ff1.png';
+import Arrow from '../Arrow';
+import Swiggly from '../svgs/Swiggly-svg';
+import Scroll from '../svgs/Scroll-svg';
 import gsap from 'gsap';
 
 import './style.scss';
@@ -65,14 +68,11 @@ export default function Header() {
   }, []);
 
   return (
-    <header className='header' ref={headerRef}>
+    <header className='header' ref={headerRef} data-scroll-section="">
 
-      <div className="header-arrow">
-        <svg></svg>
-        <span className="arrow__text">scroll down</span>
-      </div>
+      <Arrow />
 
-      <h1 className="header__content-container container" ref={h1Ref}>
+      <h1 className="header__content-container o-container" ref={h1Ref}>
 
         <span className="line" data-scroll=''>
           <span className="header__text" data-scroll='' data-scroll-speed={3} data-scroll-position="top">
@@ -81,18 +81,15 @@ export default function Header() {
         </span>
 
         <span className="line" data-scroll=''>
-
           <span className="header__text" data-scroll='' data-scroll-speed={2} data-scroll-position="top">
             web
           </span>
-
           <div className="hg" ref={hgRef} data-scroll='' data-scroll-speed={2} data-scroll-position="top">
             <span className="hg__top" ref={hgTopRef}>
               <img ref={imgRef} src={HeaderImg} alt="an image composition with a headless man" />
               <NotMe ref={notMeSvgRef}/>
             </span>
           </div>
-
         </span>
 
         <span className="line" data-scroll=''>

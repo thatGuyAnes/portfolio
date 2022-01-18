@@ -1,15 +1,40 @@
-.header__arrow {
-  /* height: 100vh; */
-  border: 1px solid blue;
-  position: fixed;
-  bottom: 0;
-  right: var(--h-gutter);
-  z-index: 5;
-  & svg {
-    /* position: absolute; */
-    /* right: var(--h-gutter); */
-    /* bottom: 0; */
-    /* margin-bottom: 2vh; */
-  }
+.c-arrow_container {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+  font-size: 2vw;
+  /* background-color: red; */
+  overflow: hidden;
 }
 
+.c-arrow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  margin-bottom: 5vh;
+}
+
+.c-arrow_text_crossed {
+  position: relative;
+}
+
+.svg.scroll{
+  position: absolute;
+  top:100%;
+  left:0;
+}
+.svg.swiggly{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+}

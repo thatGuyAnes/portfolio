@@ -9,7 +9,7 @@ document.onreadystatechange = () => {
     }
     setTimeout(() => {
       body.classList.remove('is-loading');
-      body.removeChild(document.querySelector('.loader-wrapper'));
+      body.removeChild(document.querySelector('.c-loader-wrapper'));
     }, 300);
   }
 };

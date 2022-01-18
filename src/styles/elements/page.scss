@@ -1,0 +1,21 @@
+// ==========================================================================
+// Base / Page
+// ==========================================================================
+
+//
+// Simple page-level setup.
+//
+// 1. Set the default `font-size` and `line-height` for the entire project,
+//    sourced from our default variables.
+// 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+//    navigating between pages that do/do not have enough content to produce
+//    scrollbars naturally.
+// 3. Ensure the page always fills at least the entire height of the viewport.
+//
+
+body, html {
+  font-family: 'urw_gothicbook';
+  font-size: calc(1em + 1vw);
+  height: 100%;
+}
+

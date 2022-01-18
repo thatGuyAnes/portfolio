@@ -15,18 +15,12 @@ const Navbar = ({children}) => {
         .to(brandRef.current, { duration: 0.8, transform: "none", ease: 'Power2.easeOut'})
         .to(burgerRef.current, { duration: 0.8, transform: "none", ease: 'Power2.easeOut'}, 0)
     }
-
-    // brandRef.current.classList.add('ready')
-
-    // const tl = gsap.timeline();
-    // tl.to(brandRef.current, {duration: 0.8, transform: "none"})
-
   }, []);
 
   return (
     <nav
       data-scroll-sticky=""
-      data-scroll-target="#section0"
+      data-scroll-target="#scroll-container"
     >
     {/* =BRAND= */}
       <div className="brand" ref={brandRef}>
