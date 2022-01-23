@@ -6,14 +6,22 @@ import './style.scss';
 const Navbar = ({children}) => {
 
   const brandRef = useRef();
+  const burgerWrapperRef = useRef();
   const burgerRef = useRef();
+  const menuRef = useRef();
+
+  const burgerClickHandler = () => {
+    console.log('Burger clicked!');
+    menuRef.current.classList.toggle('active');
+    // extend left the length of the spans(lines) inside the burger.
+  };
 
   useEffect(() => {
     if (brandRef.current) {
       const tl = gsap.timeline();
       tl
         .to(brandRef.current, { duration: 0.8, transform: "none", ease: 'Power2.easeOut'})
-        .to(burgerRef.current, { duration: 0.8, transform: "none", ease: 'Power2.easeOut'}, 0)
+        .to(burgerWrapperRef.current, { duration: 0.8, transform: "none", ease: 'Power2.easeOut'}, 0)
     }
   }, []);
 
@@ -23,21 +31,28 @@ const Navbar = ({children}) => {
       data-scroll-target="#scroll-container"
     >
     {/* =BRAND= */}
-      <div className="brand" ref={brandRef}>
-        <span className="brand__img"></span>
-        <span className="brand__text">
+      <div className="c-brand" ref={brandRef}>
+        <span className="c-brand_img"></span>
+        <span className="c-brand_text">
           <Link to="/">anes marzuki</Link>
         </span>
       </div>
 
       {/* =BURGER= */}
-      <div className="burger" ref={burgerRef}>
-        <button className="burger__open">
-          <span></span>
-          <span></span>
-          <span></span>
+      <div className="c-burger_wrapper hoverable" ref={burgerWrapperRef}>
+        <button className="c-burger hoverable" ref={burgerRef} onClick={burgerClickHandler}>
+          <span className="c-burger_line"></span>
+          <span className="c-burger_line"></span>
+          <span className="c-burger_line"></span>
         </button>
       </div>
+
+      {/* <div className="c-menu" ref={menuRef}> */}
+      {/*   <span className="c-menu_line"></span> */}
+      {/*   <span className="c-menu_line"></span> */}
+      {/*   <span className="c-menu_line"></span> */}
+      {/*   <span className="c-menu_line"></span> */}
+      {/* </div> */}
 
       <nav className="main-nav">
         <ul>

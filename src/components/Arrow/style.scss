@@ -1,4 +1,4 @@
-.c-arrow_container {
+.c-arrow-container {
   position: absolute;
   height: 100vh;
   width: 100vw;
@@ -23,18 +23,16 @@
   margin-bottom: 5vh;
 }
 
-.c-arrow_text_crossed {
-  position: relative;
-}
-
-.svg.scroll{
-  position: absolute;
-  top:100%;
-  left:0;
-}
-.svg.swiggly{
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
+.c-arrow_special {
+  .svg.scroll{
+    position: absolute;
+    top:100%;
+    left:0;
+  }
+  .svg.swiggly{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+  }
 }

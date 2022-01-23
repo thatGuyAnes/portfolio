@@ -1,76 +1,84 @@
 /* =Header */
-header.header {
+.c-header {
+  border: solid;
+  display: flex;
+  flex-grow: 50px;
+  align-items: center;
   position: relative;
-  /* min-height: 100vh; */
-  height: 100vh;
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* padding-top: 12vh; */
+  min-height: 100vh;
   span {
     display: inline-block;
   }
 }
 
-h1.header__content-container {
-  position: absolute;
-  left: 0;
-  bottom: 0;
+/* =Main container */
+.c-header_main-container {
+  /* position: absolute; */
+  /* left: 0; */
+  /* bottom: 0; */
+  /* padding-top: var(--v-spacing); */
+  margin-top: 10vw;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}
+
+/* =H1 */
+.c-header_h {
   font-weight: normal;
   align-self: center;
   line-height: 0.9;
-  padding-top: var(--v-spacing);
   /* padding-bottom: 2.5rem; */
-  perspective: 1000px;
-  -webkit-perspective: 1000px;
   & .header__text {
     pointer-events: none;
   }
 }
 
-.header__content-container .line {
-  &:first-child {
-    transition-delay: 0.2s;
-  }
-  &:nth-child(2) {
-    transition-delay: 0.3s;
-  }
-  &:nth-child(3) {
-    transition-delay: 0.4s;
-  }
+/* =HEADER LINES= */
+// before loading
+.c-header_h_line {
   font-size: 15.8vw;
   display: block;
   opacity: 0;
-
-  @media only screen and (min-width: 1460px) {
-      font-size: 8rem;
-    & .hg__top {
-      max-width: 364.25px;
-      padding-bottom: calc( (9/16) * 364.25px )
-    }
-  }
-
   transform: translateY(100%) rotateX(-80deg);
   transform-origin: center top;
   transform-style: preserve-3d;
   transition: opacity 0s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0s cubic-bezier(0.215, 0.61, 0.355, 1);
+  /* &.is-inview { */
+  /*   opacity: 1; */
+  /*   transform: none; */
+  /*   transition-duration: 800ms; */
+  /* } */
 
-  /* header gallery: before loading */
-  & .hg {
-    display: inline-block;
-    opacity: 1;
-    transition: opacity 0s cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-
+  /* @media only screen and (min-width: 1460px) { */
+  /*     font-size: 8rem; */
+  /*   & .c-header_h_line_g_top { */
+  /*     max-width: 364.25px; */
+  /*     padding-bottom: calc( (9/16) * 364.25px ) */
+  /*   } */
+  /* } */
 }
-
-.line.is-inview {
-  opacity: 1;
-  transform: none;
-  transition-duration: 800ms;
-
-  /* header gallery: after loading */
-  & .hg {
+// after loading
+.c-header_h.is-inview {
+  .c-header_h_line {
+    opacity: 1;
+    transform: none;
+    transition-duration: 800ms;
+  }
+}
+.c-header_h_line {
+  &.-one { transition-delay: 0.2s; }
+  &.-two { transition-delay: 0.3s; }
+  &.-three { transition-delay: 0.4s; }
+}
+.c-header_h_line .c-header_h_line_g {
+  // before loading.
+  display: inline-block;
+  opacity: 1; // transition to 1 from 0(inhereted)
+  transition: opacity 0s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+// after loading.
+.c-header_h_line.is-inview {
+  .c-header_h_line_g {
     opacity: 1;
     transition-delay: 800ms;
     transition-duration: 500ms;
@@ -79,34 +87,37 @@ h1.header__content-container {
   }
 }
 
-
-#letter-f {
-  position: relative;
+/* =SPECIALS */
+.c-header_special {
+  &.-iam {
+    .svg.iam {
+    // This position in relation to the gallery top, not container needed.
+      position: absolute;
+      bottom: 80%;
+      left: -100%;
+      height: 0.5em;
+    }
+  }
+  &.-notme {
+    .svg.notme {
+      position: absolute;
+      bottom: 60%;
+      left: 110%;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+  }
 }
 
-/* =svgs= */
-.svg.iam {
-  position: absolute;
-  bottom: 80%;
-  left: -100%;
-  height: 0.5em;
-}
-.svg.notme {
-  position: absolute;
-  bottom: 60%;
-  left: 110%;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
 
-
-/* =header gallery= */
-.hg {
+/* =HEADER GALLERY */
+.c-header_h_line_g {
   opacity: 0;
   display: inline-block;
   margin-left: 3vw;
 }
-.hg__top {
+.c-header_h_line_g_top {
+  border: solid;
   position: relative;
   padding-bottom: 14.625vw;
   width: 26vw;
@@ -123,7 +134,8 @@ h1.header__content-container {
   }
 }
 
-/* =animations= */
+/* =ANIMATIONS= */
+// =============================================================================
 @keyframes coin-flip {
   0%,
   100% {
@@ -141,8 +153,21 @@ h1.header__content-container {
   }
 }
 
-@media only screen and (min-width: 1460px) {
-  .header {
-    /* padding-top: 9vw; */
+@media only screen and (min-width: 1400px) {
+  .c-header_main-container {
+    margin-top: 12vw;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .c-header {}
+  .c-header_h {
+    line-height: 1.4;
+  }
+  .c-header_h_line {
+    font-size: 17vw;
+    .c-header_h_line_g {
+      visibility: hidden;
+    }
   }
 }

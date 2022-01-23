@@ -7,7 +7,7 @@ import './style.scss';
 const Arrow = () => {
   return (
 
-    <div className="c-arrow_container">
+    <div className="c-arrow-container">
 
       <div className="c-arrow">
 
@@ -18,7 +18,7 @@ const Arrow = () => {
         </div>
 
         <span className="c-arrow_text_wrapper">
-          <span className="c-arrow_text_crossed"><Swiggly /><Scroll />skroll </span>down
+          <span className="c-arrow_special o-special-container"><Swiggly /><Scroll />skroll </span>down
         </span>
 
       </div>

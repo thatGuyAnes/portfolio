@@ -1,37 +1,47 @@
 import * as React from "react";
 import Home from '../components/Home';
 import Layout from '../components/Layout';
-
+import Header from '../components/Header';
+import Intro from '../components/Introduction';
+import Projects from '../components/Projects';
 
 export default function IndexPage() {
 
+  // Loading state.
   const [isLoaded, setIsLoaded] = React.useState(false);
 
   React.useEffect(() => {
-
+    if (document.body.classList.contains('is-ready')) setIsLoaded(true);
+    // Initialize an observer to change the loading.
     const ob = new MutationObserver(() => setIsLoaded(true));
-
+    // Observe the body for changed classes.
     ob.observe(document.body, {
       attributes: true,
       attributeFilter: ["class"]
     });
-    return () => {
-      setIsLoaded(false);
-    }
-
   }, []);
 
   const render = () => (
-      <Layout>
-        <Home />
-      </Layout>
-    );
+    <Layout>
+      <Header />
+      <Intro />
+      <Projects />
+    </Layout>
+  );
+
 
   return (
     <>
-      {isLoaded
-        ? render()
-        : null}
+      {
+        isLoaded ? render() : null
+      }
     </>
   )
 };
+
+
+// import {useLocomotiveScroll} from 'react-locomotive-scroll';
+// const { scroll } = useLocomotiveScroll();
+// React.useEffect(() => {
+//     console.log(scroll);
+// }, []);

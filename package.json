@@ -35,5 +35,8 @@
     "smooth-scrollbar": "^8.7.2",
     "splitting": "^1.0.6",
     "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "eslint-config-react-app": "^7.0.0"
   }
 }

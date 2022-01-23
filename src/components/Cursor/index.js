@@ -97,15 +97,12 @@ const Cursor = () => {
 
   useEffect(() => {
     bounds.current = cursorRef.current.getBoundingClientRect();
-
     window.addEventListener('mousemove', onMouseMoveEv);
-
     return () => {
       window.removeEventListener('mousemove', onMouseMoveEv);
       cancelAnimationFrame(requestRef.current);
     }
   }, [onMouseMoveEv]);
-
 
 
   // we want to listen for the mouse mvt all the time.
@@ -117,11 +114,12 @@ const Cursor = () => {
   }, []);
 
   return (
-    <div>
-      <svg ref={cursorRef} className="cursor" width="80" height="80" viewBox="0 0 80 80">
-        <circle className="cursor__inner" cx="40" cy="40" r="20" />
-      </svg>
-    </div>
+      <div ref={cursorRef} className="cursor">
+      {/* <svg ref={cursorRef} className="cursor" width="80" height="80" viewBox="0 0 80 80"> */}
+      {/*   <circle className="cursor__inner" cx="40" cy="40" r="20" /> */}
+      {/* </svg> */}
+        <div className="cursor_inner"></div>
+      </div>
   )
 };
 

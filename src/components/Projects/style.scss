@@ -11,45 +11,42 @@ section.projects {
   /* position: absolute; */
   /* margin-top: -20vw; */
   position: absolute;
+  top: -8vw;
+  bottom: -8vw ;
   right: 0;
   left: 0;
   z-index: 1;
-  top: -50vh;
-  bottom: -50vh ;
-  background-color: red;
+  /* background-color: red; */
+  /* opacity: 0.3; */
 }
 
-.c-projects_banner_item {
+/* =Marquees */
+.c-projects_banner_marquee {
   text-transform: uppercase;
   line-height: 1;
-
   position: absolute;
   display: block;
   white-space: nowrap;
   font-size: 8vw;
   font-weight: bold;
   border: solid;
-
-
-  & .c-projects_banner_item_inner {
-      display: block;
-      background-color: white;
-      white-space: nowrap;
-      padding: 0 20px;
+  & .c-projects_banner_marquee_inner {
+    display: block;
+    background-color: white;
+    white-space: nowrap;
+    padding: 0 20px;
   }
-
+}
+.c-projects_banner_marquee {
   &.-top {
-    top: 5%;
-    left: 0;
-    transform: translateX(-50vw);
-  }
-  &.-bottom {
     top: 0%;
     left: 0;
-    transform: translateX(-10vw);
+    transform: translateX(-100vw);
+  }
+  &.-bottom {
+    top: 8vw;
+    left: 0;
+    transform: translateX(-150vw);
   }
 }
 
-.projects__content {
-  margin: 0 var(--h-gutter);
-}

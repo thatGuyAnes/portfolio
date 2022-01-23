@@ -1,0 +1,10 @@
+/* =Hover List */
+.c-projects-list-container {
+  /* margin: 0 var(--h-gutter); */
+  position: absolute;
+  top: 20%;
+  z-index: 5;
+  ul {
+    list-style: none;
+  }
+}

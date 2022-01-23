@@ -3,13 +3,13 @@ import Iam from '../svgs/Iam-svg';
 import NotMe from '../svgs/NotMe-svg';
 import HeaderImg from '../../images/ff1.png';
 import Arrow from '../Arrow';
-import Swiggly from '../svgs/Swiggly-svg';
-import Scroll from '../svgs/Scroll-svg';
 import gsap from 'gsap';
+
+import {useLocomotiveScroll} from 'react-locomotive-scroll';
 
 import './style.scss';
 
-export default function Header() {
+const Header = () => {
 
   const headerRef = useRef();
   const h1Ref = useRef();
@@ -19,7 +19,6 @@ export default function Header() {
   const notMeSvgRef = React.createRef();
 
   const animateImage = (e) => {
-
     // destructuring
     const {clientX, clientY, target} = e;
 
@@ -45,60 +44,78 @@ export default function Header() {
     });
   }  // </animateImage>
 
-  const imgMouseOver = (e) => {
+  const imgMouseOver = React.useCallback((_e) => {
     // show the notMe svg.
     notMeSvgRef.current.style.opacity = 1;
-  }
-  const imgMouseOut = (e) => {
+  }, [notMeSvgRef]);
+
+  const imgMouseOut = React.useCallback((_e) => {
     // show the notMe svg.
     notMeSvgRef.current.style.opacity = 0;
-  }
+  }, [notMeSvgRef]);
 
   useEffect(() => {
     if (h1Ref.current && imgRef.current) {
       h1Ref.current.addEventListener('mousemove', animateImage);
 
-      imgRef.current.addEventListener('mouseover', imgMouseOver)
-      imgRef.current.addEventListener('mouseout', imgMouseOut)
+      hgTopRef.current.addEventListener('mouseover', imgMouseOver)
+      hgTopRef.current.addEventListener('mouseout', imgMouseOut)
 
-      return () => {
-        h1Ref.current.removeEventListener('mousemove', animateImage);
-      }
+      // return () => {
+      //   h1Ref.current.removeEventListener('mousemove', animateImage);
+      // }
     }
-  }, []);
+  }, [imgMouseOver, imgMouseOut]);
 
   return (
-    <header className='header' ref={headerRef} data-scroll-section="">
+
+    <header
+      className='c-header'
+      ref={headerRef}
+      data-scroll-section=""
+    >
 
       <Arrow />
 
-      <h1 className="header__content-container o-container" ref={h1Ref}>
+      <div className="c-header_main-container">
 
-        <span className="line" data-scroll=''>
-          <span className="header__text" data-scroll='' data-scroll-speed={3} data-scroll-position="top">
-            <span id="letter-f" className="header__text"><Iam />f</span>ront-end
-          </span>
-        </span>
+        <h1 className="c-header_h o-container" ref={h1Ref} data-scroll="">
 
-        <span className="line" data-scroll=''>
-          <span className="header__text" data-scroll='' data-scroll-speed={2} data-scroll-position="top">
-            web
-          </span>
-          <div className="hg" ref={hgRef} data-scroll='' data-scroll-speed={2} data-scroll-position="top">
-            <span className="hg__top" ref={hgTopRef}>
-              <img ref={imgRef} src={HeaderImg} alt="an image composition with a headless man" />
-              <NotMe ref={notMeSvgRef}/>
+          {/* LINE #1 */}
+          <span className="c-header_h_line -one" data-scroll=''>
+            <span className="c-header_h_line_text" data-scroll='' data-scroll-speed={3} data-scroll-position="top">
+              <span className="c-header_special o-special-container -iam"><Iam />f</span>ront-end
             </span>
-          </div>
-        </span>
+          </span>
 
-        <span className="line" data-scroll=''>
-          <span className="header__text" data-scroll='' data-scroll-speed={1} data-scroll-position="top">developer</span>
-        </span>
+          {/* LINE #2 */}
+          <span className="c-header_h_line -two" data-scroll=''>
 
-      </h1>
+            <span className="c-header_h_line_text" data-scroll='' data-scroll-speed={2} data-scroll-position="top">
+              web
+            </span>
 
-    </header>
+            <div className="c-header_h_line_g" ref={hgRef} data-scroll='' data-scroll-speed={2} data-scroll-position="top">
+              <span className="c-header_h_line_g_top" ref={hgTopRef}>
+                <img className="hoverable" ref={imgRef} src={HeaderImg} alt="composition of a headless man" />
+              </span>
+              <span className="c-header_special -notme"><NotMe ref={notMeSvgRef} /></span>
+            </div>
+
+          </span>
+
+          {/* LINE #3 */}
+          <span className="c-header_h_line -three" data-scroll=''>
+            <span className="c-header_h_line_text" data-scroll='' data-scroll-speed={1} data-scroll-position="top">developer</span>
+          </span>
+
+        </h1>
+
+      </div>
+
+    </header >
   )
 
 };
+
+export default Header;

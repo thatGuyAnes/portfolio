@@ -6,7 +6,7 @@
 // ==========================================================================
 /* used with preprocessors and contain font, colors definitions, etc */
 // ==========================================================================
-@import './settings/config';
+@import './settings/_config';
 
 // TOOLS
 // ==========================================================================
@@ -19,30 +19,31 @@
 /* This is the first layer which generates actual CSS. */
 // ==========================================================================
 @import './normalize.css';
-@import './generic/generic';
+@import './generic/_generic';
 
 // ELEMENTS
 // ==========================================================================
 /* styling for bare HTML elements (like H1, A, etc.) */
 // ==========================================================================
-@import './elements/fonts';
-@import './elements/page';
+@import './base/_fonts';
+@import './base/_page';
 
 // Objects
 // ==========================================================================
 /* class-based selectors which define undecorated design patterns */
 // ==========================================================================
-@import './objects/container.scss';
+@import './objects/_container.scss';
+@import './objects/_special.scss';
 
 // Vendors
 // ==========================================================================
-@import './locomotive-scroll.css';
+@import './vendors/_locomotive-scroll.css';
 
 // Components
 // ==========================================================================
 /* specific UI components */
 // ==========================================================================
-@import './components/loader.scss';
+@import './components/_loader.scss';
 
 // Templates
 // ==========================================================================
@@ -52,4 +53,4 @@
 /* utilities and helper classes with ability to override anything which goes before in the triangle, 
 e.g. hide helper class */
 // ==========================================================================
-@import './utilities/loading.scss'
+@import './utilities/_loading.scss'

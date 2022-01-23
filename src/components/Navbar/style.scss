@@ -1,13 +1,14 @@
 nav {
-  /* margin: 0 var(--h-gutter); */
-  /* border: 1px solid; */
-  /* height: 100%; */
-  /* position: relative; */
-  /* display: flex; */
-  /* justify-content: space-between; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: var(--header-height);
+  z-index: 3;
+  background: linear-gradient(#fff, transparent);
 }
 
-.brand {
+.c-brand {
   position: fixed;
   top: 0;
   left: 0;
@@ -15,9 +16,9 @@ nav {
   height: var(--header-height);
   display: flex;
   align-items: center;
-  &__text {
+  &_text {
     text-transform: uppercase;
-    font-size: 3.12vw;
+    font-size: 2vw;
     padding-left: var(--h-gutter);
     & a {
       text-decoration: none;
@@ -27,36 +28,83 @@ nav {
   transform: translateX(-100%);
 }
 
-.burger {
-  width: 2vw;
-  height: var(--header-height);
+.c-burger_wrapper {
   position: fixed;
   top: 0;
   left: auto;
   right: var(--h-gutter);
   display: flex;
+  width: 2vw;
+  height: var(--header-height);
   align-items: center;
-  &__open span {
-    width: 2vw;
-    height: 2px;
-    background-color: #000;
-    display: block;
-    margin-bottom: 6px;
-  }
   transform: translateX(50vw);
+  z-index: 9999;
 }
 
-.burger button {
+.c-burger {
   position: absolute;
   cursor: pointer;
   border: none;
   padding: 0;
   height: 40px;
   background: none;
+  &.-active {
+    span:before {
+      width: 100vw;
+    }
+  }
+}
+
+.c-burger_line {
+  display: block;
+  width: 2vw;
+  height: 2px;
+  margin-bottom: 6px;
+  position: relative;
+    background-color: #000;
+  /* transition: width 1s linear; */
+  /* &:before { */
+  /*   content: ''; */
+  /*   position: absolute; */
+  /*   right: 0; */
+  /*   display: block; */
+  /*   width: 2vw; */
+  /*   height: 100%; */
+  /*   background-color: #000; */
+  /*   transition: width 1s linear; */
+    /* transform-origin: right; */
+  /* } */
 }
 
 .main-nav {
   display: none;
+}
+
+/* =Menu */
+.c-menu {
+  position: fixed;
+  top: 0;
+  right: var(--h-gutter);
+  width: 2vw;
+  height: var(--header-height);
+  transform: translateY(38%);
+  transition: all 2s linear;
+  /* display: flex; */
+  /* align-items: center; */
+  &.active {
+    transform: translate(-100vw, 38%);
+    .c-menu_line {
+      width: calc(100vw + 8.6vw);
+    }
+  }
+  .c-menu_line {
+    display: block;
+    width: 2vw;
+    height: 2px;
+    margin-bottom: 6px;
+    background-color: red;
+    transition: all 2s linear;
+  }
 }
 
 /* ==================================== */

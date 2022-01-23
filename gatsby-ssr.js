@@ -15,8 +15,8 @@ export const onRenderBody = ({
   setBodyAttributes({className: 'is-loading'});
   setHeadComponents([<link rel="preload" href="/scripts/preloader.js" as="script" key={`prldr`} />]);
   setPostBodyComponents([
-    <script src='/scripts/preloader.js' />
+    <script src='/scripts/preloader.js' key={`prldrScript`}/>
   ]);
 };
 
-// export {wrapRootElement} from './gatsby-browser';
+export {wrapRootElement} from './gatsby-browser';
