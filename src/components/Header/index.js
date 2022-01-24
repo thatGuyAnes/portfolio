@@ -97,7 +97,7 @@ const Header = () => {
 
             <div className="c-header_h_line_g" ref={hgRef} data-scroll='' data-scroll-speed={2} data-scroll-position="top">
               <span className="c-header_h_line_g_top" ref={hgTopRef}>
-                <img className="hoverable" ref={imgRef} src={HeaderImg} alt="composition of a headless man" />
+                <img className="js-hover" ref={imgRef} src={HeaderImg} alt="composition of a headless man" />
               </span>
               <span className="c-header_special -notme"><NotMe ref={notMeSvgRef} /></span>
             </div>

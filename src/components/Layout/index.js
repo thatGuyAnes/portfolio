@@ -13,14 +13,13 @@ const Layout = ({children}) => {
     const cursor = document.querySelector('.cursor');
     const circle = cursor.querySelector('circle');
     const onMouseOver = (event) => {
-      console.log(event.target)
-      if (event.target.classList.contains('hoverable')) {
+      if (event.target.classList.contains('js-hover')) {
         cursor.classList.toggle('-expand');
         // circle.setAttribute('r', '30')
       }
     };
     const onMouseLeave = (event) => {
-      if (event.target.classList.contains('hoverable')) {
+      if (event.target.classList.contains('js-hover')) {
         cursor.classList.toggle('-expand');
         // circle.setAttribute('r', '20')
       }

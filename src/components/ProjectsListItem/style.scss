@@ -1,6 +1,7 @@
 .c-projects-list_item {
   font-size: 7vw;
   font-weight: bold;
+  margin-bottom: 5vw;
 }
 .c-projects-list_item_link {
   position: relative;
@@ -13,7 +14,7 @@
 }
 .c-item-link_label.--outlined {
     color: transparent;
-    -webkit-text-stroke: 1px #000;
+    -webkit-text-stroke: 1px #9d9d9d;
 }
 
 .c-item-link_label.--masked {
@@ -49,4 +50,35 @@
       }
     }
   }
+}
+
+
+
+
+
+.hover-reveal {
+	position: absolute;
+	z-index: -1;
+	width: 220px;
+	height: 320px;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+	opacity: 0;
+}
+
+.hover-reveal__inner {
+	overflow: hidden;
+}
+
+.hover-reveal__inner,
+.hover-reveal__img {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.hover-reveal__img {
+	background-size: cover;
+	background-position: 50% 50%;
 }

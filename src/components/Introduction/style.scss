@@ -19,7 +19,7 @@
     /* position: absolute; */
     /* right: 0; */
     width: 68%;
-    font-family: 'Cormorant Garamond', serif;
+    /* font-family: 'Cormorant Garamond', serif; */
     font-weight: 300;
     font-size: 3.6vw;
     line-height: 140.9%;
@@ -46,7 +46,32 @@
       height: 1.5em;
     }
   }
+  &.-javascript {
+    position: relative;
+    overflow: hidden;
+    border: 0.1vw solid;
+    font-family: Arial, Helvetica, sans-serif;
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 0%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      background-color: #ffeb3b;
+      transition: height 0.2s ease-in;
+      /* margin-left: auto; */
+      /* transform: translateX(-100%) */
+    }
+    &:hover::after {
+      /* margin-left: 0; */
+      height: 100%;
+    }
+  }
   &.-passion {
+    display: inline-block; // to behave as a single word.
     .star-l{
       animation: blink 1.5s linear infinite;
     }

@@ -34,13 +34,13 @@ const Navbar = ({children}) => {
       <div className="c-brand" ref={brandRef}>
         <span className="c-brand_img"></span>
         <span className="c-brand_text">
-          <Link to="/">anes marzuki</Link>
+          <Link to="/" className="js-hover">anes marzuki</Link>
         </span>
       </div>
 
       {/* =BURGER= */}
-      <div className="c-burger_wrapper hoverable" ref={burgerWrapperRef}>
-        <button className="c-burger hoverable" ref={burgerRef} onClick={burgerClickHandler}>
+      <div className="c-burger_wrapper" ref={burgerWrapperRef}>
+        <button className="c-burger js-hover" ref={burgerRef} onClick={burgerClickHandler}>
           <span className="c-burger_line"></span>
           <span className="c-burger_line"></span>
           <span className="c-burger_line"></span>

@@ -52,8 +52,8 @@ const Intro = () => {
       <div className="c-intro_text">
         <p>Who What Where ??</p>
         <h3 ref={introTextH3Ref}>Anes is a <span className="c-intro_special o-special-container -junior"><Junior />front</span>
-          -end web designer and Javascript developer
-          from Tunisia with a <span className="c-intro_special o-special-container -passion"><StarLeft className="c-star star-l" /><Underline />passion<StarRight className="c-star star-r" /></span> for interactive design and web
+          -end web designer and <span className="c-intro_special -javascript hoverable">Javascript</span> developer
+          from Tunisia with a<span className="c-intro_special o-special-container -passion"><StarLeft className="c-star star-l" /><Underline />passion<StarRight className="c-star star-r" /></span> for interactive design and web
           technologies.</h3>
         <p className="test">Lorem  asldkjflksjdflkjsdklfjlksjdflkjsdkfjasdf
           sldfjlskdjflkjsdlkfjlksjdfkljsdlkjfklsdjf
