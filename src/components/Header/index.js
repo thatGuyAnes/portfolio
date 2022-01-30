@@ -75,7 +75,7 @@ const Header = () => {
       data-scroll-section=""
     >
 
-      <Arrow />
+      {/* <Arrow /> */}
 
       <div className="c-header_main-container">
 

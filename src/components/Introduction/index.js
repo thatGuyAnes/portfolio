@@ -26,7 +26,7 @@ const Intro = () => {
     // section.right - h3.width
     const distance = sectionBounds.width - h3Bounds.width;
 
-    // move h3 to the right by the distance.
+    // translate h3 to the right by the calculated distance.
     gsap.to(introTextH3Ref.current, {x: distance})
   };
 

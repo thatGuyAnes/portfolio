@@ -1,0 +1,26 @@
+.c-scroll-circle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 13vh;
+  margin-right: 2vw;
+  height: 12vw;
+  width: 12vw;
+}
+
+.c-scroll-circle_logo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: rotation 33s linear infinite;
+}
+
+@keyframes rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+/* width="151" height="148"  */

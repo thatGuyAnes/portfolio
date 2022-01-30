@@ -13,6 +13,7 @@
 .c-intro_canvas-container {
   position: absolute;
   left: 0;
+  top: 0;
   width: 35%;
 }
 
@@ -44,10 +45,7 @@
     letter-spacing: 1.3px;
 
     opacity: 0;
-    transform: translateY(100%) rotateX(-80deg);
-    transform-origin: center top;
-    transform-style: preserve-3d;
-    transition: opacity 0s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: opacity 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 }
 
@@ -55,8 +53,6 @@
 .c-intro_text.is-inview {
   & h3 {
     opacity: 1;
-    transform: none !important;
-    transition-duration: 800ms;
   }
 }
 
