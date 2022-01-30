@@ -1,11 +1,11 @@
-section.c-projects {
+section.c-divider {
   position: relative;
   height: 100vh;
   width: 100vw;
   /* background-color: pink; */
 }
 
-.c-projects_banner {
+.c-divider_banner {
   /* overflow: hidden; */
   /* white-space: nowrap; */
   /* position: absolute; */
@@ -22,7 +22,7 @@ section.c-projects {
 }
 
 /* =Marquees */
-.c-projects_banner_marquee {
+.c-divider_banner_marquee {
   text-transform: uppercase;
   line-height: 1;
   position: absolute;
@@ -31,14 +31,14 @@ section.c-projects {
   font-size: 8vw;
   font-weight: bold;
   border: solid;
-  & .c-projects_banner_marquee_inner {
+  & .c-divider_banner_marquee_inner {
     display: block;
     background-color: white;
     white-space: nowrap;
     padding: 0 20px;
   }
 }
-.c-projects_banner_marquee {
+.c-divider_banner_marquee {
   &.-top {
     top: 0%;
     left: 0;
@@ -57,3 +57,17 @@ section.c-projects {
   }
 }
 
+.c-divider_main {
+  padding-top: 40vh;
+  background-color: red;
+}
+.c-divider_info {
+
+}
+
+.c-divider_special {
+  position: absolute;
+  top: 30%;
+  right: 0;
+  /* right: var(--h-gutter); */
+}

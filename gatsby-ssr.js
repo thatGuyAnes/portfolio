@@ -15,7 +15,8 @@ export const onRenderBody = ({
   setBodyAttributes({className: 'is-loading'});
   setHeadComponents([<link rel="preload" href="/scripts/preloader.js" as="script" key={`prldr`} />]);
   setPostBodyComponents([
-    <script src='/scripts/preloader.js' key={`prldrScript`}/>
+    <script src='/scripts/preloader.js' key={`prldrScript`} />,
+    <script src='/scripts/tagCanvas.min.js' key={`tagcanvas`}/>
   ]);
 };
 

@@ -1,13 +1,29 @@
+
+.info {
+  font-family: 'Libre Caslon Display', serif;
+  position: absolute;
+  top: 0;
+  right: 0;
+  &>span {
+  display: block;
+  }
+}
+
+
+
+
+
+
+
 /* =Header */
 .c-header {
-  border: solid;
   display: flex;
   flex-grow: 50px;
   align-items: center;
   position: relative;
   min-height: 100vh;
   span {
-    display: inline-block;
+    /* display: inline-block; */
   }
 }
 
@@ -27,16 +43,88 @@
   font-weight: normal;
   align-self: center;
   line-height: 0.9;
+  text-transform: lowercase;
   /* padding-bottom: 2.5rem; */
   & .header__text {
     pointer-events: none;
   }
 }
 
+/* =Characters */
+.c-header_char {
+  position: relative;
+  &.-hollow::before {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 100%;
+      background-color: red;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+    }
+  }
+
+.-hollow:hover::before {
+  opacity: 1;
+}
+  .-hollow {
+    &.-o::before {
+      height: calc(15.8vw/2);
+      width: calc(15.8vw/2);
+      background-color: 'red';
+      top: 30%;
+      left: 10%;
+      z-index: -1;
+      border-radius: 50%;
+      opacity: 1;
+    }
+    &.-d::before {
+      height: calc(15.8vw/2);
+      width: calc(15.8vw/2);
+      background-color: 'red';
+      top: 30%;
+      left: 10%;
+      z-index: -1;
+      border-radius: 50%;
+    }
+    &.-e::before {
+      height: calc(7.9vw/2);
+      width: 7.9vw;
+      background-color: "red";
+      top: 32%;
+      left: 12%;
+      z-index: -1;
+      border-top-left-radius: 7.9vw;
+      border-top-right-radius: 7.9vw;
+    }
+    &.-b::before {
+      height: calc(15.8vw/2);
+      width: calc(15.8vw/2);
+      background-color: 'red';
+      top: 33%;
+      left: 16%;
+      z-index: -1;
+      border-radius: 50%;
+    }
+    &.-p::before {
+      height: calc(15.8vw/2);
+      width: calc(15.8vw/2);
+      background-color: 'red';
+      top: 33%;
+      left: 16%;
+      z-index: -1;
+      border-radius: 50%;
+    }
+  }
+
+
 /* =HEADER LINES= */
 // before loading
 .c-header_h_line {
   font-size: 15.8vw;
+  letter-spacing: 0.1vw;
   display: block;
   opacity: 0;
   transform: translateY(100%) rotateX(-80deg);

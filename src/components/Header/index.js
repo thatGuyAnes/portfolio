@@ -81,10 +81,30 @@ const Header = () => {
 
         <h1 className="c-header_h o-container" ref={h1Ref} data-scroll="">
 
+          {/* <div className="info"> */}
+          {/*   <span>developer</span> */}
+          {/*   <span>designer</span> */}
+          {/* </div> */}
+
           {/* LINE #1 */}
           <span className="c-header_h_line -one" data-scroll=''>
             <span className="c-header_h_line_text" data-scroll='' data-scroll-speed={3} data-scroll-position="top">
-              <span className="c-header_special o-special-container -iam"><Iam />f</span>ront-end
+              {/* <span className="c-header_special o-special-container -iam"><Iam />f</span> */}
+              {/* <span className="c-header_char">r</span> */}
+              {/* <span className="c-header_char -hollow -o">o</span> */}
+              {/* <span className="c-header_char">n</span> */}
+              {/* <span className="c-header_char">t</span> */}
+              {/* <span className="c-header_char">-</span> */}
+              {/* <span className="c-header_char -hollow -e">e</span> */}
+              {/* <span className="c-header_char">n</span> */}
+              {/* <span className="c-header_char -hollow -d">d</span> */}
+
+
+
+
+
+
+              <span className="name">Anes</span>
             </span>
           </span>
 
@@ -92,23 +112,38 @@ const Header = () => {
           <span className="c-header_h_line -two" data-scroll=''>
 
             <span className="c-header_h_line_text" data-scroll='' data-scroll-speed={2} data-scroll-position="top">
-              web
+              <span className="name">Marzuki</span>
+
+
+              {/* <span className="c-header_char">w</span> */}
+              {/* <span className="c-header_char -hollow -e">e</span> */}
+              {/* <span className="c-header_char -hollow -b">b</span> */}
             </span>
 
-            <div className="c-header_h_line_g" ref={hgRef} data-scroll='' data-scroll-speed={2} data-scroll-position="top">
-              <span className="c-header_h_line_g_top" ref={hgTopRef}>
-                <img className="js-hover" ref={imgRef} src={HeaderImg} alt="composition of a headless man" />
-              </span>
-              <span className="c-header_special -notme"><NotMe ref={notMeSvgRef} /></span>
-            </div>
+            {/* <div className="c-header_h_line_g" ref={hgRef} data-scroll='' data-scroll-speed={2} data-scroll-position="top"> */}
+            {/*   <span className="c-header_h_line_g_top" ref={hgTopRef}> */}
+            {/*     <img className="js-hover" ref={imgRef} src={HeaderImg} alt="composition of a headless man" /> */}
+            {/*   </span> */}
+            {/*   <span className="c-header_special -notme"><NotMe ref={notMeSvgRef} /></span> */}
+            {/* </div> */}
 
           </span>
 
           {/* LINE #3 */}
-          <span className="c-header_h_line -three" data-scroll=''>
-            <span className="c-header_h_line_text" data-scroll='' data-scroll-speed={1} data-scroll-position="top">developer</span>
-          </span>
-
+{/*           <span className="c-header_h_line -three" data-scroll=''> */}
+{/*             <span className="c-header_h_line_text" data-scroll='' data-scroll-speed={1} data-scroll-position="top"> */}
+{/*               <span className="c-header_char -hollow -d">d</span> */}
+{/*               <span className="c-header_char -hollow -e">e</span> */}
+{/*               <span className="c-header_char">v</span> */}
+{/*               <span className="c-header_char -hollow -e">e</span> */}
+{/*               <span className="c-header_char">l</span> */}
+{/*               <span className="c-header_char -hollow -o">o</span> */}
+{/*               <span className="c-header_char -hollow -p">p</span> */}
+{/*               <span className="c-header_char -hollow -e">e</span> */}
+{/*               <span className="c-header_char">r</span> */}
+{/*             </span> */}
+{/*           </span> */}
+{/*  */}
         </h1>
 
       </div>

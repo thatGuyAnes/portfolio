@@ -3,6 +3,7 @@ import Home from '../components/Home';
 import Layout from '../components/Layout';
 import Header from '../components/Header';
 import Intro from '../components/Introduction';
+import Divider from '../components/Divider';
 import Projects from '../components/Projects';
 
 export default function IndexPage() {
@@ -25,6 +26,7 @@ export default function IndexPage() {
     <Layout>
       <Header />
       <Intro />
+      <Divider />
       <Projects />
     </Layout>
   );

@@ -24,12 +24,13 @@ const ProjectsList = () => {
     <div className="c-projects-list-container o-container"
       data-scroll=""
     >
-      <ul className="c-projects-list"role="list">
+      <ul className="c-projects-list" role="list">
         {
           links.map((project, index) => (
             <ProjectsListItem project={project} key={index} />
           ))
         }
+        <button>More Projects</button>
       </ul>
     </div>
   )

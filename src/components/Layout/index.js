@@ -52,6 +52,7 @@ const Layout = ({children}) => {
         ref={containerRef}
         id="scroll-container"
       >
+        <div className="bg"></div>
         <Navbar />
         <main>
           {children}

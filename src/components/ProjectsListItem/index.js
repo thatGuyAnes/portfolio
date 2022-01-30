@@ -15,6 +15,8 @@ let direction = {
   y: mousePosCache.y - mousepos.y
 };
 
+let bounds = {};
+
 
 // 'animatableProperties': menu item properties that will animate as we move the mouse around the menu
 // we will be using interpolation to achieve smooth animations. 
@@ -43,41 +45,179 @@ const ProjectsListItem = ({project}) => {
   const sliderWrapperRef = useRef();
   const sliderRef = useRef();
 
+
+
+  const hoverRevealRef = useRef();
+  const hoverReveal_innerRef = useRef();
+  const hoverReveal_imgRef = useRef();
+
   // ==================imageHover
 
+  const requestId = useRef(null);
+  let firstRAFCycle;
 
-  // create the image structure
-  // we want to add/append to the menu item the following html:
-  // <div class="hover-reveal">
-  //   <div class="hover-reveal__inner" style="overflow: hidden;">
-  //     <div class="hover-reveal__img" style="background-image: url(pathToImage);">
-  //     </div>
-  //   </div>
-  // </div>
-  const layout = () => {
-    // this is the element that gets its position animated 
-    // (and perhaps other properties like the rotation etc..)
-    let reveal = document.createElement('div');
-    reveal.className = 'hover-reveal';
+  // show the image element
+  const showImage = () => {
+    // kill any current tweens
+    gsap.killTweensOf(hoverReveal_innerRef.current);
+    gsap.killTweensOf(hoverRevealRef.current);
 
-    // the next two elements could actually be only one, the image element
-    // adding an extra wrapper (revealInner) around the image element with
-    // overflow hidden, gives us the possibility to scale the image inside.
-    let revealInner = document.createElement('div');
-    revealInner.className = 'hover-reveal__inner';
-    let revealImage = document.createElement('div');
-    revealImage.className = 'hover-reveal__img';
-    revealImage.style.backgroundImage = `url(${image})`;
-
-    revealInner.appendChild(revealImage);
-    reveal.appendChild(revealInner);
-    linkRef.current.appendChild(reveal);
+    const tl = gsap.timeline({
+      onStart: () => {
+        // show the image element
+        hoverRevealRef.current.style.opacity = 1;
+        // set a high z-index value so image appears on top of other elements
+        gsap.set(linkRef.current, {zIndex: 1});
+      }
+    })
+      // animate the image wrap
+      .to(hoverReveal_innerRef.current, 0.2, {
+        ease: 'Sine.easeOut',
+        startAt: {x: direction.x < 0 ? '-100%' : '100%'},
+        x: '0%'
+      })
+      // animate the image element
+      .to(hoverReveal_imgRef.current, 0.2, {
+        ease: 'Sine.easeOut',
+        startAt: {x: direction.x < 0 ? '100%' : '-100%'},
+        x: '0%'
+      }, 0);
   };
+
+
+  // hide the image element
+  const hideImage = () => {
+    // kill any current tweens
+    gsap.killTweensOf(hoverReveal_innerRef.current);
+    gsap.killTweensOf(hoverReveal_imgRef.current);
+
+    const tl = gsap.timeline({
+      onStart: () => {
+        gsap.set(linkRef.current, {zIndex: 1});
+      },
+      onComplete: () => {
+        gsap.set(hoverRevealRef.current, {opacity: 0});
+      }
+    })
+      .to(hoverReveal_innerRef.current, 0.2, {
+        ease: 'Sine.easeOut',
+        x: direction.x < 0 ? '100%' : '-100%'
+      })
+      .to(hoverReveal_imgRef.current, 0.2, {
+        ease: 'Sine.easeOut',
+        x: direction.x < 0 ? '-100%' : '100%'
+      }, 0);
+  };
+
+  // start the render loop animation (rAF)
+  const loopRender = () => {
+    if (!requestId.current) {
+      requestId.current = requestAnimationFrame(() => render());
+    }
+  }
+  // stop the render loop animation (rAF)
+  const stopRendering = () => {
+    if (requestId.current) {
+      window.cancelAnimationFrame(requestId.current);
+      requestId.current = undefined;
+    }
+  };
+
+
+  // calculate the position/size of both the menu item and reveal element
+  const calcBounds = () => {
+    bounds = {
+      el: linkRef.current.getBoundingClientRect(),
+      reveal: hoverRevealRef.current.getBoundingClientRect()
+    };
+  };
+
+
+  // bind some events
+  const initEvents = () => {
+    const mouseenterFn = (ev) => {
+      // show the image element
+      showImage();
+      firstRAFCycle = true;
+      // start the render loop animation (rAF)
+      loopRender();
+    };
+    const mouseleaveFn = () => {
+      // stop the render loop animation (rAF)
+      stopRendering();
+      // hide the image element
+      hideImage();
+    };
+
+    linkRef.current.addEventListener('mouseenter', mouseenterFn);
+    linkRef.current.addEventListener('mouseleave', mouseleaveFn);
+  };
+
+
+  // translate the item as the mouse moves
+  const render = () => {
+    requestId.current = undefined;
+    // calculate position/sizes the first time
+    if (firstRAFCycle) {
+      calcBounds();
+    }
+
+    // calculate the mouse distance (current vs previous cycle)
+    const mouseDistanceX = clamp(Math.abs(mousePosCache.x - mousepos.x), 0, 100);
+    // direction where the mouse is moving
+    direction = {x: mousePosCache.x - mousepos.x, y: mousePosCache.y - mousepos.y};
+    // updated cache values
+    mousePosCache = {x: mousepos.x, y: mousepos.y};
+
+    // new translation values
+    // the center of the image element is positioned where the mouse is
+    animatableProperties.tx.current = Math.abs(mousepos.x - bounds.el.left) - bounds.reveal.width / 2;
+    animatableProperties.ty.current = Math.abs(mousepos.y - bounds.el.top) - bounds.reveal.height / 2;
+
+    // new rotation value
+    animatableProperties.rotation.current = firstRAFCycle ? 0 : map(mouseDistanceX, 0, 100, 0, direction.x < 0 ? 60 : -60);
+
+    // new filter value
+    animatableProperties.brightness.current = firstRAFCycle ? 1 : map(mouseDistanceX, 0, 100, 1, 4);
+
+    // set up the interpolated values
+    // for the first cycle, both the interpolated values need to be the same so there's no "lerped" animation between the previous and current state
+    animatableProperties.tx.previous =
+      firstRAFCycle
+        ? animatableProperties.tx.current
+        : lerp(animatableProperties.tx.previous, animatableProperties.tx.current, animatableProperties.tx.amt);
+    animatableProperties.ty.previous =
+      firstRAFCycle
+        ? animatableProperties.ty.current
+        : lerp(animatableProperties.ty.previous, animatableProperties.ty.current, animatableProperties.ty.amt);
+    animatableProperties.rotation.previous =
+      firstRAFCycle
+        ? animatableProperties.rotation.current
+        : lerp(animatableProperties.rotation.previous, animatableProperties.rotation.current, animatableProperties.rotation.amt);
+    animatableProperties.brightness.previous =
+      firstRAFCycle
+        ? animatableProperties.brightness.current
+        : lerp(animatableProperties.brightness.previous, animatableProperties.brightness.current, animatableProperties.brightness.amt);
+
+    // set styles
+    gsap.set(hoverRevealRef.current, {
+      x: animatableProperties.tx.previous,
+      y: animatableProperties.ty.previous,
+      rotation: animatableProperties.rotation.previous,
+      filter: `brightness(${animatableProperties.brightness.previous})`
+    });
+
+    // loop
+    firstRAFCycle = false;
+    loopRender();
+  }
 
   useEffect(() => {
     // update mouse position when moving the mouse
     window.addEventListener('mousemove', ev => mousepos = getMousePos(ev));
-    layout();
+    hoverReveal_imgRef.current.style.backgroundImage = `url(${image})`;
+    // initialize some events
+    initEvents();
   }, []);
 
 
@@ -111,6 +251,14 @@ const ProjectsListItem = ({project}) => {
             </span>
           </span>
         </span>
+
+
+        {/* = Image */}
+        <div className="hover-reveal" ref={hoverRevealRef}>
+          <div className="hover-reveal__inner" ref={hoverReveal_innerRef}>
+            <div className="hover-reveal__img" ref={hoverReveal_imgRef}></div>
+          </div>
+        </div>
 
       </Link>
     </li>

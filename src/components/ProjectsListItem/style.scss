@@ -6,7 +6,6 @@
 .c-projects-list_item_link {
   position: relative;
   display: block;
-  text-decoration: none;
   color: #000;
 }
 .c-item-link_label {
@@ -14,7 +13,9 @@
 }
 .c-item-link_label.--outlined {
     color: transparent;
-    -webkit-text-stroke: 1px #9d9d9d;
+    /* -webkit-text-stroke: 1px #9d9d9d; */
+    -webkit-text-stroke: 1px #fff;
+    /* -webkit-text-stroke: 1px red; */
 }
 
 .c-item-link_label.--masked {
@@ -23,6 +24,8 @@
   left: 0;
   height: 100%;
   width: 100%;
+  color: #fff;
+  /* color: red; */
   span {
     position: absolute;
     top: 0;

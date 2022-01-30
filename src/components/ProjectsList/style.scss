@@ -1,14 +1,23 @@
 /* =Hover List */
 .c-projects-list-container {
   /* margin: 0 var(--h-gutter); */
-  position: absolute;
-  top: 20%;
-  z-index: 5;
-  ul {
-    list-style: none;
-  }
+  /* position: absolute; */
+  /* top: 20%; */
+  /* z-index: 5; */
+  padding-top: 5vh;
 }
 
+.c-projects-list_title {}
+
 .c-projects-list {
+  list-style: none;
+  padding: 0;
   margin-top: 5vw;
+  position: relative;
+}
+
+button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

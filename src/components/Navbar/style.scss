@@ -5,8 +5,9 @@ nav {
   width: 100vw;
   height: var(--header-height);
   z-index: 3;
-  background: linear-gradient(#fff, transparent);
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%);
 }
+/* background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 66%); */
 
 .c-brand {
   position: fixed;
@@ -22,7 +23,13 @@ nav {
     padding-left: var(--h-gutter);
     & a {
       text-decoration: none;
-      color: #000;
+      letter-spacing: 0.2vw;
+      color: #fff;
+      & .c-brand_subtitle {
+        font-size: 1.5vw;
+        letter-spacing: 1.2vw;
+        text-transform: none;
+      }
     }
   }
   transform: translateX(-100%);
@@ -61,7 +68,7 @@ nav {
   height: 2px;
   margin-bottom: 6px;
   position: relative;
-  background-color: #000;
+  background-color: #fff;
   pointer-events: none;
   /* transition: width 1s linear; */
   /* &:before { */

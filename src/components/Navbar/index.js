@@ -34,7 +34,7 @@ const Navbar = ({children}) => {
       <div className="c-brand" ref={brandRef}>
         <span className="c-brand_img"></span>
         <span className="c-brand_text">
-          <Link to="/" className="js-hover">anes marzuki</Link>
+          <Link to="/" className="js-hover">anes marzuki <br/> <span className="c-brand_subtitle">web folio</span></Link>
         </span>
       </div>
 
