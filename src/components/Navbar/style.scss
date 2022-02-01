@@ -7,7 +7,6 @@ nav {
   z-index: 3;
   background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%);
 }
-/* background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 66%); */
 
 .c-brand {
   position: fixed;
@@ -41,15 +40,15 @@ nav {
   left: auto;
   right: var(--h-gutter);
   display: flex;
+  align-items: center;
   width: 2vw;
   height: var(--header-height);
-  align-items: center;
   transform: translateX(50vw);
   z-index: 9999;
 }
 
 .c-burger {
-  position: absolute;
+  position: relative;
   cursor: pointer;
   border: none;
   padding: 0;

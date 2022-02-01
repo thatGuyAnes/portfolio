@@ -3,7 +3,7 @@ import style from './style.scss';
 
 const Circle = () => {
   return (
-    <div className="c-scroll-circle">
+    <div className="c-scroll-circle" data-scroll="" data-scroll-delay="0.03" data-scroll-speed={4}>
       <svg className="c-scroll-circle_logo" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 151 148">
         <path d="M76.44 10.68c-.368
         0-.624-.112-.768-.336-.128-.224-.192-.512-.192-.864

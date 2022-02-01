@@ -52,67 +52,16 @@ section.c-divider {
 }
 
 .c-divider_main {
-  padding-top: 20vh;
-}
-
-/* =Info */
-#fixed {
-  height: 80%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.c-divider_info_container {
-  position: relative;
-  overflow: hidden;
-  height: 40vh;
-  width: 60%;
-  /* transform: translateY(-40vh) */
-}
-.c-divider_info-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  /* height: 40vh; */
-  /* width: 60%; */
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  /* transform: translateY(-100%) */
-}
-.c-divider_info-mask {
-  overflow: hidden;
-  height: 100%;
+  padding-top: 40vh;
   background-color: red;
-  /* transform: translateY(100%); */
 }
-.c-divider_info_text {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  margin: 0;
-  padding: 0;
-  color: inherit;
+.c-divider_info {
+
 }
 
-/* =Specials */
 .c-divider_special {
   position: absolute;
   top: 30%;
   right: 0;
   /* right: var(--h-gutter); */
 }
-
-
-.info {
-  margin-top: 10vw;
-  position: relative;
-  height: 40vh;
-  width: 60%;
-}
-.info__text {
-  font-size: 3vw;
-  color: #575757;
-}
-

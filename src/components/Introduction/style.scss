@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 12vw;
 }
 
 .c-intro_canvas-container {
@@ -38,10 +39,10 @@
 .c-intro_text {
   & h3 {
     width: 60%;
-    /* font-family: 'Cormorant Garamond', serif; */
+    font-family: 'Libre Caslon Display', serif;
     font-weight: 300;
-    font-size: 2.3vw;
-    line-height: 140.9%;
+    font-size: 2.5vw;
+    line-height: 170%;
     letter-spacing: 1.3px;
 
     opacity: 0;
@@ -59,7 +60,37 @@
 .c-intro_link-wrapper {
   position: absolute;
   top: 110%;
-  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  width: 15vw;
+  &>a {
+    text-transform: lowercase;
+    font-size: 2vw;
+    color: inherit;
+    padding: 0 0.3vw;
+    transition: all 0.3s ease-in;
+  }
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-color: #fff;
+    transition: height 0.2s ease-in;
+  }
+  &:hover {
+    &>a {
+      color: #000;
+    }
+    &::after, &::before {
+      height: 100%;
+    }
+  }
 }
 
 
@@ -83,10 +114,10 @@
   &.-javascript {
     position: relative;
     overflow: hidden;
-    border: 0.1vw solid;
+    border: 0.1vw solid #393939;
     display: inline-flex;
     /* font-family: Arial, Helvetica, sans-serif; */
-    font-family: 'Courier New', Courier, monospace;
+    /* font-family: 'Courier New', Courier, monospace; */
     transition: color 0.3s ease-in;
 
     /* &::before { */

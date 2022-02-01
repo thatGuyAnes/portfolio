@@ -9,12 +9,6 @@
   }
 }
 
-
-
-
-
-
-
 /* =Header */
 .c-header {
   display: flex;
@@ -23,7 +17,18 @@
   position: relative;
   min-height: 100vh;
   span {
-    /* display: inline-block; */
+    display: inline-block;
+  }
+}
+
+.c-header_arrow-down_wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  .arrow-down {
+    width: 8vw;
+    fill: #101010;
+    opacity: 0.8;
   }
 }
 
@@ -153,6 +158,7 @@
     transition-duration: 800ms;
   }
 }
+/* =Lines transition */
 .c-header_h_line {
   &.-one { transition-delay: 0.2s; }
   &.-two { transition-delay: 0.3s; }

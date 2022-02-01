@@ -4,7 +4,6 @@ import Layout from '../components/Layout';
 import Header from '../components/Header';
 import Intro from '../components/Introduction';
 import Divider from '../components/Divider';
-import Circle from '../components/Circle';
 import Projects from '../components/Projects';
 
 export default function IndexPage() {
@@ -25,7 +24,6 @@ export default function IndexPage() {
 
   const render = () => (
     <Layout>
-      <Circle />
       <Header />
       <Intro />
       <Divider />

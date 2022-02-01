@@ -218,6 +218,21 @@ const ProjectsListItem = ({project}) => {
     hoverReveal_imgRef.current.style.backgroundImage = `url(${image})`;
     // initialize some events
     initEvents();
+    return () => {
+      console.log('unmouting')
+      // remove listeners.
+      // linkRef.current.removeEventListener('mouseenter', onMouseEnterLink);
+      // linkRef.current.removeEventListener('mouseleave', onMouseLeaveLink);
+
+
+      // Remove any animation frame & listeners!
+      // linkRef.current.removeEventListener('mouseenter', mouseenterFn);
+      // linkRef.current.removeEventListener('mouseleave', mouseleaveFn);
+      window.removeEventListener('mousemove', ev => mousepos = getMousePos(ev));
+      window.cancelAnimationFrame(requestId.current);
+      // requestId.current = undefined;
+
+    }
   }, []);
 
 
@@ -232,8 +247,10 @@ const ProjectsListItem = ({project}) => {
   useEffect(() => {
     /* we want similar behavior to the CSS ':hover' pseudo-class, we'll be using
     'mouseenter' + 'mouseleave' instead of 'mouseover' for a better performace */
-    linkRef.current.addEventListener('mouseenter', onMouseEnterLink)
-    linkRef.current.addEventListener('mouseleave', onMouseLeaveLink)
+    linkRef.current.addEventListener('mouseenter', onMouseEnterLink);
+    linkRef.current.addEventListener('mouseleave', onMouseLeaveLink);
+    return () => {
+    }
   }, []);
 
   return (

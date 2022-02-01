@@ -1,7 +1,40 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
+import {useLocomotiveScroll} from 'react-locomotive-scroll'
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
 import './style.scss';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Divider = () => {
+
+  const {scroll} = useLocomotiveScroll();
+  const infoRef = useRef();
+  const wrapperRef = useRef();
+  const maskRef = useRef();
+
+
+  // =Reveal
+  //   useEffect(() => {
+  //     gsap.to(wrapperRef.current, {yPercent: -101});
+  //     gsap.to(maskRef.current, {yPercent: 100});
+  // 
+  // 
+  //     if (scroll) {
+  //       gsap.to([wrapperRef.current, maskRef.current], {
+  //         scrollTrigger: {
+  //           trigger: infoRef.current,
+  //           scroller: scroll.el,
+  //           start: "top bottom",
+  //           scrub: true,
+  //           // end: "top top",
+  //         },
+  //         yPercent: 0,
+  //         ease: 'Power4.out',
+  //       })
+  //     }
+  //   }, [scroll]);
 
   return (
     <section
@@ -40,11 +73,36 @@ const Divider = () => {
         </div>
       </div>
 
-      <main className="c-divider_main o-container">
-      <h2 className="c-divider_info">Below is a currated list of things I did</h2>
-      <div className="c-divider_special">
-        <svg width="204" height="204" fill="none" xmlns="http://www.w3.org/2000/svg">
-          < path d="m25.917 33.929 1.67 4.727-4.945-.833-.484 2.666
+
+
+      <main className="c-divider_main o-container" >
+
+        <div id="fixed"></div>
+        <div className="c-divider_info_container" ref={infoRef}
+          data-scroll
+          data-scroll-sticky
+          data-scroll-target="#fixed"
+        >
+          {/* =Reveal effect */}
+          {/* <div className="c-divider_info-wrapper" ref={wrapperRef}> */}
+          {/*   <div className="c-divider_info-mask" ref={maskRef}> */}
+          {/*     <div className="c-divider_info_text"> */}
+          {/*       Below is a currated list of things I did */}
+          {/*     </div> */}
+          {/*   </div> */}
+          {/* </div> */}
+
+
+          <div className="info">
+        <div className="info__text">
+                Below is a currated list of things I did
+            </div>
+          </div>
+        </div>
+        {/*  */}
+        <div className="c-divider_special">
+          <svg width="204" height="204" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="m25.917 33.929 1.67 4.727-4.945-.833-.484 2.666
           5.14.747-3.384 3.802 1.91 1.606 3.17-3.92 1.51 4.844
           2.511-.899-1.706-4.758 4.98.864.46-2.561-5.006-.76
           3.225-3.685-1.91-1.606-3.072 3.877-1.62-4.936-2.45.825ZM75.23
