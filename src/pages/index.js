@@ -40,10 +40,3 @@ export default function IndexPage() {
     </>
   )
 };
-
-
-// import {useLocomotiveScroll} from 'react-locomotive-scroll';
-// const { scroll } = useLocomotiveScroll();
-// React.useEffect(() => {
-//     console.log(scroll);
-// }, []);

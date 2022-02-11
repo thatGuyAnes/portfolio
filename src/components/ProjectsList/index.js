@@ -1,21 +1,31 @@
 import React from 'react';
 import ProjectsListItem from '../ProjectsListItem';
+import { Link } from 'gatsby';
 
 import './style.scss';
+import blogImage from '../../images/blog.png';
+import folio from '../../images/webfolio.png';
+import udacity from '../../images/udacity2.png';
 
 // Collections of projects.
 const links = [
   {
-    title: 'Project one',
-    href: '/projects/project-one',
+    title: 'Webfolio',
+    href: '/projects/webfolio',
+    imageSrc: folio,
+    display: 'landscape'
   },
   {
-    title: 'Project two',
-    href: '/projects/project-two',
+    title: 'Blog',
+    href: '/projects/blog',
+    imageSrc: blogImage,
+    display: 'portrait'
   },
   {
-    title: 'Project three',
-    href: '/projects/project-three',
+    title: 'Udacity',
+    href: '/projects/udacity',
+    imageSrc: udacity,
+    display: 'landscape'
   },
 ];
 
@@ -30,7 +40,11 @@ const ProjectsList = () => {
             <ProjectsListItem project={project} key={index} />
           ))
         }
-        <button>More Projects</button>
+        <div className="c-projects-list__button c-button o-button">
+        <Link to="/projects">
+        More Projects
+        </Link>
+        </div>
       </ul>
     </div>
   )

@@ -1,15 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap');
-@import
-url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 @font-face {
-    font-family: 'urw_gothicbook';
-    src: url('../fonts/urwgothic-book-webfont.woff2') format('woff2'),
-         url('../fonts/urwgothic-book-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'urw_gothicbook';
+  src: url('../fonts/urwgothic-book-webfont.woff2') format('woff2'),
+    url('../fonts/urwgothic-book-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
-
 
 $font-sans-serif: 'urw_gothicbook', sans-serif;
 $font-serif: 'Cormorant Garamond', serif;

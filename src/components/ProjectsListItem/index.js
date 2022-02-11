@@ -38,7 +38,7 @@ const animatableProperties = {
 
 const ProjectsListItem = ({project}) => {
 
-  const {title, href} = project;
+  const {title, href, imageSrc, display} = project;
 
   const maskedRef = useRef();
   const linkRef = useRef();
@@ -149,6 +149,27 @@ const ProjectsListItem = ({project}) => {
       hideImage();
     };
 
+
+    // set images ratio.
+    // const hoverRevealWidth = hoverRevealRef.current.getBoundingClientRect().width;
+    // if (display === 'landscape') {
+    //   console.log(hoverRevealWidth)
+    //   hoverRevealRef.current.style.paddingBottom = `${(9 / 16) * hoverRevealWidth}px`;
+    // } else if (display === 'portrait') {
+    //   hoverRevealRef.current.style.paddingBottom = `${(16 / 9) * hoverRevealWidth}px`;
+    // }
+
+
+    // set images sizes;
+    // const hoverRevealWidth = hoverRevealRef.current.getBoundingClientRect().width;
+    if (display === 'landscape') {
+      hoverRevealRef.current.style.width = `35vw`;
+      hoverRevealRef.current.style.height = `20vw`;
+    } else if (display === 'portrait') {
+      hoverRevealRef.current.style.width = `25vw`;
+      hoverRevealRef.current.style.height = `35vw`;
+    }
+
     linkRef.current.addEventListener('mouseenter', mouseenterFn);
     linkRef.current.addEventListener('mouseleave', mouseleaveFn);
   };
@@ -204,7 +225,7 @@ const ProjectsListItem = ({project}) => {
       x: animatableProperties.tx.previous,
       y: animatableProperties.ty.previous,
       rotation: animatableProperties.rotation.previous,
-      filter: `brightness(${animatableProperties.brightness.previous})`
+      // filter: `brightness(${animatableProperties.brightness.previous})`
     });
 
     // loop
@@ -215,7 +236,7 @@ const ProjectsListItem = ({project}) => {
   useEffect(() => {
     // update mouse position when moving the mouse
     window.addEventListener('mousemove', ev => mousepos = getMousePos(ev));
-    hoverReveal_imgRef.current.style.backgroundImage = `url(${image})`;
+    hoverReveal_imgRef.current.style.backgroundImage = `url(${imageSrc})`;
     // initialize some events
     initEvents();
     return () => {

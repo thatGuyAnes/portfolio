@@ -3,6 +3,8 @@ section.c-projects {
   height: 100vh;
   width: 100vw;
   /* background-color: pink; */
+
+  /* margin-bottom: calc(15vw + 20vh); */
 }
 
 .c-projects_banner {
@@ -12,7 +14,7 @@ section.c-projects {
   margin-top: -10vw;
   position: absolute;
   top: -8vw;
-  bottom: -8vw ;
+  bottom: -8vw;
   right: 0;
   left: 0;
   z-index: 1;
@@ -56,4 +58,3 @@ section.c-projects {
     }
   }
 }
-

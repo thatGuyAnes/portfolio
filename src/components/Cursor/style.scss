@@ -1,11 +1,12 @@
 .cursor {
   // only when using an svg with 'any-pointer' media;
   /* display: none; */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0;
   & .cursor_inner {
     position: absolute;
     width: 1vw;
@@ -13,9 +14,10 @@
     border: 0.2vw solid #ff0000;
     border-radius: 100%;
     transform-origin: center;
-    transform: translate(-50%,-50%);
-    transition: width .5s cubic-bezier(.19,1,.22,1),height .5s cubic-bezier(.19,1,.22,1);
-    will-change: width,height;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+      height 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: width, height;
   }
 
   @media (any-pointer: fine) {
@@ -35,9 +37,7 @@
     /*   transform: scale(0.9, 0.9); */
     /*   transition: transform 0.3s ease-in-out; */
     /* } */
-
   }
-
 }
 
 .cursor.-expand {

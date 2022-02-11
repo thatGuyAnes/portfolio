@@ -10,7 +10,7 @@
 
 // TOOLS
 // ==========================================================================
- /* globally used mixins and functions. */
+/* globally used mixins and functions. */
 // ==========================================================================
 
 // GENERIC
@@ -34,6 +34,7 @@
 // ==========================================================================
 @import './objects/_container.scss';
 @import './objects/_special.scss';
+@import './objects/_button.scss';
 
 // Vendors
 // ==========================================================================
@@ -44,6 +45,8 @@
 /* specific UI components */
 // ==========================================================================
 @import './components/_loader.scss';
+@import './components/_button.scss';
+@import './components/_project.scss';
 
 // Templates
 // ==========================================================================
@@ -53,4 +56,4 @@
 /* utilities and helper classes with ability to override anything which goes before in the triangle, 
 e.g. hide helper class */
 // ==========================================================================
-@import './utilities/_loading.scss'
+@import './utilities/_loading.scss';

@@ -2,14 +2,19 @@
 // Base / Page
 // ==========================================================================
 
-body, html {
+body,
+html {
   font-family: 'urw_gothicbook';
   font-size: calc(1em + 1vw);
   height: 100%;
+}
+
+*::selection {
+  background: transparent;
+  color: #37ccc9;
 }
 
 a {
   text-decoration: none;
   color: #fff;
 }
-

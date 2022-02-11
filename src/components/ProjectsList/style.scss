@@ -1,6 +1,6 @@
 /* =Hover List */
 .c-projects-list-container {
-  padding-top: 20vh;
+  /* padding-top: 20vh; */
 }
 
 .c-projects-list_title {}
@@ -12,8 +12,5 @@
   position: relative;
 }
 
-button {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+.c-projects-list__button {
 }
