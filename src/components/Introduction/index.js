@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useLayoutEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Link } from 'gatsby';
 import gsap from 'gsap';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
@@ -48,7 +48,6 @@ const Intro = () => {
           scroller: scroll?.el,
           trigger: introMainRef.current,
           start: 'top 70%',
-          markers: true,
         },
       });
 
