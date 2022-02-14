@@ -12,7 +12,6 @@ import Footer from '../Footer';
 
 import './style.scss';
 
-
 const Layout = ({ children }) => {
   const [isReady, setIsReady] = useState(false);
   const { pathname } = useLocation(); // With react-router
@@ -47,8 +46,19 @@ const Layout = ({ children }) => {
     <LocomotiveScrollProvider
       options={{
         smooth: true,
-        smoothMobile: false,
+        // smoothMobile: true,
         getDirection: true,
+        smartphone: {
+          smooth: true,
+          // inertia: 0.8,
+          // getDirection: true,
+        },
+        tablet: {
+          smooth: true,
+          // inertia: 0.8,
+          // getDirection: true,
+        },
+        gestureDirection: 'vertical',
         // multiplier: 0.2,
         // touchMultiplier: 2.5,
       }}
@@ -70,13 +80,12 @@ const Layout = ({ children }) => {
         <div className="bg"></div>
         <ScrollProgressBar />
         <Navbar />
-        { isReady ? children : null }
+        {isReady ? children : null}
         <Footer />
       </div>
     </LocomotiveScrollProvider>
   );
 };
-
 
 function ScrollTriggerProxy() {
   gsap.registerPlugin(ScrollTrigger);
@@ -125,7 +134,6 @@ function ScrollTriggerProxy() {
   }, [scroll]);
 
   return null;
-};
-
+}
 
 export default Layout;

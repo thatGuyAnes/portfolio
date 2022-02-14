@@ -56,7 +56,6 @@
   // we want a frame efffect.
   width: calc(100% - 2vh);
   height: calc(100% - 2vh);
-  border: 0px solid red;
 }
 .c-header__image__wrapper {
   width: 100%;
@@ -66,6 +65,12 @@
 .c-header__image {
   object-fit: cover;
   object-position: 0% 50%;
+}
+.gatsby-image-wrapper [data-main-image] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+  will-change: unset;
 }
 .c-project__info {
   /* flex: 1; */

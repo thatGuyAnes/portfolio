@@ -1,5 +1,6 @@
 .c-ap {
   padding-top: 10vw;
+  min-height: 100vh;
 }
 .c-list {
   display: flex;
@@ -48,12 +49,16 @@
   background-color: inherit;
   margin-right: 5vw;
   margin-bottom: 1vw;
+  border: 1px solid #ffffff14;
+  cursor: pointer;
 }
 
 .c-box__heading {
   font-size: 2vw;
   z-index: 1;
   position: relative;
+  text-align: center;
+  pointer-events: none;
 }
 
 .c-box__heading h3 {

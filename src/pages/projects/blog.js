@@ -1,54 +1,82 @@
-import React, { useEffect, useRef } from 'react';
+import React, {
+  useEffect,
+  useRef,
+  useLayoutEffect,
+  useCallback,
+  useMemo,
+  useState,
+} from 'react';
+import { StaticImage } from 'gatsby-plugin-image';
+import gsap from 'gsap';
 import { Link } from 'gatsby';
 import Layout from '../../components/Layout';
-import blogImage from '../../images/blog.png';
-import './blog.scss';
 
-const Blog = () => {
-  const headerRef = useRef();
-  const infoRef = useRef();
-  let DOM;
-
-  const onMouseEnter = () => {
-    // DOM.header.style.flex = `2`;
-    DOM.header.classList.toggle('--focused');
-  };
-
-  const onMouseLeave = () => {
-    // DOM.header.style.flex = `1`;
-    DOM.header.classList.toggle('--focused');
-  };
-
-  const initEvents = () => {
-    DOM = {
-      header: headerRef.current,
-      info: infoRef.current,
-    };
-
-    DOM.header.addEventListener('mouseenter', onMouseEnter);
-    DOM.header.addEventListener('mouseleave', onMouseLeave);
-  };
-
-  // On hover shrink the info and expand the header.
-  useEffect(() => {
-    if (headerRef) {
-      initEvents();
+const useUpdateHeader = () => {
+  const [header, setHeader] = useState(null);
+  const ref = useCallback((node) => {
+    if (node !== null) {
+      setHeader(node);
     }
   }, []);
+  return [header, ref];
+};
+
+const Blog = () => {
+  const headerRef = useRef(null);
+  const infoRef = useRef();
+  const staticMaskRef = useRef();
+  const tl = useRef(gsap.timeline());
+  const [header, rootRef] = useUpdateHeader();
+
+  /* Fix for undefined 'ref':
+  using a state to trigger a rerender!
+  discarded in favor of using useCallback in a custom hook
+  const [isLoaded, setIsLoaded] = useState(false);
+  const rootRef = useRef();
+  useEffect(() => {
+    console.log('mounted');
+    console.log(rootRef);
+    setIsLoaded(true);
+  }, [isLoaded]);*/
+
+  // Shrink down and scale the header.
+  useEffect(() => {
+    const el = gsap.utils.selector(header); // Returns a selector function that's scoped to a particular Element,
+    const span = el('.c-header__image__wrapper');
+    const mask = el('.c-static-mask');
+    tl.current
+      .from(span, { scale: 1.5 })
+      .to(
+        mask,
+        { clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)' },
+        '<'
+      )
+      .to(mask, { scale: 0.99 });
+  }, [header]);
 
   return (
     <Layout>
-      <main className="c-project-container o-container" data-scroll-section="">
+      <main
+        className="c-project-container o-container"
+        data-scroll-section=""
+        ref={rootRef}
+      >
         <div className="c-project__header" ref={headerRef}>
-          <div className="c-header__image__wrapper">
-            <img
-              className="c-blog__image c-header__image js-hover"
-              src={blogImage}
+          <div className="c-static-mask" ref={staticMaskRef}>
+            <StaticImage
+              src="../../images/blog.png"
+              alt="project screenshot"
+              as="span"
+              className="c-header__image__wrapper"
+              imgClassName="c-header__image"
+              loading="eager"
+              placeholder="none"
+              imgStyle={{ opacity: 1, transform: 'none' }}
             />
           </div>
         </div>
 
-        <div className="c-project__info c-blog__info" ref={infoRef}>
+        <div className="c-project__info" ref={infoRef}>
           <div className="c-project__info__heading">
             <h1>Personal Blog</h1>
           </div>

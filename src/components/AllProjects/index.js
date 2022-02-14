@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'gatsby';
 import gsap from 'gsap';
 import './style.scss';
 
 const images = [
   {
     src: require('../../images/projects/01.png'),
-    path: '/projects/folio',
+    path: '/projects/webfolio',
     desc: '',
     title: 'Webfolio',
   },
@@ -20,6 +21,18 @@ const images = [
     path: '/projects/blog',
     desc: '',
     title: 'Blog',
+  },
+  {
+    src: require('../../images/projects/03.png'),
+    path: '/projects/notes',
+    desc: '',
+    title: 'Docunotes',
+  },
+  {
+    src: require('../../images/projects/04.png'),
+    path: 'https://github.com/thatGuyAnes/Responsive-restaurant-website',
+    desc: '',
+    title: 'HTML template',
   },
 ];
 
@@ -115,7 +128,8 @@ const Box = ({ imageObj }) => {
   }, []);
 
   return (
-    <div className="c-box rg__column" ref={elRef}>
+    <div className="c-box rg__column js-hover" ref={elRef}>
+    <Link to={path} >
       <div className="c-box__heading" ref={textContainerRef}>
         <span>01</span>
         <h3>{title}</h3>
@@ -130,6 +144,7 @@ const Box = ({ imageObj }) => {
           <img src={src.default} ref={imageRef} />
         </div>
       </div>
+    </Link>
     </div>
   );
 };
