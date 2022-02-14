@@ -105,6 +105,7 @@ const Intro = () => {
         >
           {/* <p>Who What Where ??</p> */}
           <h3 ref={introTextH3Ref}>
+            <span className="text-wrapper">
             Anes is a{' '}
             <span className="c-intro__special o-special-container --junior">
               <Junior />
@@ -118,6 +119,7 @@ const Intro = () => {
               <StarRight className="c-star star-r" />
             </span>{' '}
             for interactive design and web technologies.
+            </span>
             <div className="c-intro__link-wrapper c-button o-button">
               <Link to="#" className="js-hover">
                 More details

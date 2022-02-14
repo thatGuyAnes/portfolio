@@ -128,7 +128,7 @@ const Box = ({ imageObj }) => {
   }, []);
 
   return (
-    <div className="c-box rg__column js-hover" ref={elRef}>
+    <div className="c-box js-hover" ref={elRef}>
     <Link to={path} >
       <div className="c-box__heading" ref={textContainerRef}>
         <span>01</span>
@@ -154,7 +154,7 @@ const AllProjects = () => {
   return (
     <main className="c-ap o-container" data-scroll-section="">
 
-      <div className="c-list">
+      <div className="c-ap__list">
 
         {/* <div className="c-list__info__wrapper" ref={infoRef}> */}
         {/*   <div className="c-list__info"> */}
@@ -163,7 +163,7 @@ const AllProjects = () => {
         {/*   </div> */}
         {/* </div> */}
 
-        <div className="c-list__boxes-container">
+        <div className="c-ap__list__boxes-container">
           {images.map((image) => (
             <Box imageObj={image} key={image.path} />
           ))}
