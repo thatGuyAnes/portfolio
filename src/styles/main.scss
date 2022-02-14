@@ -12,6 +12,7 @@
 // ==========================================================================
 /* globally used mixins and functions. */
 // ==========================================================================
+@import './mixins/media-queries.scss';
 
 // GENERIC
 // ==========================================================================
@@ -19,14 +20,14 @@
 /* This is the first layer which generates actual CSS. */
 // ==========================================================================
 @import './normalize.css';
-@import './generic/_generic';
+@import './generic/_generic.scss';
 
 // ELEMENTS
 // ==========================================================================
 /* styling for bare HTML elements (like H1, A, etc.) */
 // ==========================================================================
-@import './base/_fonts';
-@import './base/_page';
+@import './base/_fonts.scss';
+@import './base/_page.scss';
 
 // Objects
 // ==========================================================================

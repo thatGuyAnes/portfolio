@@ -1,3 +1,4 @@
+@import '../../styles/mixins/media-queries';
 .c-top-nav {
   position: fixed;
   top: 0;
@@ -17,7 +18,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  /* left: var(--h-gutter); */
   height: var(--header-height);
   display: flex;
   align-items: center;
@@ -41,6 +41,7 @@
   transform: translateX(-100%);
 }
 
+/*=Burger*/
 .c-burger_wrapper {
   position: fixed;
   top: 0;
@@ -48,7 +49,7 @@
   right: var(--h-gutter);
   display: flex;
   align-items: center;
-  width: 2vw;
+  /* width: 2vw; */
   height: var(--header-height);
   transform: translateX(50vw);
   z-index: 3;
@@ -61,25 +62,16 @@
   padding: 0;
   height: 40px;
   background: none;
-  &.-active {
-    span:before {
-      width: 100vw;
-    }
-  }
 }
 
 .c-burger_line {
   display: block;
-  width: 2vw;
+  width: clamp(30px, 2vw, 2vw);
   height: 2px;
   margin-bottom: 6px;
   position: relative;
   background-color: #fff;
   pointer-events: none;
-}
-
-.main-nav {
-  /* display: none; */
 }
 
 /* =Menu */
@@ -91,7 +83,6 @@
   height: 100vh;
   opacity: 0;
   visibility: hidden;
-  /* transition: all 0.3s linear; */
   z-index: 3;
   display: flex;
   justify-content: center;
@@ -104,9 +95,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    /* transform: translateY(-100%); */
-    /* transition-delay: 0.1s; */
-    /* transition: all 0.3s linear; */
   }
   .c-menu__right {
     width: 50%;
@@ -115,11 +103,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    /* transform: translateY(100%); */
-    /* transition-delay: 0.1s; */
-    /* transition: all 0.3s linear; */
   }
-  /* transform-origin: top right; */
   &.active {
     visibility: visible;
     opacity: 1;
@@ -200,69 +184,18 @@
   color: inherit;
 }
 
-/* ==================================== */
-
-/*
-.logo {
-  position: fixed;
-  left: 0;
-  height: var(--header-height);
-  width: 280px;
-  display: flex;
-  align-items: center;
-  z-index: 3;
-  pointer-events: none;
+/* ==============Media Queries====================== */
+.c-brand {
+  & .c-brand_text {
+    @include md-screen {
+      font-size: 20px;
+    }
+    & a .c-brand_subtitle {
+      @include md-screen {
+        font-size: 15px;
+        letter-spacing: 14px;
+        color: red;
+      }
+    }
+  }
 }
-
-.logo__img {
-  width: 55px;
-  height: 55px;
-  background: url('../img/img_logo.svg') no-repeat center;
-  background-size: 55px 55px;
-  display: block;
-  position: absolute;
-  left: 1.2vw;
-  transition: opacity 0.3s linear;
-  opacity: 0;
-}
-
-.logo__text {
-  color: var(--text-color);
-  font-size: 3.125vw;
-  font-family: var(--font-headings);
-  letter-spacing: 7px;
-  padding-left: var(--h-gutter);
-  transition: opacity 0.3s linear;
-  opacity: 1;
-  text-transform: uppercase;
-}
-
-.burger {
-  width: var(--burger-width);
-  height: var(--header-height);
-  position: fixed;
-  top: 0;
-  left: auto;
-  right: var(--h-gutter);
-  display: flex;
-  align-items: center;
-  z-index: 2;
-  transition: transform 0.3s var(--easing);
-  transform: translateX(0);
-}
-.burger__open span {
-  width: var(--burger-width);
-  height: 2px;
-  background-color: #fff;
-  margin: 6px 0;
-  display: block;
-}
-.burger button {
-  position: absolute;
-  cursor: pointer;
-  border: none;
-  padding: 0;
-  height: 40px;
-  background: none;
-}
-*/

@@ -163,7 +163,7 @@ const AllProjects = () => {
         {/*   </div> */}
         {/* </div> */}
 
-        <div className="c-list_boxes-container">
+        <div className="c-list__boxes-container">
           {images.map((image) => (
             <Box imageObj={image} key={image.path} />
           ))}

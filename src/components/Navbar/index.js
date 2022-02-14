@@ -1,9 +1,10 @@
-import React, { useRef, useState, useEffect, useLayoutEffect } from 'react';
+import React, { useRef, useState, useLayoutEffect } from 'react';
 import { Link } from 'gatsby';
 import gsap from 'gsap';
 import './style.scss';
 
 const Navbar = ({ children }) => {
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const brandRef = useRef();
@@ -15,13 +16,12 @@ const Navbar = ({ children }) => {
   after the int*/
   let menuLinks = useRef(null);
 
+  // Menu's links init position.
   const initMenu = () => {
-    // link init position.
     menuLinks.current = gsap.utils.toArray('.c-menu__item span');
     menuLinks.current.forEach((link, _i) => {
       gsap.set(link, { yPercent: 100 });
     });
-    // gsap.set(menuRef.current, { autoAlpha: 0 });
   };
 
   // animate-In the burger and brand.
@@ -40,7 +40,6 @@ const Navbar = ({ children }) => {
   };
 
   const toggleMenu = () => {
-
     const tlmenu = gsap.timeline();
 
     if (!isMenuOpen) {
@@ -60,16 +59,28 @@ const Navbar = ({ children }) => {
           { yPercent: 0 },
           0
         )
-        .fromTo(menuLinks.current, {yPercent: -100}, {yPercent: 0, stagger: 0.1})
+        .fromTo(
+          menuLinks.current,
+          { yPercent: -100 },
+          { yPercent: 0, stagger: 0.1 }
+        );
       burgerRef.current.style.pointerEvents = `none`;
     } else {
       // Menu OUT
       setIsMenuOpen(false);
       tlmenu
-        .to(menuLinks.current, {yPercent: 100, stagger: 0.1, delay: 0.1})
-        .to(menuRef.current.querySelector('.c-menu__left'), { yPercent: 100 }, '<40%')
-        .to( menuRef.current.querySelector('.c-menu__right'), {yPercent: -100 }, '<')
-        .to(menuRef.current, {duration: 0.3, autoAlpha: 0}, '<90%');
+        .to(menuLinks.current, { yPercent: 100, stagger: 0.1, delay: 0.1 })
+        .to(
+          menuRef.current.querySelector('.c-menu__left'),
+          { yPercent: 100 },
+          '<40%'
+        )
+        .to(
+          menuRef.current.querySelector('.c-menu__right'),
+          { yPercent: -100 },
+          '<'
+        )
+        .to(menuRef.current, { duration: 0.3, autoAlpha: 0 }, '<90%');
       burgerRef.current.style.pointerEvents = `unset`;
     }
   };
