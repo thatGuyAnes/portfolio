@@ -1,7 +1,12 @@
+@import '../../styles/mixins/media-queries';
 .c-projects-list_item {
   font-size: 7vw;
   font-weight: bold;
   margin-bottom: 5vw;
+  @include sm-screen {
+    font-size: 12vw;
+    text-align: center;
+  }
 }
 .c-projects-list_item_link {
   position: relative;

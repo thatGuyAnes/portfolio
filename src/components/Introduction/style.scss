@@ -26,7 +26,9 @@
     width: 90%;
     & .c-intro__link-wrapper {
       right: unset;
-      left: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 2vh;
     }
   }
   & h3 {
@@ -43,6 +45,7 @@
     }
     @include sm-screen {
       font-size: 3vw;
+      text-align: center;
     }
   }
 }
