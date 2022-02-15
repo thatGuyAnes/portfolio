@@ -8,35 +8,18 @@
   pointer-events: none;
   opacity: 0;
   & .cursor_inner {
-    position: absolute;
-    width: 1vw;
-    height: 1vw;
-    border: 0.2vw solid #ff0000;
-    border-radius: 100%;
-    transform-origin: center;
-    transform: translate(-50%, -50%);
-    transition: width 0.5s cubic-bezier(0.19, 1, 0.22, 1),
-      height 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-    will-change: width, height;
-  }
-
-  @media (any-pointer: fine) {
-    /* opacity: 0; */
-    /* position: fixed; */
-    /* top: 0; */
-    /* left: 0; */
-    /* display: block; */
-    /* pointer-events: none; */
-    /* z-index: 999; */
-    /* &__inner { */
-    /*   fill: transparent; */
-    /*   stroke: #000; */
-    /*   stroke-width: 0.2vw; */
-    /*   opacity: 0.5; */
-    /*   transform-origin: center; */
-    /*   transform: scale(0.9, 0.9); */
-    /*   transition: transform 0.3s ease-in-out; */
-    /* } */
+    @media (any-pointer: fine) {
+      position: absolute;
+      width: 1vw;
+      height: 1vw;
+      border: 0.2vw solid #ff0000;
+      border-radius: 100%;
+      transform-origin: center;
+      transform: translate(-50%, -50%);
+      transition: width 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+        height 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      will-change: width, height;
+    }
   }
 }
 
