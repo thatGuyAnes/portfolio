@@ -4,11 +4,11 @@ section.c-divider {
   width: 100vw;
 }
 
-.c-divider_banner {
+.c-divider__banner {
   margin-top: -10vw;
   position: absolute;
   top: -8vw;
-  bottom: -8vw ;
+  bottom: -8vw;
   right: 0;
   left: 0;
   z-index: 1;
@@ -16,7 +16,7 @@ section.c-divider {
 }
 
 /* =Marquees */
-.c-divider_banner_marquee {
+.c-divider__banner__marquee {
   text-transform: uppercase;
   line-height: 1;
   position: absolute;
@@ -25,14 +25,14 @@ section.c-divider {
   font-size: 8vw;
   font-weight: bold;
   border: solid;
-  & .c-divider_banner_marquee_inner {
+  & .c-divider__banner__marquee__inner {
     display: block;
     background-color: white;
     white-space: nowrap;
     padding: 0 20px;
   }
 }
-.c-divider_banner_marquee {
+.c-divider__banner__marquee {
   &.-top {
     top: 0%;
     left: 0;
@@ -51,7 +51,7 @@ section.c-divider {
   }
 }
 
-.c-divider_main {
+.c-divider__main {
   padding-top: 20vh;
 }
 
@@ -63,14 +63,14 @@ section.c-divider {
   top: 0;
   left: 0;
 }
-.c-divider_info_container {
+.c-divider__info__container {
   position: relative;
   overflow: hidden;
   height: 40vh;
   width: 60%;
   /* transform: translateY(-40vh) */
 }
-.c-divider_info-wrapper {
+.c-divider__info-wrapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -81,13 +81,13 @@ section.c-divider {
   overflow: hidden;
   /* transform: translateY(-100%) */
 }
-.c-divider_info-mask {
+.c-divider__info-mask {
   overflow: hidden;
   height: 100%;
   background-color: red;
   /* transform: translateY(100%); */
 }
-.c-divider_info_text {
+.c-divider__info_text {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -97,22 +97,20 @@ section.c-divider {
 }
 
 /* =Specials */
-.c-divider_special {
+.c-divider__special {
   position: absolute;
   top: 30%;
   right: 0;
   /* right: var(--h-gutter); */
 }
 
-
-.info {
+.c-divider__info {
   margin-top: 10vw;
   position: relative;
   height: 40vh;
   width: 60%;
 }
-.info__text {
+.c-divider__info__text {
   font-size: 3vw;
   color: #575757;
 }
-

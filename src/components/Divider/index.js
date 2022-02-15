@@ -37,14 +37,14 @@ const Divider = () => {
   return (
     <section data-scroll-section="" className="c-divider">
       <div
-        className="c-divider_banner"
+        className="c-divider__banner"
         id="banner"
         data-scroll=""
         data-scroll-speed={2}
       >
-        <div className="c-divider_banner_marquee -top">
+        <div className="c-divider__banner__marquee -top">
           <span
-            className="c-divider_banner_marquee_inner inner"
+            className="c-divider__banner__marquee__inner inner"
             data-scroll=""
             data-scroll-direction="horizontal"
             data-scroll-speed={-6}
@@ -58,9 +58,9 @@ const Divider = () => {
           </span>
         </div>
 
-        <div className="c-divider_banner_marquee -bottom">
+        <div className="c-divider__banner__marquee -bottom">
           <span
-            className="c-divider_banner_marquee_inner inner"
+            className="c-divider__banner__marquee__inner inner"
             data-scroll=""
             data-scroll-direction="horizontal"
             data-scroll-speed={8}
@@ -75,10 +75,10 @@ const Divider = () => {
         </div>
       </div>
 
-      <main className="c-divider_main o-container">
+      <main className="c-divider__main o-container">
         <div id="fixed"></div>
         <div
-          className="c-divider_info_container"
+          className="c-divider__info__container"
           ref={infoRef}
           data-scroll
           data-scroll-sticky
@@ -93,14 +93,14 @@ const Divider = () => {
           {/*   </div> */}
           {/* </div> */}
 
-          <div className="info">
-            <div className="info__text">
+          <div className="c-divider__info">
+            <div className="c-divider__info__text">
               Below is a currated list of things I did
             </div>
           </div>
         </div>
         {/*  */}
-        <div className="c-divider_special">
+        <div className="c-divider__special">
           <svg
             width="204"
             height="204"

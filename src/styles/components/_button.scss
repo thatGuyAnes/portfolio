@@ -33,7 +33,7 @@
     display: block;
     background-color: #fff;
     transition: width 0.3s ease-in;
-    animation: pulse 0.8s infinite;
+    animation: pulse 1.3s step-end infinite;
   }
   &:hover {
     & > a {
@@ -45,17 +45,16 @@
     /* } */
     &::before {
       width: 100%;
+      animation: none;
     }
   }
 }
 @keyframes pulse {
-  0% {
+  from,
+  to {
     opacity: 0;
   }
   50% {
-    opacity: 100%;
-  }
-  100% {
     opacity: 100;
   }
 }
