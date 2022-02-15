@@ -152,8 +152,8 @@ const Box = ({ imageObj }) => {
 const AllProjects = () => {
   const infoRef = useRef();
   return (
-    <main className="c-ap o-container" data-scroll-section="">
 
+    <main className="c-ap o-container" data-scroll-section="">
       <div className="c-ap__list">
 
         {/* <div className="c-list__info__wrapper" ref={infoRef}> */}
