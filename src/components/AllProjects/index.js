@@ -7,31 +7,31 @@ const images = [
   {
     src: require('../../images/projects/01.png'),
     path: '/projects/webfolio',
-    desc: '',
+    desc: 'Personal website',
     title: 'Webfolio',
   },
   {
     src: require('../../images/projects/02.png'),
     path: '/projects/udacity',
-    desc: '',
+    desc: 'Front End Development projects',
     title: 'Udacity',
   },
   {
     src: require('../../images/projects/03.png'),
     path: '/projects/blog',
-    desc: '',
+    desc: 'Personal blog',
     title: 'Blog',
   },
   {
     src: require('../../images/projects/03.png'),
     path: '/projects/notes',
-    desc: '',
+    desc: 'Documented notes website',
     title: 'Docunotes',
   },
   {
     src: require('../../images/projects/04.png'),
     path: 'https://github.com/thatGuyAnes/Responsive-restaurant-website',
-    desc: '',
+    desc: 'A responsive HTML template',
     title: 'HTML template',
   },
 ];
@@ -70,10 +70,10 @@ const Box = ({ imageObj }) => {
 
         // Pull image down and push mask up to the reveal position.
         timeline
-          .to(imageContainer, { yPercent: 0 })
-          .to(imageMask, { yPercent: 0 }, 0)
+          .to(imageMask, {yPercent: 0})
           .to(textCopy, { yPercent: 0 }, 0)
           .to(textMask, { yPercent: 0 }, 0)
+          .to(imageContainer, { yPercent: 0 }, 0)
           .to(image, { scale: 1, duration: 1 }, 0)
           // Text animation: move text block up by half the width of the paragraph's container.
           .to(textContainer, { y: () => -getTextHeight(textContainer) / 2 }, 0);
@@ -128,8 +128,8 @@ const Box = ({ imageObj }) => {
   }, []);
 
   return (
-    <div className="c-box js-hover" ref={elRef}>
-    <Link to={path} >
+    <div className="c-box" ref={elRef}>
+    <Link to={path} className="js-hover" >
       <div className="c-box__heading" ref={textContainerRef}>
         <span>01</span>
         <h3>{title}</h3>
