@@ -16,7 +16,8 @@
 .c-intro__canvas-container {
   width: 35%;
   @include sm-screen {
-    width: 50%;
+    width: 70%;
+    margin-top: 3vh;
   }
 }
 .c-intro__text {
@@ -24,12 +25,16 @@
   height: 23vw;
   @include sm-screen {
     width: 90%;
+    height: 100%;
     & .c-intro__link-wrapper {
       right: unset;
       left: 50%;
       transform: translateX(-50%);
       margin-bottom: 2vh;
     }
+  }
+  @include xs-screen {
+    width: 100%;
   }
   & h3 {
     position: relative;
@@ -46,6 +51,9 @@
     @include sm-screen {
       font-size: 3vw;
       text-align: center;
+    }
+    @include xs-screen {
+      font-size: 4.5vw;
     }
   }
 }

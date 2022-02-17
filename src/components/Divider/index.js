@@ -17,8 +17,6 @@ const Divider = () => {
   //   useEffect(() => {
   //     gsap.to(wrapperRef.current, {yPercent: -101});
   //     gsap.to(maskRef.current, {yPercent: 100});
-  //
-  //
   //     if (scroll) {
   //       gsap.to([wrapperRef.current, maskRef.current], {
   //         scrollTrigger: {
