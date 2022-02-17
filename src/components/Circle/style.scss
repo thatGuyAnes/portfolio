@@ -1,3 +1,4 @@
+@import '../../styles/mixins/media-queries';
 .c-scroll-circle {
   position: absolute;
   bottom: 0;
@@ -9,6 +10,12 @@
   margin-right: 2vw;
   height: 8vw;
   width: 8vw;
+  @include sm-screen {
+    width: 15vw;
+  }
+  @include xs-screen {
+    width: 22vw;
+  }
 }
 
 .c-scroll-circle_logo {
@@ -19,8 +26,10 @@
 }
 
 @keyframes rotation {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(-360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
 }
-
-/* width="151" height="148"  */
