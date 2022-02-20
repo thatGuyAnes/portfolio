@@ -240,19 +240,15 @@ const ProjectsListItem = ({project}) => {
     // initialize some events
     initEvents();
     return () => {
-      console.log('unmouting')
       // remove listeners.
       // linkRef.current.removeEventListener('mouseenter', onMouseEnterLink);
       // linkRef.current.removeEventListener('mouseleave', onMouseLeaveLink);
-
 
       // Remove any animation frame & listeners!
       // linkRef.current.removeEventListener('mouseenter', mouseenterFn);
       // linkRef.current.removeEventListener('mouseleave', mouseleaveFn);
       window.removeEventListener('mousemove', ev => mousepos = getMousePos(ev));
       window.cancelAnimationFrame(requestId.current);
-      // requestId.current = undefined;
-
     }
   }, []);
 
@@ -275,16 +271,16 @@ const ProjectsListItem = ({project}) => {
   }, []);
 
   return (
-    <li className="c-projects-list_item">
-      <Link to={href} className="c-projects-list_item_link js-hover" ref={linkRef}>
+    <li className="c-projects-list__item">
+      <Link to={href} className="c-projects-list__item__link js-hover" ref={linkRef}>
 
-        <span className="c-item-link_label --outlined">
+        <span className="c-item-link__label --outlined">
           {title}
         </span>
 
-        <span className="c-item-link_label --masked" ref={maskedRef}>
-          <span className="c-item-link_label_slider-wrapper" ref={sliderWrapperRef}>
-            <span className="c-item-link_label_slider" ref={sliderRef}>
+        <span className="c-item-link__label --masked" ref={maskedRef}>
+          <span className="c-item-link__label__slider-wrapper" ref={sliderWrapperRef}>
+            <span className="c-item-link__label__slider" ref={sliderRef}>
               {title}
             </span>
           </span>

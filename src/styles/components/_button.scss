@@ -8,11 +8,12 @@
     padding-left: 1em;
     margin-top: 2vh;
     /* font-family: '', serif; */
+    font-family: 'Alata', sans-serif;
     font-size: 2.5vw;
     font-weight: 600;
     line-height: 170%;
     background-color: transparent;
-    color: #fff;
+    color: var(--clr-light);
     border: 1px solid;
     transition: all 0.5s ease-in;
     @include xs-screen {
@@ -33,15 +34,15 @@
       bottom: 0;
       left: 0;
       height: calc(100% - 2vh);
-      width: 0.5em;
+      width: 0.2em;
       display: block;
-      background-color: #fff;
+      background-color: var(--clr-light);
       transition: width 0.3s ease-in;
       animation: pulse 1.3s step-end infinite;
     }
     &:hover {
       & > a {
-        color: #000;
+        color: var(--clr-dark);
         padding-left: 0.8em;
       }
       &::before {

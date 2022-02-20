@@ -91,20 +91,13 @@ const Header = () => {
               data-scroll-position="top"
             >
               <span className="name">Anes</span>
+
               <div className="c-header__info__container">
                 <span className="c-header__info__l1">developer</span>
                 <span className="c-header__info__l2">&</span>
                 <span className="c-header__info__l3">designer</span>
               </div>
-              {/* <span className="c-header__special o-special-container -iam"><Iam />f</span> */}
-              {/* <span className="c-header__char">r</span> */}
-              {/* <span className="c-header__char -hollow -o">o</span> */}
-              {/* <span className="c-header__char">n</span> */}
-              {/* <span className="c-header__char">t</span> */}
-              {/* <span className="c-header__char">-</span> */}
-              {/* <span className="c-header__char -hollow -e">e</span> */}
-              {/* <span className="c-header__char">n</span> */}
-              {/* <span className="c-header__char -hollow -d">d</span> */}
+
             </span>
           </span>
 
@@ -117,9 +110,6 @@ const Header = () => {
               data-scroll-position="top"
             >
               <span className="name">Marzuki</span>
-              {/* <span className="c-header__char">w</span> */}
-              {/* <span className="c-header__char -hollow -e">e</span> */}
-              {/* <span className="c-header__char -hollow -b">b</span> */}
               <span
                 className="c-header__arrow-down__wrapper"
                 data-scroll=""
@@ -145,30 +135,7 @@ const Header = () => {
                 </svg>
               </span>
             </span>
-
-            {/* <div className="c-header__h__line__g" ref={hgRef} data-scroll='' data-scroll-speed={2} data-scroll-position="top"> */}
-            {/*   <span className="c-header__h__line__g__top" ref={hgTopRef}> */}
-            {/*     <img className="js-hover" ref={imgRef} src={HeaderImg} alt="composition of a headless man" /> */}
-            {/*   </span> */}
-            {/*   <span className="c-header__special -notme"><NotMe ref={notMeSvgRef} /></span> */}
-            {/* </div> */}
           </span>
-
-          {/* LINE #3 */}
-          {/*           <span className="c-header__h__line -three" data-scroll=''> */}
-          {/*             <span className="c-header__h__line__text" data-scroll='' data-scroll-speed={1} data-scroll-position="top"> */}
-          {/*               <span className="c-header__char -hollow -d">d</span> */}
-          {/*               <span className="c-header__char -hollow -e">e</span> */}
-          {/*               <span className="c-header__char">v</span> */}
-          {/*               <span className="c-header__char -hollow -e">e</span> */}
-          {/*               <span className="c-header__char">l</span> */}
-          {/*               <span className="c-header__char -hollow -o">o</span> */}
-          {/*               <span className="c-header__char -hollow -p">p</span> */}
-          {/*               <span className="c-header__char -hollow -e">e</span> */}
-          {/*               <span className="c-header__char">r</span> */}
-          {/*             </span> */}
-          {/*           </span> */}
-          {/*  */}
         </h1>
       </div>
     </header>

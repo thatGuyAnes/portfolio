@@ -1,4 +1,3 @@
-
 // Typefaces
 // =============================================================================
 $font-sans-serif: Arial, sans-serif;
@@ -7,9 +6,18 @@ $font-serif: serif;
 // Spacing
 // =============================================================================
 :root {
+  // spacing
   --h-gutter: 6.6vw;
   --v-spacing: 10vh;
   --header-height: 100px;
   --svg-height: 1em;
   --svg-width: 1em;
+  // colors
+  --clr-light-warm: #f6eade;
+  --clr-light: #fff;
+  --clr-dark: #000;
+  --clr-medium: #575757;
+  --clr-highlight: #37ccc9;
+  --clr-red: #dd0101;
+  --clr-hl: #37ccc9;
 }

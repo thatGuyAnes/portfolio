@@ -39,7 +39,8 @@ section.c-divider {
     left: 0;
     transform: translateX(-100vw);
     & .inner {
-      background-color: #000;
+      color: var(--clr-light);
+      background-color: var(--clr-dark);
     }
   }
   &.-bottom {
@@ -47,7 +48,7 @@ section.c-divider {
     left: 0;
     transform: translateX(-150vw);
     & .inner {
-      color: #000;
+      color: var(--clr-dark);
     }
   }
 }
@@ -118,7 +119,7 @@ section.c-divider {
 }
 .c-divider__info__text {
   font-size: 3vw;
-  color: #575757;
+  color: var(--clr-medium);
   @include sm-screen {
     font-size: 4.5vw;
   }

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useLayoutEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import gsap from 'gsap';
 import './style.scss';
@@ -85,10 +85,13 @@ const Navbar = ({ children }) => {
     }
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     initMenu();
     if (brandRef.current) {
       initNavAnimation();
+    }
+    return () => {
+      tlInit.current.kill();
     }
   }, []);
 

@@ -11,10 +11,10 @@ html {
 
 *::selection {
   background: transparent;
-  color: #37ccc9;
+  color: var(--clr-hl);
 }
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: var(--clr-h);
 }

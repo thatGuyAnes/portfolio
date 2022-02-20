@@ -1,5 +1,3 @@
-/* Note: element with 100vw and margin: 0 6vw,
-  only margin-right works!!! WHY??!! */
 .c-project-container {
   height: 100%;
   position: relative;
@@ -7,35 +5,6 @@
   flex-direction: column;
   margin-top: var(--header-height);
 }
-/*
-.c-project__header {
-  height: 70vh;
-   // flex: 1;
-  // transition: flex 0.3s ease-in;
-  &.--focused {
-    // flex: 2;
-    & img {
-      transform: scale(1.05);
-      filter: grayscale(0.4);
-    }
-  }
-}
-.c-header__image__wrapper {
-  position: relative;
-  height: 100%;
-  background-color: #2b3b6b;
-  overflow: hidden;
-}
-.c-header__image {
-  height: 100%;
-  width: 100%;
-  // object-fit: contain;
-  object-fit: cover;
-  object-position: 0% 50%;
-  opacity: 0.9;
-  filter: grayscale(0.9);
-  transition: all 5s ease-in-out;
-} */
 
 /* $projectHeaderW:  */
 // container
@@ -73,15 +42,12 @@
   will-change: unset;
 }
 .c-project__info {
-  /* flex: 1; */
   position: relative;
   margin-top: 6vh;
   margin-bottom: 7vw;
   height: 100%;
-  /* background-color: #dd0101; */
   & > p {
     max-width: 65%;
-    /* font-size: 1.5vw; */
     font-size: clamp(14px, 1.5vw, 40px);
     line-height: 1.7;
     font-family: 'Open Sans', sans-serif;
@@ -89,7 +55,6 @@
 }
 .c-project__info__heading {
   width: 100%;
-  /* background-color: firebrick; */
   & > h1 {
     margin: 0;
     padding: 0;

@@ -9,7 +9,7 @@ const Footer = () => {
     scroll.scrollTo('top', {})
   };
   return (
-    <div className="c-footer o-container" data-scroll-section="">
+    <div className="c-footer" data-scroll-section="">
       <div className="c-footer__text --left">
         <span>
           <Link to="#" className="js-hover">dribble</Link>
