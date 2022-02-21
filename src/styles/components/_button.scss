@@ -41,6 +41,9 @@
         width: 10px;
         /* transform: translateX(-50%); */
         background-color: var(--clr-light);
+        @include sm-screen {
+          height: 2px;
+        }
       }
     }
     /* &::before { */

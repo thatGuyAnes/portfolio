@@ -1,7 +1,10 @@
 @import '../../styles/mixins/media-queries';
 .c-intro {
-  min-height: 100vh;
+  min-height: 80vh;
   position: relative;
+  @include sm-screen {
+    min-height: 60vh;
+  }
 }
 .c-intro__main {
   display: flex;
