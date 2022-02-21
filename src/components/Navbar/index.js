@@ -69,7 +69,7 @@ const Navbar = ({ children }) => {
       // Menu OUT
       setIsMenuOpen(false);
       tlmenu
-        .to(menuLinks.current, { yPercent: 100, stagger: 0.1, delay: 0.1 })
+        .to(menuLinks.current, { yPercent: 100, stagger: -0.1, delay: 0.1 })
         .to(
           menuRef.current.querySelector('.c-menu__left'),
           { yPercent: 100 },
