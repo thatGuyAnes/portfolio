@@ -10,6 +10,9 @@
   margin-top: 3vh;
   margin-bottom: 2vh;
   padding: 0 var(--h-gutter);
+  @include sm-screen {
+    max-height: unset;
+  }
   & span {
     /* font-size: 1vw; */
     font-size: 20px;
