@@ -111,7 +111,7 @@ const Intro = () => {
               <Junior />
               front
             </span>
-            -end web designer and Javascript developer from Tunisia with a
+              -end web designer and Javascript developer from Tunisia with a
             <span className="c-intro__special o-special-container --passion">
               <StarLeft className="c-star star-l" />
               <Underline />
@@ -138,3 +138,4 @@ const Intro = () => {
 };
 
 export default Intro;
+

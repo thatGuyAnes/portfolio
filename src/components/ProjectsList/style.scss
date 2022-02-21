@@ -1,16 +1,26 @@
+@import '../../styles/mixins/media-queries';
 /* =Hover List */
 .c-projects-list-container {
   /* padding-top: 20vh; */
+  display: flex;
+  flex-direction: column;
 }
 
-.c-projects-list_title {}
+.c-projects-list_title {
+}
 
 .c-projects-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 5vw;
   position: relative;
+  margin-top: 5vw;
+  padding: 0;
+  list-style: none;
 }
 
 .c-projects-list__button {
+  /* position: relative; */
+  /* display: block; */
+  @include sm-screen {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }

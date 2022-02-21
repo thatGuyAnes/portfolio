@@ -5,9 +5,8 @@
     text-transform: lowercase;
     color: inherit;
     padding: 0 0.8em;
-    padding-left: 1em;
+    /* padding-left: 1em; */
     margin-top: 2vh;
-    /* font-family: '', serif; */
     font-family: 'Alata', sans-serif;
     font-size: 2.5vw;
     font-weight: 600;
@@ -19,36 +18,68 @@
     @include xs-screen {
       font-size: 4vw;
     }
+
+    overflow: hidden;
   }
 }
 @media (any-pointer: fine) {
   .c-button {
     & > a {
+      position: relative;
       background-color: unset;
       color: unset;
       border: unset;
+      line-height: 0.7;
+      padding-bottom: 0.3em;
+      padding-right: 0;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 40%;
+        height: 5px;
+        width: 10px;
+        /* transform: translateX(-50%); */
+        background-color: var(--clr-light);
+      }
     }
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: calc(100% - 2vh);
-      width: 0.2em;
-      display: block;
-      background-color: var(--clr-light);
-      transition: width 0.3s ease-in;
-      animation: pulse 1.3s step-end infinite;
-    }
+    /* &::before { */
+    /*   content: ''; */
+    /*   position: absolute; */
+    /*   bottom: 0; */
+    /*   left: 0; */
+    /*   height: calc(100% - 2vh); */
+    /*   width: 0.2em; */
+    /*   display: block; */
+    /*   background-color: var(--clr-light); */
+    /*   transition: width 0.3s ease-in; */
+    /*   animation: pulse 1.3s step-end infinite; */
+    /* } */
+
+    /* &::after { */
+    /*   content: ''; */
+    /*   display: inline-block; */
+    /*   width: 100%; */
+    /*   height: 0%; */
+    /*   position: absolute; */
+    /*   bottom: 0; */
+    /*   left: 0; */
+    /*   z-index: -1; */
+    /*   background-color: #fff; */
+    /*   transition: height 0.2s ease-in; */
+    /* } */
     &:hover {
       & > a {
-        color: var(--clr-dark);
-        padding-left: 0.8em;
+        /* color: var(--clr-dark); */
+        /* padding-left: 0.8em; */
       }
-      &::before {
-        width: 100%;
-        animation: none;
-      }
+      /* &::before { */
+      /*   width: 100%; */
+      /*   animation: none; */
+      /* } */
+      /* &::after { */
+      /*   height: 100%; */
+      /* } */
     }
   }
 }
