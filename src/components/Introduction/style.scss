@@ -26,6 +26,9 @@
 .c-intro__text {
   width: 60%;
   height: 23vw;
+  & .c-intro__link-wrapper {
+    margin-top: 2vh;
+  }
   @include sm-screen {
     width: 90%;
     height: 100%;
@@ -48,8 +51,19 @@
     line-height: 170%;
     letter-spacing: 0.19vw;
     opacity: 1;
-    .text-wrapper {
+    .text-container {
       color: #f6eadeb3;
+      & .c-intro__text__line {
+        display: inline-block;
+      }
+      .c-intro__line-wrapper {
+        height: 1.5em;
+        overflow: hidden;
+        position: relative;
+        padding-top: 0.6em;
+        margin-bottom: -0.7em;
+        padding-bottom: 0.4em;
+      }
     }
     @include sm-screen {
       font-size: 3vw;
@@ -78,10 +92,11 @@
   &.--junior {
     .svg.junior {
       position: absolute;
-      bottom: 50%;
-      right: 80%;
+      bottom: 33%;
+      right: 82%;
       width: 1.5em;
       height: 1.5em;
+      transform: rotateZ(4deg);
     }
   }
   &.-javascript {
