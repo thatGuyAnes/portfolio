@@ -105,21 +105,49 @@ const Intro = () => {
         >
           {/* <p>Who What Where ??</p> */}
           <h3 ref={introTextH3Ref}>
-            <span className="text-wrapper">
-            Anes is a{' '}
-            <span className="c-intro__special o-special-container --junior">
-              <Junior />
-              front
+            <span className="text-container">
+
+              {/* =First line */}
+              <div className="c-intro__line-wrapper">
+                <span className="c-intro__text__line">
+                  Anes is a{' '}
+                  <span className="c-intro__special o-special-container --junior">
+                    <Junior />
+                    front
+                  </span>
+                  -end developer
+                </span>
+              </div>
+
+              {/* =Second line */}
+              <div className="c-intro__line-wrapper">
+                <span className="c-intro__text__line">
+                  and a UI designer from Tunisia
+                </span>
+              </div>
+
+              {/* =Third line */}
+              <div className="c-intro__line-wrapper">
+                <span className="c-intro__text__line">
+                  with a{' '}
+                  <span className="c-intro__special o-special-container --passion">
+                    <StarLeft className="c-star star-l" />
+                    <Underline />
+                    passion
+                    <StarRight className="c-star star-r" />
+                  </span>{' '}
+                  for interactive{' '}
+                </span>
+              </div>
+
+              {/* =Fourth line */}
+              <div className="c-intro__line-wrapper">
+                <span className="c-intro__text__line">
+                  designs and web technologies.
+                </span>
+              </div>
             </span>
-              -end web designer and Javascript developer from Tunisia with a
-            <span className="c-intro__special o-special-container --passion">
-              <StarLeft className="c-star star-l" />
-              <Underline />
-              passion
-              <StarRight className="c-star star-r" />
-            </span>{' '}
-            for interactive design and web technologies.
-            </span>
+
             <div className="c-intro__link-wrapper c-button o-button">
               <Link to="#" className="js-hover">
                 More details
@@ -127,10 +155,6 @@ const Intro = () => {
             </div>
             {/* <button className="c-intro_text_button btn"><Link to="/about" className="js-hover">More details</Link></button> */}
           </h3>
-          {/* <p className="test">Lorem  asldkjflksjdflkjsdklfjlksjdflkjsdkfjasdf */}
-          {/*   sldfjlskdjflkjsdlkfjlksjdfkljsdlkjfklsdjf */}
-          {/*   sdlkjflskdjflksjdklfjlskdjf */}
-          {/*   sldkjflksjdfkk</p> */}
         </div>
       </div>
     </section>
@@ -138,4 +162,3 @@ const Intro = () => {
 };
 
 export default Intro;
-
