@@ -5,9 +5,8 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-sass",
-    "gatsby-plugin-styled-components",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-image",
+    "gatsby-plugin-image", // for static images.
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp", // for dynamic images.
     {
