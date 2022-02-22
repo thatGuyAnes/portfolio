@@ -36,7 +36,8 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-locomotive-scroll": "^0.2.0",
-    "sass": "^1.45.1"
+    "sass": "^1.45.1",
+    "splitting": "^1.0.6"
   },
   "devDependencies": {
     "eslint": "^8.8.0",

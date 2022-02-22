@@ -10,12 +10,23 @@ import StarRight from '../svgs/StarRight-svg';
 import Underline from '../svgs/Underline-svg';
 import './style.scss';
 
+// Splitting
+import 'splitting/dist/splitting.css';
+import 'splitting/dist/splitting-cells.css';
+import Splitting from 'splitting';
+// import Splitting from "splitting";
+
 const Intro = () => {
   const { scroll } = useLocomotiveScroll();
   gsap.registerPlugin(ScrollTrigger);
+
   const introRef = useRef();
   const introMainRef = useRef();
   const introTextH3Ref = useRef();
+  const btnRef = useRef();
+
+  let lines = [];
+  const textContainerRef = useRef();
 
   /*We want to position the h3 to the right without the use of absolute positioning
   nor a flex container*/
@@ -38,7 +49,16 @@ const Intro = () => {
     const el = gsap.utils.selector(introMainRef.current);
     const aside = el('aside');
     const text = el('h3');
+    const svgs = el('svg');
+
+    // lines
+    const textContainer = gsap.utils.selector(textContainerRef.current);
+    lines.push(textContainer('#l1'), textContainer('#l2'), textContainer('#l3'), textContainer('#l4'));
+
     if (scroll) {
+      // lines animation
+
+      // INTRO ANIMATIONS
       /* In order for this to work, we need to set the scroller as the locomotive
         scroll element, and to wait for the its update by adding the scroll to
         the list of dependencies.
@@ -51,10 +71,17 @@ const Intro = () => {
         },
       });
 
-      textRevealAnimation
-        .from(aside, { duration: 1, opacity: 0, yPercent: -20 })
-        .from(text, { duration: 1.3, opacity: 0, yPercent: 40 }, '<0.3');
-    }
+      lines.forEach((line, _index) => {
+        // array of chars
+        const chars = Splitting({target: line, by: 'chars'});
+        textRevealAnimation.from(chars[0].chars, { yPercent: 90, stagger: 0.03, duration: 0.2 }, ">-80%" )
+      });
+
+      svgs.forEach((svg, _index) => {
+        textRevealAnimation.from(svg, {autoAlpha: 0}, "<")
+      });
+      textRevealAnimation.from(btnRef.current, {autoAlpha: 0}, ">") }
+
     // onResize();
     // window.addEventListener('resize', onResize);
     // return () => {
@@ -105,11 +132,12 @@ const Intro = () => {
         >
           {/* <p>Who What Where ??</p> */}
           <h3 ref={introTextH3Ref}>
-            <span className="text-container">
-
+            <span className="text-container" ref={textContainerRef}>
               {/* =First line */}
-              <div className="c-intro__line-wrapper">
-                <span className="c-intro__text__line">
+              <div
+                className="c-intro__line-wrapper"
+              >
+                <span className="c-intro__text__line" id="l1">
                   Anes is a{' '}
                   <span className="c-intro__special o-special-container --junior">
                     <Junior />
@@ -121,14 +149,14 @@ const Intro = () => {
 
               {/* =Second line */}
               <div className="c-intro__line-wrapper">
-                <span className="c-intro__text__line">
+                <span className="c-intro__text__line" id="l2">
                   and a UI designer from Tunisia
                 </span>
               </div>
 
               {/* =Third line */}
               <div className="c-intro__line-wrapper">
-                <span className="c-intro__text__line">
+                <span className="c-intro__text__line" id="l3">
                   with a{' '}
                   <span className="c-intro__special o-special-container --passion">
                     <StarLeft className="c-star star-l" />
@@ -142,13 +170,13 @@ const Intro = () => {
 
               {/* =Fourth line */}
               <div className="c-intro__line-wrapper">
-                <span className="c-intro__text__line">
+                <span className="c-intro__text__line" id="l4">
                   designs and web technologies.
                 </span>
               </div>
             </span>
 
-            <div className="c-intro__link-wrapper c-button o-button">
+            <div className="c-intro__link-wrapper c-button o-button" ref={btnRef}>
               <Link to="#" className="js-hover">
                 More details
               </Link>
