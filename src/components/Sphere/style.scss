@@ -5,9 +5,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
   @include sm-screen {
-    display: none;
-    visibility: hidden;
+    /* display: none; */
+    /* visibility: hidden; */
   }
 }
 
