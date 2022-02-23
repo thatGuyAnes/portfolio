@@ -8,13 +8,26 @@ const Navbar = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const brandRef = useRef();
+  const brandLinkRef = useRef();
+
   const burgerWrapperRef = useRef();
   const burgerRef = useRef();
+
   const menuRef = useRef();
-  const tlInit = useRef(gsap.timeline());
   /* The 'menuLinks' list must have a ref, otherwise its value would always be undefined
   after the int*/
   let menuLinks = useRef(null);
+
+  const tlInit = useRef(gsap.timeline());
+
+
+  // brand hover
+  const onMouseEnter = (e) => {
+    e.target.classList.toggle('-active');
+  };
+  const onMouseLeave = (e) => {
+    e.target.classList.toggle('-active');
+  };
 
   // Menu's links init position.
   const initMenu = () => {
@@ -64,7 +77,8 @@ const Navbar = ({ children }) => {
           { yPercent: -100 },
           { yPercent: 0, stagger: 0.1 }
         );
-      burgerRef.current.style.pointerEvents = `none`;
+      // burgerRef.current.style.pointerEvents = `none`;
+      burgerRef.current.classList.toggle('-active');
     } else {
       // Menu OUT
       setIsMenuOpen(false);
@@ -81,7 +95,8 @@ const Navbar = ({ children }) => {
           '<'
         )
         .to(menuRef.current, { duration: 0.3, autoAlpha: 0 }, '<90%');
-      burgerRef.current.style.pointerEvents = `unset`;
+      // burgerRef.current.style.pointerEvents = `unset`;
+      burgerRef.current.classList.toggle('-active');
     }
   };
 
@@ -89,6 +104,8 @@ const Navbar = ({ children }) => {
     initMenu();
     if (brandRef.current) {
       initNavAnimation();
+      brandLinkRef.current.addEventListener('mouseenter', onMouseEnter);
+      brandLinkRef.current.addEventListener('mouseleave', onMouseLeave);
     }
     return () => {
       tlInit.current.kill();
@@ -105,31 +122,35 @@ const Navbar = ({ children }) => {
       <div className="c-brand " ref={brandRef}>
         <span className="c-brand_img "></span>
         <span className="c-brand_text ">
-          <Link to="/" className="js-hover ">
-            anes marzuki <br />{' '}
-            <span className="c-brand_subtitle">webfolio</span>
+          <Link to="/"
+            className="js-hover"
+            ref={brandLinkRef}
+          >
+            am<br />{' '}
+            {/* <span className="c-brand_subtitle">webfolio</span> */}
           </Link>
         </span>
       </div>
 
       {/* =BURGER= */}
       <div className="c-burger_wrapper " ref={burgerWrapperRef}>
-        <button
+        <Link
+          to="#"
           className="c-burger js-hover"
           ref={burgerRef}
           onClick={toggleMenu}
         >
-          <span className="c-burger_line"></span>
-          <span className="c-burger_line"></span>
-          <span className="c-burger_line"></span>
-        </button>
+          <span className="c-burger__line"></span>
+          {/* <span className="c-burger_line"></span> */}
+          {/* <span className="c-burger_line"></span> */}
+        </Link>
       </div>
 
       {/* =Menu= */}
       <div className="c-menu" ref={menuRef}>
-        <button className="c-menu__close js-hover" onClick={toggleMenu}>
-          close
-        </button>
+        {/* <button className="c-menu__close js-hover" onClick={toggleMenu}> */}
+        {/*   close */}
+        {/* </button> */}
 
         <div className="c-menu__left"></div>
         <div className="c-menu__right"></div>

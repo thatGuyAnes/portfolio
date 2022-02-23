@@ -56,7 +56,6 @@ const Intro = () => {
     lines.push(textContainer('#l1'), textContainer('#l2'), textContainer('#l3'), textContainer('#l4'));
 
     if (scroll) {
-      // lines animation
 
       // INTRO ANIMATIONS
       /* In order for this to work, we need to set the scroller as the locomotive
@@ -67,7 +66,7 @@ const Intro = () => {
         scrollTrigger: {
           scroller: scroll?.el,
           trigger: introMainRef.current,
-          start: 'top 70%',
+          start: 'top 60%',
         },
       });
 
@@ -78,9 +77,11 @@ const Intro = () => {
       });
 
       svgs.forEach((svg, _index) => {
-        textRevealAnimation.from(svg, {autoAlpha: 0}, "<")
+        textRevealAnimation.from(svg, {autoAlpha: 0}, "<+50%")
       });
-      textRevealAnimation.from(btnRef.current, {autoAlpha: 0}, ">") }
+      textRevealAnimation.from(btnRef.current, {autoAlpha: 0, duration: 1.3}, ">")
+      textRevealAnimation.from(aside, {autoAlpha: 0, duration: 2.3}, 0)
+    }
 
     // onResize();
     // window.addEventListener('resize', onResize);
