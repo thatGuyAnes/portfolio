@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import './style.scss';
 
@@ -12,16 +11,16 @@ const Footer = () => {
     <div className="c-footer" data-scroll-section="">
       <div className="c-footer__text --left">
         <span>
-          <Link to="#" className="js-hover">dribble</Link>
+          <a href="https://dribbble.com/weesnail" target="_blank" className="js-hover">dribble</a>
         </span>
         <span>
-          <Link to="#" className="js-hover">github</Link>
+          <a href="https://github.com/thatGuyAnes" target="_blank" className="js-hover">github</a>
         </span>
         <span>
-          <Link to="#" className="js-hover">twitter</Link>
+          <a href="https://twitter.com/thatguyanes" target="_blank" className="js-hover">twitter</a>
         </span>
         <span>
-          <Link to="#" className="js-hover">linkedin</Link>
+          <a href="https://www.linkedin.com/in/anes-marzuki-001am/" target="_blank" className="js-hover">linkedin</a>
         </span>
       </div>
 

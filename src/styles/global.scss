@@ -9,7 +9,8 @@
   --svg-width: 1em;
 }
 
-body, html {
+body,
+html {
   font-family: 'urw_gothicbook';
   font-size: calc(1em + 1vw);
   height: 100%;
@@ -17,34 +18,38 @@ body, html {
 
 body {
   /* pre loading */
+  overflow-y: scroll;
   &.is-loading {
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 1s;
+    /* overflow: hidden; */
+    /* width: 100vw; */
+    /* height: 100vh; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* transition: 1s; */
+  }
+  &.is-loading:not('.loader'),
+  &.is-loading:not('.loader__content') {
+    display: none;
   }
 
   /* post loading */
   &.is-ready {
-    overflow: auto;
-    height: auto;
-    & .loader-wrapper {
-      visibility: hidden;
-      opacity: 0;
-      transition: visibility 0s 0.3s, opacity 0.3s linear;
-    }
+    /* overflow: auto; */
+    /* height: auto; */
+
+    /* & .loader-wrapper { */
+    /*   visibility: hidden; */
+    /*   opacity: 0; */
+    /*   transition: visibility 0s 0.3s, opacity 0.3s linear; */
+    /* } */
   }
 }
 
 .container {
-  margin:0 var(--h-gutter);
+  margin: 0 var(--h-gutter);
 }
 
 // Components
 // ==========================================================================
 @import './components/loader';
-
-

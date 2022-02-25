@@ -1,20 +1,24 @@
 import * as React from "react";
-import Home from '../components/Home';
 import Layout from '../components/Layout';
 import Header from '../components/Header';
 import Intro from '../components/Introduction';
 import Divider from '../components/Divider';
 import Projects from '../components/Projects';
 
-export default function IndexPage() {
+const IndexPage = () => {
 
   // Loading state.
   const [isLoaded, setIsLoaded] = React.useState(false);
 
   React.useEffect(() => {
-    if (document.body.classList.contains('is-ready')) setIsLoaded(true);
+    if (document.body.classList.contains('is-ready')) {
+      setIsLoaded(true);
+      document.body.id = 'isBrowser'
+    }
     // Initialize an observer to change the loading.
-    const ob = new MutationObserver(() => setIsLoaded(true));
+    const ob = new MutationObserver(() => {
+      setIsLoaded(true);
+    });
     // Observe the body for changed classes.
     ob.observe(document.body, {
       attributes: true,
@@ -40,3 +44,5 @@ export default function IndexPage() {
     </>
   )
 };
+
+export default IndexPage;

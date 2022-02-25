@@ -38,9 +38,6 @@ const ProjectsList = () => {
         ))}
         <div className="c-projects-list__button c-button o-button">
           <Link to="/projects" className="js-hover">
-            {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> */}
-            {/*   <path d="m12.707 7.293-1.414 1.414L15.586 13H7V4H5v11h10.586l-4.293 4.293 1.414 1.414L19.414 14l-6.707-6.707z" /> */}
-            {/* </svg> */}
             More Projects
           </Link>
         </div>

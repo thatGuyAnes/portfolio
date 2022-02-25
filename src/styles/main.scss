@@ -45,11 +45,13 @@
 // ==========================================================================
 /* specific UI components */
 // ==========================================================================
-@import './components/_loader.scss';
+@import './components/_loader.css';
+/* @import './components/_loader.scss'; */
 @import './components/_button.scss';
 @import './components/_project.scss';
 @import './components/_scrollbar.scss';
 @import './components/_highlight.scss';
+@import './components/_about.scss';
 
 // Templates
 // ==========================================================================

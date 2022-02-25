@@ -1,3 +1,4 @@
+@import '../mixins/media-queries';
 .c-project-container {
   height: 100%;
   position: relative;
@@ -51,6 +52,13 @@
     font-size: clamp(14px, 1.5vw, 40px);
     line-height: 1.7;
     font-family: 'Open Sans', sans-serif;
+    @include sm-screen {
+      font-size: 4vw;
+      max-width: unset;
+    }
+    @include xs-screen {
+      font-size: 4.5vw;
+    }
   }
 }
 .c-project__info__heading {
@@ -95,14 +103,20 @@
   line-height: 1.7;
   font-family: 'Open Sans', sans-serif;
   text-align: center;
+  @include sm-screen {
+    font-size: 3vw;
+  }
+  @include xs-screen {
+    font-size: 21px;
+  }
 }
 .c-project__info__button {
-  top: 100%;
-  right: unset;
-  left: 0;
-  > a {
-    font-size: 2.3vw;
-    font-family: 'Open Sans', sans-serif;
-    text-transform: uppercase;
-  }
+  /* top: 100%; */
+  /* right: unset; */
+  /* left: 0; */
+  /* > a { */
+  /*   font-size: 2.3vw; */
+  /*   font-family: 'Open Sans', sans-serif; */
+  /*   text-transform: uppercase; */
+  /* } */
 }

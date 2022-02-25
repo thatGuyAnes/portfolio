@@ -1,14 +1,11 @@
 import React, {
   useEffect,
   useRef,
-  useLayoutEffect,
   useCallback,
-  useMemo,
   useState,
 } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import gsap from 'gsap';
-import { Link } from 'gatsby';
 import Layout from '../../components/Layout';
 
 const useUpdateHeader = () => {
@@ -22,11 +19,12 @@ const useUpdateHeader = () => {
 };
 
 const Webfolio = () => {
-  const headerRef = useRef(null);
+  // const headerRef = useRef(null);
   const infoRef = useRef();
+  const rootRef = useRef();
   const staticMaskRef = useRef();
   const tl = useRef(gsap.timeline());
-  const [header, rootRef] = useUpdateHeader();
+  const [header, headerRef ] = useUpdateHeader();
 
   /* Fix for undefined 'ref':
   using a state to trigger a rerender!
@@ -41,17 +39,19 @@ const Webfolio = () => {
 
   // Shrink down and scale the header.
   useEffect(() => {
-    const el = gsap.utils.selector(header); // Returns a selector function that's scoped to a particular Element,
-    const span = el('.c-header__image__wrapper');
-    const mask = el('.c-static-mask');
-    tl.current
-      .from(span, { scale: 1.5 })
-      .to(
-        mask,
-        { clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)' },
-        '<'
+    if (header) {
+      const el = gsap.utils.selector(header); // Returns a selector function that's scoped to a particular Element,
+      const span = el('.c-header__image__wrapper');
+      const mask = el('.c-static-mask');
+      tl.current
+        .from(span, { scale: 1.5 })
+        .to(
+          mask,
+          { clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)' },
+          '<'
       )
-      .to(mask, { scale: 0.99 });
+        .to(mask, { scale: 0.99 });
+    }
   }, [header]);
 
   return (
@@ -99,9 +99,12 @@ const Webfolio = () => {
             were made in Figma and Adobe Illustrator.
           </p>
           <div className="c-project__info__button c-button o-button">
-            <Link to="#" className="js-hover">
-              Github
-            </Link>
+            <a href="https://www.anesmarzuki.com"
+              className="js-hover"
+              target="_blank"
+            >
+              live site
+            </a>
           </div>
         </div>
       </main>

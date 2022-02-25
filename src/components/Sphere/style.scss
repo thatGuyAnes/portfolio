@@ -12,6 +12,12 @@
   }
 }
 
+@media (any-pointer: fine) {
+  #myCanvasContainer {
+    pointer-events: visible;
+  }
+}
+
 canvas {
   width: 100%;
   height: 100%;

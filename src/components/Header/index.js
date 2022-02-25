@@ -1,11 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
-import Iam from '../svgs/Iam-svg';
-import NotMe from '../svgs/NotMe-svg';
-import HeaderImg from '../../images/ff1.png';
 import Circle from '../Circle';
 import gsap from 'gsap';
-
-import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 import './style.scss';
 

@@ -6,7 +6,6 @@ import React, {
 } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import gsap from 'gsap';
-import { Link } from 'gatsby';
 import Layout from '../../components/Layout';
 
 const useUpdateHeader = () => {
@@ -96,9 +95,12 @@ const CallbackComponent = () => {
           weather forecast and an image of the location.
         </p>
         <div className="c-project__info__button c-button o-button">
-          <Link to="#" className="js-hover">
+          <a href="#"
+            className="js-hover"
+            target="_blank"
+          >
             Github
-          </Link>
+          </a>
         </div>
       </div>
     </main>

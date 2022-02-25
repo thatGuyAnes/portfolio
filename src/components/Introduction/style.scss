@@ -4,7 +4,7 @@
   min-height: 50vw;
   position: relative;
   @include sm-screen {
-    min-height: 60vh;
+    min-height: 80vh;
   }
 }
 .c-intro__main {
@@ -23,7 +23,7 @@
   margin-right: 3vw;
   @include sm-screen {
     width: 70%;
-    margin-top: 13vh;
+    margin-top: 7vh;
     margin-right: 0;
   }
 }
@@ -144,10 +144,11 @@
     }
     .svg.underline {
       position: absolute;
-      top: 90%;
+      top: 75%;
       left: 0;
       width: 100%;
       height: 0.5em;
+      transform: rotateZ(359deg);
     }
   }
 }

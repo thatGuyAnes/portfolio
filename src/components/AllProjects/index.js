@@ -9,35 +9,40 @@ const images = [
     path: '/projects/webfolio',
     desc: 'Personal website',
     title: 'Webfolio',
+    position: 1
   },
   {
     src: require('../../images/projects/02.png'),
     path: '/projects/udacity',
     desc: 'Front End Development projects',
     title: 'Udacity',
+    position: 2
   },
   {
     src: require('../../images/projects/03.png'),
     path: '/projects/blog',
     desc: 'Personal blog',
     title: 'Blog',
+    position: 3
   },
   {
     src: require('../../images/projects/03.png'),
     path: '/projects/notes',
     desc: 'Documented notes website',
     title: 'Docunotes',
+    position: 4
   },
   {
     src: require('../../images/projects/04.png'),
     path: 'https://github.com/thatGuyAnes/Responsive-restaurant-website',
     desc: 'A responsive HTML template',
     title: 'HTML template',
+    position: 5
   },
 ];
 
-const Box = ({ imageObj }) => {
-  const { src, path, desc, title } = imageObj;
+const Box = ({ imageObj}) => {
+  const { src, path, desc, title, position } = imageObj;
   const elRef = useRef();
   const textContainerRef = useRef();
   const textCopyRef = useRef();
@@ -131,7 +136,7 @@ const Box = ({ imageObj }) => {
     <div className="c-box" ref={elRef}>
     <Link to={path} className="js-hover" >
       <div className="c-box__heading" ref={textContainerRef}>
-        <span>01</span>
+        <span>{`0${position}`}</span>
         <h3>{title}</h3>
       </div>
       <div className="c-box__info" ref={textCopyRef}>
@@ -164,7 +169,7 @@ const AllProjects = () => {
         {/* </div> */}
 
         <div className="c-ap__list__boxes-container">
-          {images.map((image) => (
+          {images.map((image, index) => (
             <Box imageObj={image} key={image.path} />
           ))}
         </div>

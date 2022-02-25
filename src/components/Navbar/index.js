@@ -77,7 +77,6 @@ const Navbar = ({ children }) => {
           { yPercent: -100 },
           { yPercent: 0, stagger: 0.1 }
         );
-      // burgerRef.current.style.pointerEvents = `none`;
       burgerRef.current.classList.toggle('-active');
     } else {
       // Menu OUT
@@ -127,7 +126,6 @@ const Navbar = ({ children }) => {
             ref={brandLinkRef}
           >
             am<br />{' '}
-            {/* <span className="c-brand_subtitle">webfolio</span> */}
           </Link>
         </span>
       </div>
@@ -141,22 +139,24 @@ const Navbar = ({ children }) => {
           onClick={toggleMenu}
         >
           <span className="c-burger__line"></span>
-          {/* <span className="c-burger_line"></span> */}
-          {/* <span className="c-burger_line"></span> */}
         </Link>
       </div>
 
       {/* =Menu= */}
       <div className="c-menu" ref={menuRef}>
-        {/* <button className="c-menu__close js-hover" onClick={toggleMenu}> */}
-        {/*   close */}
-        {/* </button> */}
 
         <div className="c-menu__left"></div>
         <div className="c-menu__right"></div>
 
         <nav className="c-menu__list">
           <ul>
+            <li className="c-menu__item">
+              <span>
+                <Link to="/" className="js-hover">
+                  Home
+                </Link>
+              </span>
+            </li>
             <li className="c-menu__item">
               <span>
                 <Link to="#" className="js-hover">

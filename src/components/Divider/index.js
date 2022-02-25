@@ -1,36 +1,9 @@
-import React, { useEffect, useRef } from 'react';
-import { useLocomotiveScroll } from 'react-locomotive-scroll';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import React, { useRef } from 'react';
 
 import './style.scss';
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Divider = () => {
-  const { scroll } = useLocomotiveScroll();
   const infoRef = useRef();
-  const wrapperRef = useRef();
-  const maskRef = useRef();
-
-  // =Reveal
-  //   useEffect(() => {
-  //     gsap.to(wrapperRef.current, {yPercent: -101});
-  //     gsap.to(maskRef.current, {yPercent: 100});
-  //     if (scroll) {
-  //       gsap.to([wrapperRef.current, maskRef.current], {
-  //         scrollTrigger: {
-  //           trigger: infoRef.current,
-  //           scroller: scroll.el,
-  //           start: "top bottom",
-  //           scrub: true,
-  //           // end: "top top",
-  //         },
-  //         yPercent: 0,
-  //         ease: 'Power4.out',
-  //       })
-  //     }
-  //   }, [scroll]);
 
   return (
     <section data-scroll-section="" className="c-divider">

@@ -1,3 +1,4 @@
+@import '../../styles/mixins/media-queries';
 /* =Info */
 .c-header__info__container {
   font-family: 'Libre Caslon Display', serif;
@@ -7,13 +8,18 @@
   /* opacity: 0.6;  */
   right: 0;
   filter: brightness(0.5);
+  font-size: 2vw;
+  @include sm-screen {
+    font-size: 4vw;
+  }
 }
 .c-header__info__l1,
 .c-header__info__l2,
 .c-header__info__l3 {
   color: #bdbdbd;
   display: block;
-  font-size: 2vw;
+  /* font-size: 2vw; */
+  font-size: 1em;
   letter-spacing: 0.4vw;
 }
 .c-header__info__l2 {
@@ -21,7 +27,8 @@
   top: 50%;
   left: 83%;
   transform: translateY(-50%);
-  font-size: 8vw;
+  /* font-size: 8vw; */
+  font-size: 4em;
   opacity: 0.4;
   color: #575757;
 }
@@ -61,6 +68,9 @@
   margin-top: 10vw;
   perspective: 1000px;
   -webkit-perspective: 1000px;
+  @include lg-screen {
+    margin-top: 12vw;
+  }
 }
 
 /* =H1 */
@@ -156,6 +166,14 @@
   transform-style: preserve-3d;
   transition: opacity 0s cubic-bezier(0.215, 0.61, 0.355, 1),
     transform 0s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  @include lg-screen {
+    font-size: 17vw;
+    line-height: 1.4;
+  }
+  @include sm-screen {
+    font-size: 20vw;
+  }
   /* &.is-inview { */
   /*   opacity: 1; */
   /*   transform: none; */
@@ -275,19 +293,5 @@
 @media only screen and (min-width: 1400px) {
   .c-header__main-container {
     margin-top: 12vw;
-  }
-}
-
-@media only screen and (max-width: 750px) {
-  .c-header {
-  }
-  .c-header__h {
-    line-height: 1.4;
-  }
-  .c-header__h__line {
-    font-size: 17vw;
-    .c-header__h__line__g {
-      visibility: hidden;
-    }
   }
 }

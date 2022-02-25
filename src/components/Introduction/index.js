@@ -14,11 +14,11 @@ import './style.scss';
 import 'splitting/dist/splitting.css';
 import 'splitting/dist/splitting-cells.css';
 import Splitting from 'splitting';
-// import Splitting from "splitting";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Intro = () => {
   const { scroll } = useLocomotiveScroll();
-  gsap.registerPlugin(ScrollTrigger);
 
   const introRef = useRef();
   const introMainRef = useRef();
@@ -80,7 +80,7 @@ const Intro = () => {
         textRevealAnimation.from(svg, {autoAlpha: 0}, "<+50%")
       });
       textRevealAnimation.from(btnRef.current, {autoAlpha: 0, duration: 1.3}, ">")
-      textRevealAnimation.from(aside, {autoAlpha: 0, duration: 2.3}, 0)
+      textRevealAnimation.from(aside, {autoAlpha: 0, duration: 0.8}, "<-70%")
     }
 
     // onResize();
@@ -99,20 +99,6 @@ const Intro = () => {
       ref={introRef}
       data-scroll-section=""
     >
-      {/* <h2 className="c-intro_title"> */}
-      {/*   <span></span> */}
-      {/* </h2> */}
-
-      {/* <div className="c-intro_image-wrapper"></div> */}
-      {/* about box */}
-      {/* <aside className="c-intro_box" data-scroll="" data-scroll-speed={2}> */}
-      {/*     <span>a</span> */}
-      {/*     <span>b</span> */}
-      {/*     <span>o</span> */}
-      {/*     <span>u</span> */}
-      {/*     <span>t</span> */}
-      {/*   </aside> */}
-
       <div className="c-intro__main" ref={introMainRef}>
         <aside
           className="c-intro__canvas-container"
@@ -131,7 +117,6 @@ const Intro = () => {
           data-scroll-speed={1}
           data-scroll-position="top"
         >
-          {/* <p>Who What Where ??</p> */}
           <h3 ref={introTextH3Ref}>
             <span className="text-container" ref={textContainerRef}>
               {/* =First line */}
@@ -178,11 +163,10 @@ const Intro = () => {
             </span>
 
             <div className="c-intro__link-wrapper c-button o-button" ref={btnRef}>
-              <Link to="#" className="js-hover">
+              <Link to="/about" className="js-hover">
                 More details
               </Link>
             </div>
-            {/* <button className="c-intro_text_button btn"><Link to="/about" className="js-hover">More details</Link></button> */}
           </h3>
         </div>
       </div>

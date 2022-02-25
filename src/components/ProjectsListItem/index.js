@@ -4,7 +4,6 @@ import gsap from 'gsap';
 import {map, lerp, clamp, getMousePos} from '../../../static/scripts/utils';
 
 import './style.scss';
-import image from '../../images/ff1.png';
 
 // track the mouse position
 let mousepos = {x: 0, y: 0};
@@ -71,7 +70,7 @@ const ProjectsListItem = ({project}) => {
       }
     })
       // animate the image wrap
-      .to(hoverReveal_innerRef.current, 0.2, {
+      tl.to(hoverReveal_innerRef.current, 0.2, {
         ease: 'Sine.easeOut',
         startAt: {x: direction.x < 0 ? '-100%' : '100%'},
         x: '0%'
@@ -135,7 +134,7 @@ const ProjectsListItem = ({project}) => {
 
   // bind some events
   const initEvents = () => {
-    const mouseenterFn = (ev) => {
+    const mouseenterFn = (_ev) => {
       // show the image element
       showImage();
       firstRAFCycle = true;
@@ -251,8 +250,6 @@ const ProjectsListItem = ({project}) => {
       window.cancelAnimationFrame(requestId.current);
     }
   }, []);
-
-
   // =============================/End imageHover
 
 

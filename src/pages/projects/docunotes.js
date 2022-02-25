@@ -1,14 +1,11 @@
 import React, {
   useEffect,
   useRef,
-  useLayoutEffect,
   useCallback,
-  useMemo,
   useState,
 } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import gsap from 'gsap';
-import { Link } from 'gatsby';
 import Layout from '../../components/Layout';
 
 const useUpdateHeader = () => {
@@ -95,9 +92,12 @@ const Docunotes = () => {
           </p>
           <p></p>
           <div className="c-project__info__button c-button o-button">
-            <Link to="#" className="js-hover">
+            <a href="#"
+              className="js-hover"
+              target="_blank"
+            >
               Github
-            </Link>
+            </a>
           </div>
         </div>
       </main>
