@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'gatsby';
-import gsap from 'gsap';
+import gsap from 'gsap/all';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Sphere from '../Sphere';
@@ -11,9 +11,9 @@ import Underline from '../svgs/Underline-svg';
 import './style.scss';
 
 // Splitting
+import Splitting from 'splitting';
 import 'splitting/dist/splitting.css';
 import 'splitting/dist/splitting-cells.css';
-import Splitting from 'splitting';
 
 const Intro = () => {
   gsap.registerPlugin(ScrollTrigger);
