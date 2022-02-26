@@ -8,18 +8,18 @@
   pointer-events: none;
   opacity: 0;
   & .cursor_inner {
-    /* @media (any-pointer: fine) { */
-    position: absolute;
-    width: 1vw;
-    height: 1vw;
-    border: 0.2vw solid #ff0000;
-    border-radius: 100%;
-    transform-origin: center;
-    transform: translate(-50%, -50%);
-    transition: width 0.5s cubic-bezier(0.19, 1, 0.22, 1),
-      height 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-    will-change: width, height;
-    /* } */
+    @media (any-pointer: fine) {
+      position: absolute;
+      width: 1vw;
+      height: 1vw;
+      border: 0.2vw solid #ff0000;
+      border-radius: 100%;
+      transform-origin: center;
+      transform: translate(-50%, -50%);
+      transition: width 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+        height 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      will-change: width, height;
+    }
   }
 }
 
