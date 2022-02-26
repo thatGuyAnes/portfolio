@@ -66,17 +66,14 @@ const { pathname } = useLocation() // With react-router
 
   const initEvents = () => {
     const cursor = document.querySelector('.cursor');
-    const circle = cursor.querySelector('circle');
     const onMouseOver = (event) => {
       if (event.target.classList.contains('js-hover')) {
         cursor.classList.toggle('-expand');
-        // circle.setAttribute('r', '30')
       }
     };
     const onMouseLeave = (event) => {
       if (event.target.classList.contains('js-hover')) {
         cursor.classList.toggle('-expand');
-        // circle.setAttribute('r', '20')
       }
     };
     containerRef.current.addEventListener('mouseover', onMouseOver)
@@ -93,16 +90,22 @@ const { pathname } = useLocation() // With react-router
       options={
         {
           smooth: true,
-          smoothMobile: true,
-          getDirection: true,
+          // smoothMobile: false,
+          // getDirection: true,
           // touchMultiplier: 2.5,
+          smartphone: {
+            smooth: true,
+          },
+          tablet: {
+            smooth: true,
+          }
         }
       }
       watch={[]}
       location={pathname}
       containerRef={containerRef}
       onLocationChange={scroll => scroll.scrollTo(0, {duration: 0, disableLerp: true})} // If you want to reset the scroll position to 0 for example
-      // onUpdate={() => console.log('Updated, but not on location change!')} // Will trigger on      containerRef={containerRef}
+      onUpdate={() => console.log('Updated, but not on location change!')} // Will trigger on      containerRef={containerRef}
     >
       <ScrollTriggerProxy />
       <div className="layout"

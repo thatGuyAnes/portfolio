@@ -1,4 +1,5 @@
 @import '../mixins/media-queries';
+
 .c-button {
   & > a {
     position: relative;
@@ -71,20 +72,20 @@
     /*   background-color: #fff; */
     /*   transition: height 0.2s ease-in; */
     /* } */
-    &:hover {
-      & > a {
-        /* color: var(--clr-dark); */
-        /* padding-left: 0.8em; */
-      }
-      /* &::before { */
-      /*   width: 100%; */
-      /*   animation: none; */
-      /* } */
-      /* &::after { */
-      /*   height: 100%; */
-      /* } */
-    }
+    /* &:hover { */
+    /*   & > a { */
+    /* color: var(--clr-dark); */
+    /* padding-left: 0.8em; */
   }
+  /* &::before { */
+  /*   width: 100%; */
+  /*   animation: none; */
+  /* } */
+  /* &::after { */
+  /*   height: 100%; */
+  /* } */
+  /*   } */
+  /* } */
 }
 
 @keyframes pulse {

@@ -1,5 +1,4 @@
 @import '../fonts/stylesheet.css';
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap');
 
 :root {
   --h-gutter: 6.6vw;
@@ -18,32 +17,23 @@ html {
 
 body {
   /* pre loading */
-  overflow-y: scroll;
-  &.is-loading {
-    /* overflow: hidden; */
-    /* width: 100vw; */
-    /* height: 100vh; */
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* transition: 1s; */
-  }
+  /* overflow-y: scroll; */
   &.is-loading:not('.loader'),
   &.is-loading:not('.loader__content') {
     display: none;
   }
 
   /* post loading */
-  &.is-ready {
-    /* overflow: auto; */
-    /* height: auto; */
+  /* &.is-ready { */
+  /*   overflow: auto; */
+  /* height: auto; */
 
-    /* & .loader-wrapper { */
-    /*   visibility: hidden; */
-    /*   opacity: 0; */
-    /*   transition: visibility 0s 0.3s, opacity 0.3s linear; */
-    /* } */
-  }
+  /* & .loader-wrapper { */
+  /*   visibility: hidden; */
+  /*   opacity: 0; */
+  /*   transition: visibility 0s 0.3s, opacity 0.3s linear; */
+  /* } */
+  /* } */
 }
 
 .container {
@@ -52,4 +42,4 @@ body {
 
 // Components
 // ==========================================================================
-@import './components/loader';
+/* @import './components/loader'; */

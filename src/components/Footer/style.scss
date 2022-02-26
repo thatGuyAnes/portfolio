@@ -55,6 +55,7 @@
 
 .c-footer__text.--left > span {
   position: relative;
+
   &::after {
     content: '';
     position: absolute;

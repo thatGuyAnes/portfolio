@@ -22,7 +22,7 @@ document.onreadystatechange = () => {
         if (body.classList.contains('is-loading')) {
           setTimeout(() => {
             if (gsap) {
-              gsap.to(loader, { duration: 1.2, yPercent: -100, ease: 'Power4.inOut' })
+              gsap.to(loader, { duration: 1.2, yPercent: -105, ease: 'Power4.inOut' })
               body.classList.remove('is-loading');
             } else {
               body.removeChild(document.querySelector('.loader'));

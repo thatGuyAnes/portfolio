@@ -1,10 +1,9 @@
 .layout {
-  /* height: 100vh; */
   width: 100vw;
   height: auto;
-  /* height: 100%; */
   overflow: hidden;
   transition: all 0.2s linear;
+  position: relative;
 }
 
 .bg {
@@ -20,6 +19,7 @@
   animation: bg-animation 0.2s infinite;
   opacity: 0.9;
   visibility: visible;
+  pointer-events: none;
 }
 
 @keyframes bg-animation {

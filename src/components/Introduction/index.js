@@ -53,10 +53,14 @@ const Intro = () => {
 
     // lines
     const textContainer = gsap.utils.selector(textContainerRef.current);
-    lines.push(textContainer('#l1'), textContainer('#l2'), textContainer('#l3'), textContainer('#l4'));
+    lines.push(
+      textContainer('#l1'),
+      textContainer('#l2'),
+      textContainer('#l3'),
+      textContainer('#l4')
+    );
 
     if (scroll) {
-
       // INTRO ANIMATIONS
       /* In order for this to work, we need to set the scroller as the locomotive
         scroll element, and to wait for the its update by adding the scroll to
@@ -72,15 +76,23 @@ const Intro = () => {
 
       lines.forEach((line, _index) => {
         // array of chars
-        const chars = Splitting({target: line, by: 'chars'});
-        textRevealAnimation.from(chars[0].chars, { yPercent: 90, stagger: 0.03, duration: 0.2 }, ">-80%" )
+        const chars = Splitting({ target: line, by: 'chars' });
+        textRevealAnimation.from(
+          chars[0].chars,
+          { yPercent: 90, stagger: 0.03, duration: 0.2 },
+          '>-80%'
+        );
       });
 
       svgs.forEach((svg, _index) => {
-        textRevealAnimation.from(svg, {autoAlpha: 0}, "<+50%")
+        textRevealAnimation.from(svg, { autoAlpha: 0 }, '<+50%');
       });
-      textRevealAnimation.from(btnRef.current, {autoAlpha: 0, duration: 1.3}, ">")
-      textRevealAnimation.from(aside, {autoAlpha: 0, duration: 0.8}, "<-70%")
+      textRevealAnimation.from(
+        btnRef.current,
+        { autoAlpha: 0, duration: 1.3 },
+        '>'
+      );
+      textRevealAnimation.from(aside, { autoAlpha: 0, duration: 0.8 }, '<-70%');
     }
 
     // onResize();
@@ -120,16 +132,14 @@ const Intro = () => {
           <h3 ref={introTextH3Ref}>
             <span className="text-container" ref={textContainerRef}>
               {/* =First line */}
-              <div
-                className="c-intro__line-wrapper"
-              >
+              <div className="c-intro__line-wrapper">
                 <span className="c-intro__text__line" id="l1">
-                  Anes is a{' '}
+                  I'm a{' '}
                   <span className="c-intro__special o-special-container --junior">
                     <Junior />
                     front
                   </span>
-                  -end developer
+                  -end web developer
                 </span>
               </div>
 
@@ -162,7 +172,10 @@ const Intro = () => {
               </div>
             </span>
 
-            <div className="c-intro__link-wrapper c-button o-button" ref={btnRef}>
+            <div
+              className="c-intro__link-wrapper c-button o-button"
+              ref={btnRef}
+            >
               <Link to="/about" className="js-hover">
                 More details
               </Link>

@@ -1,4 +1,5 @@
 @import '../../styles/mixins/media-queries';
+
 section.c-divider {
   position: relative;
   height: 100vh;
@@ -33,6 +34,7 @@ section.c-divider {
     padding: 0 20px;
   }
 }
+
 .c-divider__banner__marquee {
   &.-top {
     top: 0%;

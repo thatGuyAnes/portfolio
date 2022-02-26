@@ -9,40 +9,45 @@ const images = [
     path: '/projects/webfolio',
     desc: 'Personal website',
     title: 'Webfolio',
-    position: 1
+    position: 1,
+    local: true
   },
   {
     src: require('../../images/projects/02.png'),
     path: '/projects/udacity',
     desc: 'Front End Development projects',
     title: 'Udacity',
-    position: 2
+    position: 2,
+    local: true
   },
   {
     src: require('../../images/projects/03.png'),
     path: '/projects/blog',
     desc: 'Personal blog',
     title: 'Blog',
-    position: 3
+    position: 3,
+    local: true
   },
   {
-    src: require('../../images/projects/03.png'),
-    path: '/projects/notes',
+    src: require('../../images/projects/05.png'),
+    path: 'https://thatguyanes.github.io/notes/',
     desc: 'Documented notes website',
     title: 'Docunotes',
-    position: 4
+    position: 4,
+    local: false
   },
   {
     src: require('../../images/projects/04.png'),
-    path: 'https://github.com/thatGuyAnes/Responsive-restaurant-website',
+    path: 'https://responsive-restaurant-template.netlify.app/',
     desc: 'A responsive HTML template',
     title: 'HTML template',
-    position: 5
+    position: 5,
+    local: false
   },
 ];
 
 const Box = ({ imageObj}) => {
-  const { src, path, desc, title, position } = imageObj;
+  const { src, path, desc, title, position, local } = imageObj;
   const elRef = useRef();
   const textContainerRef = useRef();
   const textCopyRef = useRef();
@@ -134,22 +139,42 @@ const Box = ({ imageObj}) => {
 
   return (
     <div className="c-box" ref={elRef}>
-    <Link to={path} className="js-hover" >
-      <div className="c-box__heading" ref={textContainerRef}>
-        <span>{`0${position}`}</span>
-        <h3>{title}</h3>
-      </div>
-      <div className="c-box__info" ref={textCopyRef}>
-        <div className="c-box__info__mask" ref={textMaskRef}>
-          <p>{desc}</p>
+      {
+        local ?
+      <Link to={path} className="js-hover" >
+        <div className="c-box__heading" ref={textContainerRef}>
+          <span>{`0${position}`}</span>
+          <h3>{title}</h3>
         </div>
-      </div>
-      <div className="c-box__image" ref={imageContainerRef}>
-        <div className="c-box__image__mask" ref={imageMaskRef}>
-          <img src={src.default} ref={imageRef} />
+        <div className="c-box__info" ref={textCopyRef}>
+          <div className="c-box__info__mask" ref={textMaskRef}>
+            <p>{desc}</p>
+          </div>
         </div>
-      </div>
-    </Link>
+        <div className="c-box__image" ref={imageContainerRef}>
+          <div className="c-box__image__mask" ref={imageMaskRef}>
+            <img src={src.default} ref={imageRef} />
+          </div>
+        </div>
+      </Link>
+      :
+      <a href={path} target="_blank" className="js-hover" >
+        <div className="c-box__heading" ref={textContainerRef}>
+          <span>{`0${position}`}</span>
+          <h3>{title}</h3>
+        </div>
+        <div className="c-box__info" ref={textCopyRef}>
+          <div className="c-box__info__mask" ref={textMaskRef}>
+            <p>{desc}</p>
+          </div>
+        </div>
+        <div className="c-box__image" ref={imageContainerRef}>
+          <div className="c-box__image__mask" ref={imageMaskRef}>
+            <img src={src.default} ref={imageRef} />
+          </div>
+        </div>
+      </a>
+      }
     </div>
   );
 };

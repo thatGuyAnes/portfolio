@@ -28,7 +28,6 @@ const getMousePos = (mouseEvent) => {
     return { x : posx, y : posy }
 };
 
-
 const initConfig = {
   x: {
     previous: 0,
@@ -41,7 +40,6 @@ const initConfig = {
     amt: 0.1
   }
 };
-
 
 const Cursor = () => {
 
@@ -59,7 +57,6 @@ const Cursor = () => {
     gsap.to(cursorRef.current, {autoAlpha: 1, duration: 2});
       // console.log(mouse.current.y - 40)
     };
-
 
   const animateCursor = useCallback(() => {
 
@@ -92,8 +89,6 @@ const Cursor = () => {
 
     window.removeEventListener('mousemove', onMouseMoveEv);
   }, [animateCursor]);
-
-
 
   useEffect(() => {
     bounds.current = cursorRef.current.getBoundingClientRect();
