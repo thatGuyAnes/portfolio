@@ -101,11 +101,11 @@ const Blog = () => {
             working with Gatsbyjs and its ecosystem.
           </p>
           <div className="c-project__info__button c-button o-button">
-            <a href="#"
+            <a href="https://blog.anesmarzuki.com/"
               className="js-hover"
               target="_blank"
             >
-              Github
+            link
             </a>
           </div>
         </div>

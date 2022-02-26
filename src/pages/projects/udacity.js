@@ -95,7 +95,7 @@ const CallbackComponent = () => {
           weather forecast and an image of the location.
         </p>
         <div className="c-project__info__button c-button o-button">
-          <a href="#"
+          <a href="https://github.com/Udacity-Front-End-Developer"
             className="js-hover"
             target="_blank"
           >
