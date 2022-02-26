@@ -105,7 +105,7 @@ const { pathname } = useLocation() // With react-router
       location={pathname}
       containerRef={containerRef}
       onLocationChange={scroll => scroll.scrollTo(0, {duration: 0, disableLerp: true})} // If you want to reset the scroll position to 0 for example
-      onUpdate={() => console.log('Updated, but not on location change!')} // Will trigger on      containerRef={containerRef}
+      // onUpdate={() => console.log('Updated, but not on location change!')} // Will trigger on      containerRef={containerRef}
     >
       <ScrollTriggerProxy />
       <div className="layout"

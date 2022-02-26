@@ -7,6 +7,7 @@ const progressBar = document.querySelector('.loader .progress');
 gsap.set(loader, { autoAlpha: 1 });
 
 document.onreadystatechange = () => {
+
   if (document.readyState === 'complete') {
     if (!body.classList.contains('is-ready')) {
       body.classList.add('is-ready');
@@ -17,7 +18,6 @@ document.onreadystatechange = () => {
         attributesFilter: ["id"],
         subtree: false
       };
-
       const callback = () => {
         if (body.classList.contains('is-loading')) {
           setTimeout(() => {
@@ -33,8 +33,12 @@ document.onreadystatechange = () => {
         }
       };
 
-      const layoutLoaded = new MutationObserver(callback);
-      layoutLoaded.observe(body, observerOptions);
+      if (window.location.pathname !== '/') {
+        return callback();
+      } else {
+        const layoutLoaded = new MutationObserver(callback);
+        layoutLoaded.observe(body, observerOptions);
+      }
     }
     // setTimeout(() => {
       //   if (gsap) {

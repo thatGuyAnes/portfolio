@@ -61,7 +61,7 @@ const Docunotes = () => {
         <div className="c-project__header" ref={headerRef}>
           <div className="c-static-mask" ref={staticMaskRef}>
             <StaticImage
-              src="../../images/docu.png"
+              src="../../images/projects/05.png"
               alt="project screenshot"
               as="span"
               className="c-header__image__wrapper"
@@ -92,11 +92,11 @@ const Docunotes = () => {
           </p>
           <p></p>
           <div className="c-project__info__button c-button o-button">
-            <a href="#"
+            <a href="https://thatguyanes.github.io/notes/"
               className="js-hover"
               target="_blank"
             >
-              Github
+              link
             </a>
           </div>
         </div>

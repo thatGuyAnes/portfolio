@@ -30,11 +30,11 @@ const images = [
   },
   {
     src: require('../../images/projects/05.png'),
-    path: 'https://thatguyanes.github.io/notes/',
+    path: '/projects/docunotes',
     desc: 'Documented notes website',
     title: 'Docunotes',
     position: 4,
-    local: false
+    local: true
   },
   {
     src: require('../../images/projects/04.png'),
