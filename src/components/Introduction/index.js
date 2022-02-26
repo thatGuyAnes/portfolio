@@ -15,9 +15,8 @@ import 'splitting/dist/splitting.css';
 import 'splitting/dist/splitting-cells.css';
 import Splitting from 'splitting';
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Intro = () => {
+  gsap.registerPlugin(ScrollTrigger);
   const { scroll } = useLocomotiveScroll();
 
   const introRef = useRef();
