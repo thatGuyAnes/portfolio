@@ -81,7 +81,7 @@
     /* >>>>h1 */
     align-self: center;
     .text-container {
-      color: #f6eadeb3;
+      color: var(--clr-light);
       & .c-intro__text__line {
         display: inline-block;
       }

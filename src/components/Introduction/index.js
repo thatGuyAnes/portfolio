@@ -74,12 +74,15 @@ const Intro = () => {
         // },
       });
 
+
+      // text animation
       ScrollTrigger.create({
         trigger: text,
         scroller: scroll?.el,
         start: 'top 60%',
         animation: textRevealAnimation,
         })
+
 
       lines.forEach((line, _index) => {
         // array of chars
@@ -100,6 +103,14 @@ const Intro = () => {
         '>'
       );
       textRevealAnimation.from(aside, { autoAlpha: 0, duration: 0.8 }, '<-70%');
+
+      // bodygg animation
+      // textRevealAnimation.set(document.querySelector('body'), {
+      //   duration: 0.3,
+      //   backgroundColor: '#e8e8e8',
+      //   ease: 'Power4.out'
+      // }, 0)
+
     }
     return () => {
       textRevealAnimation ? textRevealAnimation.kill() : null;

@@ -21,7 +21,7 @@
   background-image: url('../../images/logo-dark_small.svg');
   background-repeat: no-repeat;
   background-position: bottom 1vw left 2vw;
-  background-color: #e8e8e8;
+  background-color: var(--clr-light-loader);
   background-size: 155px 155px;
 }
 
