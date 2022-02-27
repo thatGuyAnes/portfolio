@@ -44,20 +44,21 @@ const Intro = () => {
   */
 
   useEffect(() => {
-    let textRevealAnimation;
-    const el = gsap.utils.selector(introMainRef.current);
-    const aside = el('aside');
-    const text = el('h3');
-    const svgs = el('svg');
 
-    // lines
-    const textContainer = gsap.utils.selector(textContainerRef.current);
-    lines.push(
-      textContainer('#l1'),
-      textContainer('#l2'),
-      textContainer('#l3'),
-      textContainer('#l4')
-    );
+      let textRevealAnimation;
+      const el = gsap.utils.selector(introMainRef.current);
+      const aside = el('aside');
+      const text = el('h3');
+      const svgs = el('svg');
+
+      // lines
+      const textContainer = gsap.utils.selector(textContainerRef.current);
+      lines.push(
+        textContainer('#l1'),
+        textContainer('#l2'),
+        textContainer('#l3'),
+        textContainer('#l4')
+      );
 
     if (scroll) {
       // INTRO ANIMATIONS
@@ -66,12 +67,19 @@ const Intro = () => {
         the list of dependencies.
        */
       textRevealAnimation = gsap.timeline({
-        scrollTrigger: {
-          scroller: scroll?.el,
-          trigger: introMainRef.current,
-          start: 'top 60%',
-        },
+        // scrollTrigger: {
+        //   trigger: introMainRef.current,
+        //   scroller: scroll?.el,
+        //   start: 'top 60%',
+        // },
       });
+
+      ScrollTrigger.create({
+        trigger: introMainRef.current,
+        scroller: scroll?.el,
+        start: 'top 60%',
+        animation: textRevealAnimation
+      })
 
       lines.forEach((line, _index) => {
         // array of chars
@@ -93,12 +101,6 @@ const Intro = () => {
       );
       textRevealAnimation.from(aside, { autoAlpha: 0, duration: 0.8 }, '<-70%');
     }
-
-    // onResize();
-    // window.addEventListener('resize', onResize);
-    // return () => {
-    // window.removeEventListener('resize', onResize);
-    // };
     return () => {
       textRevealAnimation ? textRevealAnimation.kill() : null;
     };
