@@ -132,14 +132,14 @@ const Navbar = ({ children }) => {
 
       {/* =BURGER= */}
       <div className="c-burger_wrapper " ref={burgerWrapperRef}>
-        <Link
-          to="#"
+        <button
+          aria-label="toggle menu"
           className="c-burger js-hover"
           ref={burgerRef}
           onClick={toggleMenu}
         >
           <span className="c-burger__line"></span>
-        </Link>
+        </button>
       </div>
 
       {/* =Menu= */}

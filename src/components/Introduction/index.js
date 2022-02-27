@@ -48,7 +48,7 @@ const Intro = () => {
       let textRevealAnimation;
       const el = gsap.utils.selector(introMainRef.current);
       const aside = el('aside');
-      const text = el('h3');
+      const text = el('#intro__text-header');
       const svgs = el('svg');
 
       // lines
@@ -75,18 +75,18 @@ const Intro = () => {
       });
 
       ScrollTrigger.create({
-        trigger: introMainRef.current,
+        trigger: text,
         scroller: scroll?.el,
         start: 'top 60%',
-        animation: textRevealAnimation
-      })
+        animation: textRevealAnimation,
+        })
 
       lines.forEach((line, _index) => {
         // array of chars
         const chars = Splitting({ target: line, by: 'chars' });
         textRevealAnimation.from(
           chars[0].chars,
-          { yPercent: 90, stagger: 0.03, duration: 0.2 },
+          { yPercent: 270, stagger: 0.03, duration: 0.2 },
           '>-80%'
         );
       });
@@ -130,7 +130,7 @@ const Intro = () => {
           data-scroll-speed={1}
           data-scroll-position="top"
         >
-          <h3 ref={introTextH3Ref}>
+          <h1 ref={introTextH3Ref} id="intro__text-header">
             <span className="text-container" ref={textContainerRef}>
               {/* =First line */}
               <div className="c-intro__line-wrapper">
@@ -181,7 +181,7 @@ const Intro = () => {
                 More details
               </Link>
             </div>
-          </h3>
+          </h1>
         </div>
       </div>
     </section>

@@ -2,8 +2,11 @@ const manifestOptions = require('./utils/manifest-options');
 
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "folio",
+    url: "https://www.anesmarzuki.com",
+    title: "anes marzuki webfolio",
+    description: "portfolio of anes marzuki, a front end developer from tunisia",
+    image: "/icon.png",
+    twitterUsername: "@thatguyanes",
   },
   plugins: [
     "gatsby-plugin-sass",

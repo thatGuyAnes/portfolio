@@ -1,27 +1,44 @@
 @import '../../styles/mixins/media-queries';
 
 .c-intro {
-  /* min-height: 80vh; */
-  min-height: 50vw;
+  /* >>>>h3 */
+  /* min-height: 50vw; */
+
+  /* >>>>h1 */
+  min-height: 100vh;
+
   position: relative;
   @include sm-screen {
     min-height: 80vh;
   }
 }
 .c-intro__main {
+  /* >>>>h3 */
+  /* display: flex; */
+  /* flex-direction: row-reverse; */
+  /* align-items: center; */
+  /* justify-content: space-around; */
+
+  /* >>>>>h1 */
   display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  /* justify-content: space-between; */
-  justify-content: space-around;
+  flex-direction: column-reverse;
+
   margin-top: 12vw;
   @include sm-screen {
     flex-direction: column-reverse;
   }
 }
 .c-intro__canvas-container {
-  width: 40%;
-  margin-right: 3vw;
+  /* >>>>h3 */
+  /* width: 40%; */
+  /* margin-right: 3vw; */
+
+  /* >>>>h1 */
+  width: 80%;
+  margin-top: 7vh;
+  align-self: center;
+  margin-right: 0;
+
   @include sm-screen {
     width: 70%;
     margin-top: 7vh;
@@ -30,7 +47,12 @@
 }
 .c-intro__text {
   /* width: 60%; */
-  height: 23vw;
+
+  /* >>>>h3 */
+  /* height: 23vw; */
+
+  /* >>>>h1 */
+
   & .c-intro__link-wrapper {
     margin-top: 2vh;
   }
@@ -47,7 +69,7 @@
   @include xs-screen {
     width: 100%;
   }
-  & h3 {
+  & h1 {
     position: relative;
     width: 100%;
     font-family: 'Source Sans 3', sans-serif;
@@ -68,6 +90,12 @@
         padding-top: 0.6em;
         margin-bottom: -0.7em;
         padding-bottom: 0.4em;
+        /* >>>>h1 */
+        font-size: 6vw;
+        font-weight: 600;
+        padding-top: 1em;
+        padding-bottom: 0.3em;
+        margin-bottom: -1em;
       }
     }
     @include sm-screen {
@@ -98,7 +126,10 @@
     .svg.junior {
       position: absolute;
       bottom: 33%;
-      right: 82%;
+      /* >>>>h3 */
+      /* right: 82%; */
+
+      right: 77%;
       width: 1.5em;
       height: 1.5em;
       transform: rotateZ(4deg);
@@ -145,11 +176,14 @@
     }
     .svg.underline {
       position: absolute;
-      top: 75%;
+      /* >>>>h3 */
+      /* top: 75%; */
+      top: 90%;
       left: 0;
       width: 100%;
       height: 0.5em;
       transform: rotateZ(359deg);
+      z-index: 3;
     }
   }
 }

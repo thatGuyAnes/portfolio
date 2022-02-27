@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import ScrollProgressBar from '../ScrollProgressBar';
 import Navbar from '../Navbar';
+import Seo from '../Seo';
 import Footer from '../Footer';
 
 import './style.scss';
@@ -108,6 +109,7 @@ const { pathname } = useLocation() // With react-router
       // onUpdate={() => console.log('Updated, but not on location change!')} // Will trigger on      containerRef={containerRef}
     >
       <ScrollTriggerProxy />
+      <Seo />
       <div className="layout"
         data-scroll-container
         ref={containerRef}
