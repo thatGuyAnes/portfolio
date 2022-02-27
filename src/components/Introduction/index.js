@@ -86,7 +86,7 @@ const Intro = () => {
         const chars = Splitting({ target: line, by: 'chars' });
         textRevealAnimation.from(
           chars[0].chars,
-          { yPercent: 270, stagger: 0.03, duration: 0.2 },
+          { yPercent: 290, stagger: 0.03, duration: 0.2 },
           '>-80%'
         );
       });
