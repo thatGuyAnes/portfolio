@@ -78,6 +78,8 @@
     line-height: 170%;
     letter-spacing: 0.22vw;
     opacity: 1;
+    /* >>>>h1 */
+    align-self: center;
     .text-container {
       color: #f6eadeb3;
       & .c-intro__text__line {
@@ -91,7 +93,7 @@
         margin-bottom: -0.7em;
         padding-bottom: 0.4em;
         /* >>>>h1 */
-        font-size: 6vw;
+        font-size: clamp(5.5vw, 5.5vw, 106px);
         font-weight: 600;
         padding-top: 1em;
         padding-bottom: 0.3em;
