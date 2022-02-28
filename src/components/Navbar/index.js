@@ -103,8 +103,8 @@ const Navbar = ({ children }) => {
     initMenu();
     if (brandRef.current) {
       initNavAnimation();
-      brandLinkRef.current.addEventListener('mouseenter', onMouseEnter);
-      brandLinkRef.current.addEventListener('mouseleave', onMouseLeave);
+      // brandLinkRef.current.addEventListener('mouseenter', onMouseEnter);
+      // brandLinkRef.current.addEventListener('mouseleave', onMouseLeave);
     }
     return () => {
       tlInit.current.kill();

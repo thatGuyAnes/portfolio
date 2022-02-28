@@ -96,7 +96,7 @@ const Docunotes = () => {
               className="js-hover"
               target="_blank"
             >
-              link
+            website
             </a>
           </div>
         </div>

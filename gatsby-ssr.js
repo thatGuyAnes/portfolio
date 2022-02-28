@@ -14,7 +14,7 @@ export const onRenderBody = ({
      //   <span className="c-loader" id="loader"></span>
      // </div>
   ]);
-  setBodyAttributes({className: 'is-loading'});
+  setBodyAttributes({className: 'is-loading is-light'});
   // setHeadComponents([<link rel="preload" href="/scripts/preloader.js" as="script" key={`prldr`} defer />]);
   setPostBodyComponents([
 <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js" key={`imgLoaded`}/>,

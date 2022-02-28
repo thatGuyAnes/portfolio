@@ -5,80 +5,109 @@ import gsap from 'gsap';
 import './style.scss';
 
 const Header = () => {
-  const headerRef = useRef();
+  // const headerRef = useRef();
   const h1Ref = useRef();
-  const hgTopRef = useRef();
-  const hgRef = useRef();
-  const imgRef = useRef();
-  const notMeSvgRef = React.createRef();
+  // const hgTopRef = useRef();
+  // const hgRef = useRef();
+  // const imgRef = useRef();
+  // const notMeSvgRef = React.createRef();
 
-  const animateImage = (e) => {
+  // const animateImage = (e) => {
     // destructuring
-    const { clientX, clientY, target } = e;
+    // const { clientX, clientY, target } = e;
 
     // we want the 'hg' element to act as the middle of the screen for this effect to work.
     // h1.width - (hg.width/2)
-    const relativeX =
-      h1Ref.current.getBoundingClientRect().width -
-      hgRef.current.getBoundingClientRect().width / 2;
-    const relativeY =
-      h1Ref.current.getBoundingClientRect().height -
-      hgRef.current.getBoundingClientRect().height / 2;
+    // const relativeX =
+    //   h1Ref.current.getBoundingClientRect().width -
+    //   hgRef.current.getBoundingClientRect().width / 2;
+    // const relativeY =
+    //   h1Ref.current.getBoundingClientRect().height -
+    //   hgRef.current.getBoundingClientRect().height / 2;
 
-    const xPos = clientX / relativeX - 0.5;
-    const yPos = clientY / relativeY - 0.5;
+    // const xPos = clientX / relativeX - 0.5;
+    // const yPos = clientY / relativeY - 0.5;
 
     // const modifier = (index) => index * 1.2 + 0.5;
 
-    gsap.to(hgTopRef.current, {
-      duration: 1.2,
-      // translations.
-      x: xPos * 20,
-      y: yPos * 20,
-      // rotations.
-      rotationY: xPos * 20,
-      rotationX: yPos * -10,
-      ease: 'Power3.out',
-    });
-  }; // </animateImage>
+  //   gsap.to(hgTopRef.current, {
+  //     duration: 1.2,
+  //     // translations.
+  //     x: xPos * 20,
+  //     y: yPos * 20,
+  //     // rotations.
+  //     rotationY: xPos * 20,
+  //     rotationX: yPos * -10,
+  //     ease: 'Power3.out',
+  //   });
+  // }; // </animateImage>
 
-  const imgMouseOver = React.useCallback(
-    (_e) => {
-      // show the notMe svg.
-      notMeSvgRef.current.style.opacity = 1;
-    },
-    [notMeSvgRef]
-  );
+//   const imgMouseOver = React.useCallback(
+//     (_e) => {
+//       // show the notMe svg.
+//       notMeSvgRef.current.style.opacity = 1;
+//     },
+//     [notMeSvgRef]
+//   );
+// 
+//   const imgMouseOut = React.useCallback(
+//     (_e) => {
+//       // show the notMe svg.
+//       notMeSvgRef.current.style.opacity = 0;
+//     },
+//     [notMeSvgRef]
+//   );
 
-  const imgMouseOut = React.useCallback(
-    (_e) => {
-      // show the notMe svg.
-      notMeSvgRef.current.style.opacity = 0;
-    },
-    [notMeSvgRef]
-  );
+//   useEffect(() => {
+//     if (h1Ref.current && imgRef.current) {
+//       h1Ref.current.addEventListener('mousemove', animateImage);
+// 
+//       hgTopRef.current.addEventListener('mouseover', imgMouseOver);
+//       hgTopRef.current.addEventListener('mouseout', imgMouseOut);
+// 
+//       return () => {
+//         h1Ref.current.removeEventListener('mousemove', animateImage);
+//       }
+//     }
+//   }, [imgMouseOver, imgMouseOut]);
+
+
 
   useEffect(() => {
-    if (h1Ref.current && imgRef.current) {
-      h1Ref.current.addEventListener('mousemove', animateImage);
+    if (h1Ref.current) {
 
-      hgTopRef.current.addEventListener('mouseover', imgMouseOver);
-      hgTopRef.current.addEventListener('mouseout', imgMouseOut);
-
-      // return () => {
-      //   h1Ref.current.removeEventListener('mousemove', animateImage);
-      // }
+    const h1 = gsap.utils.selector(h1Ref.current);
+      let lines = h1('.c-header__h__line');
+      lines.forEach(( line, index ) => {
+        gsap.from(line, {
+          autoAlpha: 0,
+          yPercent: 110,
+          rotationX: -100,
+          transformOrigin: 'center top',
+          duration: 0.8,
+          delay: (19 - index) / 10,
+          ease: 'Power2.out'
+        })
+      })
     }
-  }, [imgMouseOver, imgMouseOut]);
+
+  }, []);
 
   return (
-    <header className="c-header" ref={headerRef} data-scroll-section="">
+    <header className="c-header" data-scroll-section="">
       {/* <Arrow /> */}
       <Circle />
       <div className="c-header__main-container">
-        <h1 className="c-header__h o-container" ref={h1Ref} data-scroll="">
+        <h1 className="c-header__h o-container" data-scroll="" ref={h1Ref}>
+
           {/* LINE #1 */}
           <span className="c-header__h__line -one" data-scroll="">
+            <span className="c-header__h__line__text c-header__greeter">Hi there, I am</span>
+          </span>
+
+
+          {/* LINE #1 */}
+          <span className="c-header__h__line -two" data-scroll="">
             <span
               className="c-header__h__line__text"
               data-scroll=""
@@ -97,7 +126,7 @@ const Header = () => {
           </span>
 
           {/* LINE #2 */}
-          <span className="c-header__h__line -two" data-scroll="">
+          <span className="c-header__h__line -three" data-scroll="">
             <span
               className="c-header__h__line__text"
               data-scroll=""

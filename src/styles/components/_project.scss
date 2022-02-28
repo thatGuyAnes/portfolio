@@ -61,6 +61,15 @@
       font-size: 4.5vw;
     }
   }
+  & > h2 {
+    font-family: 'Libre Caslon Display', serif;
+    font-size: unset;
+    font-weight: unset;
+    opacity: 0.6;
+  }
+  &__extLink {
+    text-decoration: underline;
+  }
 }
 .c-project__info__heading {
   width: 100%;
@@ -111,7 +120,19 @@
     font-size: 21px;
   }
 }
+.c-project__info__button__wrapper {
+  width: 20vw;
+  height: 1.5em;
+}
 .c-project__info__button {
+  min-width: unset;
+  &.no-link {
+    text-decoration: line-through;
+    color: var(--clr-medium);
+    & > a {
+      cursor: not-allowed;
+    }
+  }
   /* top: 100%; */
   /* right: unset; */
   /* left: 0; */

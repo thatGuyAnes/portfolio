@@ -59,6 +59,7 @@ const ScrollTriggerProxy = () => {
   return null;
 };
 
+
 const Layout = ({children}) => {
 
 const { pathname } = useLocation() // With react-router
@@ -85,6 +86,15 @@ const { pathname } = useLocation() // With react-router
   useEffect(() => {
     initEvents();
   }, []);
+
+
+  // Cursor reset
+  useEffect(() => {
+    const cursor = document.querySelector('.cursor');
+    if (cursor.classList.contains('-expand')) {
+      cursor.classList.remove('-expand');
+    }
+  }, [])
 
   return (
     <LocomotiveScrollProvider

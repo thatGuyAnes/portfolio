@@ -1,3 +1,22 @@
 body.is-light {
   background-color: var(--clr-light);
+  & .c-top-nav {
+    background: linear-gradient(
+      180deg,
+      white 0%,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    .c-brand {
+      .c-brand_text a {
+        color: var(--clr-dark);
+      }
+    }
+    .c-burger_wrapper .c-burger .c-burger__line {
+      background-color: var(--clr-dark);
+    }
+  }
+  & .c-header__h__line {
+    color: var(--clr-dark);
+  }
 }

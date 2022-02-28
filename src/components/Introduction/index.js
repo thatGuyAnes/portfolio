@@ -79,10 +79,23 @@ const Intro = () => {
       ScrollTrigger.create({
         trigger: text,
         scroller: scroll?.el,
-        start: 'top 60%',
+        start: 'top 35%',
         animation: textRevealAnimation,
-        })
+      });
 
+      // bg transition
+      const toggleClass = () => {
+        if (document.body.classList.contains('is-light')) {
+          document.body.classList.remove('is-light')
+        }
+      };
+      const bgChange = gsap.timeline();
+      ScrollTrigger.create({
+        trigger: introMainRef.current,
+        scroller: scroll?.el,
+        start: 'top 40%',
+        onToggle: toggleClass,
+      });
 
       lines.forEach((line, _index) => {
         // array of chars

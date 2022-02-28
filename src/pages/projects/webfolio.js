@@ -1,9 +1,4 @@
-import React, {
-  useEffect,
-  useRef,
-  useCallback,
-  useState,
-} from 'react';
+import React, { useEffect, useRef, useCallback, useState } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import gsap from 'gsap';
 import Layout from '../../components/Layout';
@@ -24,7 +19,7 @@ const Webfolio = () => {
   const rootRef = useRef();
   const staticMaskRef = useRef();
   const tl = useRef(gsap.timeline());
-  const [header, headerRef ] = useUpdateHeader();
+  const [header, headerRef] = useUpdateHeader();
 
   /* Fix for undefined 'ref':
   using a state to trigger a rerender!
@@ -49,7 +44,7 @@ const Webfolio = () => {
           mask,
           { clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)' },
           '<'
-      )
+        )
         .to(mask, { scale: 0.99 });
     }
   }, [header]);
@@ -90,16 +85,22 @@ const Webfolio = () => {
             <span className="c-info__tech">javascript</span>
           </div>
           <p>
-            My personal portfolio multipage website, a gateway to showcase my
-            work and who I am. Made with the secret ingredients of passion and
-            love :).
-          </p>
-          <p>
             A creative website, featuring custom designs and UI elements that
             were made in Figma and Adobe Illustrator.
           </p>
+          <p>
+            My personal portfolio, a multipage website and gateway to showcase my
+            work, who I am and what I do.
+          </p>
+          <p>
+            Even though it still doesn't feature a lot of projects{' '}
+            <em>(and honestly I would never include tutorial projects or Netflix clones...not a big fan anyway)</em>,
+            it's pretty much a work in progress that is being made with the
+            secret ingredients of passion and love :).
+          </p>
           <div className="c-project__info__button c-button o-button">
-            <a href="https://www.anesmarzuki.com"
+            <a
+              href="https://www.anesmarzuki.com"
               className="js-hover"
               target="_blank"
             >

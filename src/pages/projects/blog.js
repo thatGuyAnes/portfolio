@@ -1,9 +1,4 @@
-import React, {
-  useEffect,
-  useRef,
-  useCallback,
-  useState,
-} from 'react';
+import React, { useEffect, useRef, useCallback, useState } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import gsap from 'gsap';
 import Layout from '../../components/Layout';
@@ -91,21 +86,24 @@ const Blog = () => {
             <span className="c-info__tech">UI themes</span>
           </div>
           <p>
-            A personal blog that I made from gatsby files where I post about
-            things I've learned and stuff that I need to write about for better
-            retentin.
+            My personal blog, where I post about things I've learned and stuff
+            that I need for better retention as writing about a topic is the
+            best way to fully understand it.
           </p>
           <p>
             The website serves as a digital playground, where I test and try
-            different solutions and libraries to help me learn and practice
-            working with Gatsbyjs and its ecosystem.
+            different solutions and libraries to help me practice.
+          </p>
+          <p>
+            Currently it's using Gatsbyjs and its ecosystem.
           </p>
           <div className="c-project__info__button c-button o-button">
-            <a href="https://blog.anesmarzuki.com/"
+            <a
+              href="https://blog.anesmarzuki.com/"
               className="js-hover"
               target="_blank"
             >
-            link
+              website
             </a>
           </div>
         </div>

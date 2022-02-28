@@ -12,24 +12,30 @@ document.onreadystatechange = () => {
     if (!body.classList.contains('is-ready')) {
       body.classList.add('is-ready');
 
+    if (window.location.pathname !== '/') {
+      console.log('not root')
+      if (body.classList.contains('is-light')) body.classList.remove('is-light');
+    }
       const observerOptions = {
         childList: true,
         attributes: true,
         attributesFilter: ["id"],
         subtree: false
       };
+
       const callback = () => {
         if (body.classList.contains('is-loading')) {
           setTimeout(() => {
             if (gsap) {
-              gsap.to(loader, { duration: 1.2, yPercent: -105, ease: 'Power4.inOut' })
+              gsap.to(loader, { duration: 0.8, delay: 1, yPercent: -105, ease: 'Power4.out' })
               body.classList.remove('is-loading');
             } else {
+              body.classList.remove('is-loading');
               body.removeChild(document.querySelector('.loader'));
             }
           //   body.classList.remove('is-loading');
           //   body.removeChild(body.querySelector('.c-loader-wrapper'))
-          }, 400)
+          }, 300)
         }
       };
 
@@ -40,6 +46,11 @@ document.onreadystatechange = () => {
         layoutLoaded.observe(body, observerOptions);
       }
     }
+
+
+
+
+
     // setTimeout(() => {
       //   if (gsap) {
       //     // timelineOut
