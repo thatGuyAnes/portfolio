@@ -9,7 +9,8 @@
 
   position: relative;
   @include sm-screen {
-    min-height: 80vh;
+    /* min-height: 80vh; */
+    min-height: unset;
   }
 }
 .c-intro__main {
@@ -25,7 +26,7 @@
 
   margin-top: 12vw;
   @include sm-screen {
-    flex-direction: column-reverse;
+    align-items: center;
   }
 }
 .c-intro__canvas-container {
@@ -34,14 +35,14 @@
   /* margin-right: 3vw; */
 
   /* >>>>h1 */
-  width: 80%;
+  width: 75%;
   margin-top: 7vh;
   align-self: center;
   margin-right: 0;
 
   @include sm-screen {
     width: 70%;
-    margin-top: 7vh;
+    margin-top: 14vh;
     margin-right: 0;
   }
 }
@@ -98,6 +99,9 @@
         padding-top: 1em;
         padding-bottom: 0.4em;
         margin-bottom: -1em;
+        .dimmed {
+          opacity: 0.3;
+        }
       }
     }
     @include sm-screen {

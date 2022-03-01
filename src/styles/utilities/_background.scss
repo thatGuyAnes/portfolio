@@ -16,6 +16,9 @@ body.is-light {
       background-color: var(--clr-dark);
     }
   }
+  & .c-header .c-scroll-circle svg path {
+    fill: var(--clr-dark);
+  }
   & .c-header__h__line {
     color: var(--clr-dark);
   }

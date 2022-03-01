@@ -159,40 +159,40 @@ const Intro = () => {
               {/* =First line */}
               <div className="c-intro__line-wrapper">
                 <span className="c-intro__text__line" id="l1">
-                  I'm a{' '}
+                  <span className="dimmed">I'm a{' '}</span>
                   <span className="c-intro__special o-special-container --junior">
                     <Junior />
                     front
                   </span>
-                  -end web developer
+                  -end <span className="dimmed">web</span> developer
                 </span>
               </div>
 
               {/* =Second line */}
               <div className="c-intro__line-wrapper">
                 <span className="c-intro__text__line" id="l2">
-                  and a UI designer from Tunisia
+                  <span className="dimmed">and a UI</span> designer <span className="dimmed">from Tunisia</span>
                 </span>
               </div>
 
               {/* =Third line */}
               <div className="c-intro__line-wrapper">
                 <span className="c-intro__text__line" id="l3">
-                  with a{' '}
+                  <span className="dimmed">with a{' '}</span>
                   <span className="c-intro__special o-special-container --passion">
                     <StarLeft className="c-star star-l" />
                     <Underline />
                     passion
                     <StarRight className="c-star star-r" />
                   </span>{' '}
-                  for interactive{' '}
+                  <span className="dimmed">for interactive{' '}</span>
                 </span>
               </div>
 
               {/* =Fourth line */}
               <div className="c-intro__line-wrapper">
                 <span className="c-intro__text__line" id="l4">
-                  designs and web technologies.
+              designs <span className="dimmed">and web</span> technologies.
                 </span>
               </div>
             </span>

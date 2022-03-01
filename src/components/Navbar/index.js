@@ -20,16 +20,17 @@ const Navbar = ({ children }) => {
 
   const tlInit = useRef(gsap.timeline());
 
+  const tlmenu = gsap.timeline();
 
-  // brand hover
-  const onMouseEnter = (e) => {
-    e.target.classList.toggle('-active');
-  };
-  const onMouseLeave = (e) => {
-    e.target.classList.toggle('-active');
-  };
+  // // brand hover
+  // const onMouseEnter = (e) => {
+  //   e.target.classList.toggle('-active');
+  // };
+  // const onMouseLeave = (e) => {
+  //   e.target.classList.toggle('-active');
+  // };
 
-  // Menu's links init position.
+  // Hides links inside menu.
   const initMenu = () => {
     menuLinks.current = gsap.utils.toArray('.c-menu__item span');
     menuLinks.current.forEach((link, _i) => {
@@ -53,7 +54,6 @@ const Navbar = ({ children }) => {
   };
 
   const toggleMenu = () => {
-    const tlmenu = gsap.timeline();
 
     if (!isMenuOpen) {
       // Menu IN
@@ -145,8 +145,8 @@ const Navbar = ({ children }) => {
       {/* =Menu= */}
       <div className="c-menu" ref={menuRef}>
 
-        <div className="c-menu__left"></div>
-        <div className="c-menu__right"></div>
+        <section className="c-menu__left"></section>
+        <section className="c-menu__right"></section>
 
         <nav className="c-menu__list">
           <ul>

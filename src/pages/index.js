@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Intro from '../components/Introduction';
 import Divider from '../components/Divider';
 import Projects from '../components/Projects';
+import Contact from '../components/Contact';
 
 const IndexPage = () => {
 
@@ -32,6 +33,7 @@ const IndexPage = () => {
       <Intro />
       <Divider />
       <Projects />
+      <Contact />
     </Layout>
   );
 

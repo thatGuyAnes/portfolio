@@ -25,7 +25,7 @@
   background-position: bottom 1vw left 2vw;
   /* background-color: var(--clr-light-loader); */
   /* background-color: #1687e1; */
-  background-color: #7c507b;
+  background-color: var(--clr-dark);
   background-size: 155px 155px;
 }
 
