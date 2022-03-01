@@ -13,11 +13,11 @@ const Footer = () => {
         {/* <div className="c-footer__credentials__logo"></div> */}
         <span>
           <a
-            href="https://dribbble.com/weesnail"
+            href="https://codepen.io/thatGuyAnes"
             target="_blank"
             className="js-hover"
           >
-            dribble
+            codepen
           </a>
         </span>
         <span>
@@ -45,6 +45,15 @@ const Footer = () => {
             className="js-hover"
           >
             linkedin
+          </a>
+        </span>
+        <span>
+          <a
+            href="https://dribbble.com/weesnail"
+            target="_blank"
+            className="js-hover"
+          >
+            dribble
           </a>
         </span>
       </div>
