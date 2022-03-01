@@ -103,13 +103,13 @@ const { pathname } = useLocation() // With react-router
           smooth: true,
           // smoothMobile: false,
           // getDirection: true,
-          // touchMultiplier: 2.5,
+          touchMultiplier: 1,
           smartphone: {
             smooth: true,
           },
           tablet: {
             smooth: true,
-          }
+          },
         }
       }
       watch={[]}

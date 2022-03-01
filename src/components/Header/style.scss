@@ -164,10 +164,13 @@
   /*   transform 0s cubic-bezier(0.215, 0.61, 0.355, 1); */
   @include lg-screen {
     font-size: 17vw;
-    line-height: 1.4;
+    /* line-height: 1.4; */
   }
   @include sm-screen {
     font-size: 20vw;
+  }
+  .name {
+    letter-spacing: -0.03em;
   }
   /* &.is-inview { */
   /*   opacity: 1; */

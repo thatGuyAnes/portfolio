@@ -1,6 +1,6 @@
 body {
   background-color: var(--clr-dark);
   color: var(--clr-light-warm);
-  transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s cubic-bezier(1, 0.01, 0.53, 0.78);
   /* transition: background-color 0.3s ease-in; */
 }

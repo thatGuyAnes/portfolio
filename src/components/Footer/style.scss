@@ -1,4 +1,5 @@
 @import '../../styles/mixins/media-queries';
+
 .c-footer {
   height: 17vh;
   max-height: 12vw;
@@ -53,25 +54,33 @@
   }
 }
 
-.c-footer__text.--left > span {
-  position: relative;
+.c-footer__text.--left {
+  @include sm-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+  }
 
-  &::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 3px;
-    background-color: #000;
-    transition: width 0.3s linear;
-  }
-  &:hover {
-    transform: scale(0.5);
+  & > span {
+    position: relative;
     &::after {
-      width: 100%;
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 3px;
+      background-color: #000;
+      transition: width 0.3s linear;
     }
+    &:hover {
+      transform: scale(0.5);
+      &::after {
+        width: 100%;
+      }
+    }
+    /* left: 0; */
   }
-  /* left: 0; */
 }

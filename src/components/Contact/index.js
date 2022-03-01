@@ -16,12 +16,21 @@ const Contact = () => {
     const tltxtReveal = gsap.timeline();
 
     if (scroll) {
+      if (document.querySelector('body').getBoundingClientRect().width <= 767) {
+        ScrollTrigger.create({
+          trigger: document.querySelector('.c-contact'),
+          scroller: scroll?.el,
+          start: 'top 70%',
+          animation: tltxtReveal,
+        });
+      } else {
       ScrollTrigger.create({
         trigger: document.querySelector('.c-contact'),
         scroller: scroll?.el,
-        start: 'top 20%',
+        start: 'top 30%',
         animation: tltxtReveal,
       });
+      }
 
       const lines = txtWrapper('span');
 
