@@ -59,6 +59,7 @@ const Sphere = () => {
         <a href="#">HTML</a>
         <a href="#">Javascript</a>
         <a href="#">GSAP</a>
+        <a href="#">SCSS</a>
         <a href="#">Node</a>
         <a href="#">Express</a>
         <a href="#">React</a>
