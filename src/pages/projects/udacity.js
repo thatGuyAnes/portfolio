@@ -106,7 +106,7 @@ const CallbackComponent = () => {
           >
             One Million Arab coders
           </a>{' '}
-          initiatie, I chose the Front End course by Udacity as my path.
+          initiative, I chose the Front End course by Udacity as my path.
         </p>
         <p>
           The course was divided into chapters, with each chapter ending with a
