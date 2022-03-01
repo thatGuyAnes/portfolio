@@ -2,6 +2,7 @@
   position: relative;
   /* min-height: 80vh; */
   margin-top: 10vh;
+  margin-bottom: 10vh;
 }
 
 .c-contact__line {
@@ -23,6 +24,7 @@
   font-size: 11vw;
   color: var(--clr-light);
   font-weight: 600;
+  padding-top: 5vh;
   /* max-width: 80%; */
   .c-contact__text__line {
     display: inline-block;

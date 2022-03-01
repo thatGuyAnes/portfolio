@@ -20,7 +20,7 @@ const Contact = () => {
         ScrollTrigger.create({
           trigger: document.querySelector('.c-contact'),
           scroller: scroll?.el,
-          start: 'top 70%',
+          start: 'top 80%',
           animation: tltxtReveal,
         });
       } else {
