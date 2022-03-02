@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useLayoutEffect } from 'react';
 import { Link } from 'gatsby';
 import gsap from 'gsap/all';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
@@ -44,37 +44,20 @@ const Intro = () => {
   */
 
   useEffect(() => {
+    let textRevealAnimation;
+    const el = gsap.utils.selector(introMainRef.current);
+    const aside = el('aside');
+    const text = el('#intro__text-header');
+    const svgs = el('svg');
 
-      let textRevealAnimation;
-      const el = gsap.utils.selector(introMainRef.current);
-      const aside = el('aside');
-      const text = el('#intro__text-header');
-      const svgs = el('svg');
-
-      // lines
-      const textContainer = gsap.utils.selector(textContainerRef.current);
-      lines.push(
-        textContainer('#l1'),
-        textContainer('#l2'),
-        textContainer('#l3'),
-        textContainer('#l4')
-      );
 
     if (scroll) {
       // INTRO ANIMATIONS
       /* In order for this to work, we need to set the scroller as the locomotive
-        scroll element, and to wait for the its update by adding the scroll to
+        scroll element, and to wait for its update by adding the scroll to
         the list of dependencies.
        */
-      textRevealAnimation = gsap.timeline({
-        // scrollTrigger: {
-        //   trigger: introMainRef.current,
-        //   scroller: scroll?.el,
-        //   start: 'top 60%',
-        // },
-      });
-
-
+      textRevealAnimation = gsap.timeline({});
       // text animation
       ScrollTrigger.create({
         trigger: text,
@@ -86,9 +69,10 @@ const Intro = () => {
       // bg transition
       const toggleClass = () => {
         if (document.body.classList.contains('is-light')) {
-          document.body.classList.remove('is-light')
+          document.body.classList.remove('is-light');
         }
       };
+
       const bgChange = gsap.timeline();
       ScrollTrigger.create({
         trigger: introMainRef.current,
@@ -97,14 +81,22 @@ const Intro = () => {
         onToggle: toggleClass,
       });
 
+
+      // lines
+      const textContainer = gsap.utils.selector(textContainerRef.current);
+      lines.push(
+        textContainer('#l1'),
+        textContainer('#l2'),
+        textContainer('#l3'),
+        textContainer('#l4')
+      );
+
       lines.forEach((line, _index) => {
         // array of chars
         const chars = Splitting({ target: line, by: 'chars' });
         textRevealAnimation.from(
           chars[0].chars,
-          {autoAlpha:0, yPercent: 290, stagger: 0.03, duration: 0.2 },
-          '>-80%'
-        );
+          {autoAlpha: 0, yPercent: 290, stagger: 0.02, duration: 0.2}, '>-80%')
       });
 
       svgs.forEach((svg, _index) => {
@@ -116,18 +108,8 @@ const Intro = () => {
         '>'
       );
       textRevealAnimation.from(aside, { autoAlpha: 0, duration: 0.8 }, '<-70%');
-
-      // bodygg animation
-      // textRevealAnimation.set(document.querySelector('body'), {
-      //   duration: 0.3,
-      //   backgroundColor: '#e8e8e8',
-      //   ease: 'Power4.out'
-      // }, 0)
-
     }
-    return () => {
-      textRevealAnimation ? textRevealAnimation.kill() : null;
-    };
+    return () => textRevealAnimation ? textRevealAnimation.kill() : null;
   }, [scroll]);
 
   return (
@@ -159,7 +141,7 @@ const Intro = () => {
               {/* =First line */}
               <div className="c-intro__line-wrapper">
                 <span className="c-intro__text__line" id="l1">
-                  <span className="dimmed">I'm a{' '}</span>
+                  <span className="dimmed">I'm a </span>
                   <span className="c-intro__special o-special-container --junior">
                     <Junior />
                     front
@@ -171,28 +153,29 @@ const Intro = () => {
               {/* =Second line */}
               <div className="c-intro__line-wrapper">
                 <span className="c-intro__text__line" id="l2">
-                  <span className="dimmed">and a UI</span> designer <span className="dimmed">from Tunisia</span>
+                  <span className="dimmed">and a UI</span> designer{' '}
+                  <span className="dimmed">from Tunisia</span>
                 </span>
               </div>
 
               {/* =Third line */}
               <div className="c-intro__line-wrapper">
                 <span className="c-intro__text__line" id="l3">
-                  <span className="dimmed">with a{' '}</span>
+                  <span className="dimmed">with a </span>
                   <span className="c-intro__special o-special-container --passion">
                     <StarLeft className="c-star star-l" />
                     <Underline />
                     passion
                     <StarRight className="c-star star-r" />
                   </span>{' '}
-                  <span className="dimmed">for interactive{' '}</span>
+                  <span className="dimmed">for interactive </span>
                 </span>
               </div>
 
               {/* =Fourth line */}
               <div className="c-intro__line-wrapper">
                 <span className="c-intro__text__line" id="l4">
-              designs <span className="dimmed">and web</span> technologies.
+                  designs <span className="dimmed">and web</span> technologies.
                 </span>
               </div>
             </span>

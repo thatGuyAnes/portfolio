@@ -61,8 +61,10 @@
     align-items: start;
     gap: 8px;
   }
+}
 
-  & > span {
+@media (any-pointer: fine) {
+  .c-footer__text.--left > span {
     position: relative;
     &::after {
       content: '';
@@ -81,6 +83,6 @@
         width: 100%;
       }
     }
-    /* left: 0; */
   }
+  /* left: 0; */
 }

@@ -85,6 +85,9 @@
       color: var(--clr-light);
       & .c-intro__text__line {
         display: inline-block;
+        will-change: transform;
+        transform: translateZ(0);
+        backface-visibility: hidden;
       }
       .c-intro__line-wrapper {
         height: 1.5em;

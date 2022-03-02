@@ -80,6 +80,7 @@ const Webfolio = () => {
             <span className="c-info__tech">Gatsbyjs</span>
             <span className="c-info__tech">Locomotive Scroll</span>
             <span className="c-info__tech">SCSS</span>
+            <span className="c-info__tech">ITCSS</span>
             <span className="c-info__tech">react</span>
             <span className="c-info__tech">canvas</span>
             <span className="c-info__tech">javascript</span>

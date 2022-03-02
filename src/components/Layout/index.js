@@ -141,7 +141,7 @@ const { pathname } = useLocation() // With react-router
           smooth: true,
           // smoothMobile: false,
           // getDirection: true,
-          touchMultiplier: 1,
+          touchMultiplier: 1.3,
           smartphone: {
             smooth: true,
           },
