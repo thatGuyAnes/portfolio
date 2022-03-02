@@ -15,8 +15,9 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp", // for dynamic images.
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
+        host: "https://www.anesmarzuki.com",
         policy: [{userAgent: '*', allow: '/'}]
       }
     },
