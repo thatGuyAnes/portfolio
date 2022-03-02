@@ -15,6 +15,12 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp", // for dynamic images.
     {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{userAgent: '*', allow: '/'}]
+      }
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: manifestOptions,
     },
