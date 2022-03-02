@@ -173,7 +173,7 @@ const Navbar = ({ children }) => {
             </li>
             <li className="c-menu__item">
               <span>
-                <a href="https://www.blog.anesmarzuki.com/" target="_blank" className="js-hover">
+                <a href="https://blog.anesmarzuki.com/" target="_blank" className="js-hover">
                   Blog
                 </a>
               </span>
