@@ -16,6 +16,44 @@ const ScrollTriggerProxy = () => {
   const {scroll} = useLocomotiveScroll();
 
   useEffect(() => {
+
+
+    console.clear();
+    console.log(`
+                                                  
+                                                  
+                                                  
+      .°oO####o*.  oo° °O####o°    .oO###Oo°      
+    .o@@#Oo**o#@@o.#@#O@Oo**o#@#° O@@Oo*oO#@#°    
+   *@@O.       .o@###@O.      °###@o       o@@°   
+  *@@*           .#@##         *@@o         O#O   
+  ##o             °@@O         .##°         *@#   
+ °@@.              #@o         .@@°         *@#   
+ °@@°              #@o         .@@°         *@#   
+  ##o             *@@o         .@@°         *@#   
+  *@@*           .##@o         .@@°         *@#   
+   *@@O.       .o@###o         .##°         *##   
+    .o@@#Oo**oO@@o.#@O         .@@°         *@@  
+      .°oO####O*.  oo*          oo.         °oo   
+                                                  
+                                                  
+ -------------------------------------------------
+                     Made with 
+                                                  
+                    ,d88b.d88b,
+                    88888888888
+                    'Y8888888Y'
+                      'Y888Y'
+                        'Y'
+                                                  
+                   by Anes Marzuki
+               @ anesmarzuki@gmail.com
+ -------------------------------------------------
+                                                  
+`);
+
+
+
     if (scroll) {
       // Return undefined if scroll doesn't exist!
       const element = scroll?.el;

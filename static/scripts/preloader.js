@@ -13,7 +13,6 @@ document.onreadystatechange = () => {
       body.classList.add('is-ready');
 
     if (window.location.pathname !== '/') {
-      console.log('not root')
       if (body.classList.contains('is-light')) body.classList.remove('is-light');
     }
       const observerOptions = {
