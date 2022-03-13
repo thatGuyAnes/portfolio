@@ -1,6 +1,6 @@
-import React, {useEffect, useRef} from 'react';
-import {useLocation} from '@reach/router';
-import {LocomotiveScrollProvider, useLocomotiveScroll} from 'react-locomotive-scroll'
+import React, { useEffect, useRef } from 'react';
+import { useLocation } from '@reach/router';
+import { LocomotiveScrollProvider, useLocomotiveScroll } from 'react-locomotive-scroll';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import ScrollProgressBar from '../ScrollProgressBar';
@@ -12,13 +12,11 @@ import './style.scss';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ScrollTriggerProxy = () => {
-  const {scroll} = useLocomotiveScroll();
+function ScrollTriggerProxy() {
+  const { scroll } = useLocomotiveScroll();
 
   useEffect(() => {
-
-
-    console.clear();
+    // console.clear();
     console.log(`
                                                   
                                                   
@@ -52,15 +50,13 @@ const ScrollTriggerProxy = () => {
                                                   
 `);
 
-
-
     if (scroll) {
       // Return undefined if scroll doesn't exist!
       const element = scroll?.el;
 
       // each time Locomotive Scroll updates, tell ScrollTrigger to update too
       // (sync positioning)
-      scroll.on("scroll", ScrollTrigger.update);
+      scroll.on('scroll', ScrollTrigger.update);
 
       // tell ScrollTrigger to use these proxy methods for the
       // scroll element since Locomotive Scroll is hijacking things
@@ -84,23 +80,21 @@ const ScrollTriggerProxy = () => {
         // position: fixed on mobile. We sense it by checking to see if there's
         // a transform applied to the container (the
         // LocomotiveScroll-controlled element).
-        pinType: element.style.transform ? "transform" : "fixed",
+        pinType: element.style.transform ? 'transform' : 'fixed',
       });
     }
 
     return () => {
-      ScrollTrigger.addEventListener("refresh", () => setTimeout(() => scroll?.update, 500 ));
+      ScrollTrigger.addEventListener('refresh', () => setTimeout(() => scroll?.update, 500));
       ScrollTrigger.refresh();
     };
   }, [scroll]);
 
   return null;
-};
+}
 
-
-const Layout = ({children}) => {
-
-const { pathname } = useLocation() // With react-router
+function Layout({ children }) {
+  const { pathname } = useLocation(); // With react-router
 
   const containerRef = useRef(null);
 
@@ -116,15 +110,13 @@ const { pathname } = useLocation() // With react-router
         cursor.classList.toggle('-expand');
       }
     };
-    containerRef.current.addEventListener('mouseover', onMouseOver)
-    containerRef.current.addEventListener('mouseout', onMouseLeave)
-
+    containerRef.current.addEventListener('mouseover', onMouseOver);
+    containerRef.current.addEventListener('mouseout', onMouseLeave);
   };
 
   useEffect(() => {
     initEvents();
   }, []);
-
 
   // Cursor reset
   useEffect(() => {
@@ -132,7 +124,7 @@ const { pathname } = useLocation() // With react-router
     if (cursor.classList.contains('-expand')) {
       cursor.classList.remove('-expand');
     }
-  }, [])
+  }, []);
 
   return (
     <LocomotiveScrollProvider
@@ -153,17 +145,18 @@ const { pathname } = useLocation() // With react-router
       watch={[]}
       location={pathname}
       containerRef={containerRef}
-      onLocationChange={scroll => scroll.scrollTo(0, {duration: 0, disableLerp: true})} // If you want to reset the scroll position to 0 for example
+      onLocationChange={(scroll) => scroll.scrollTo(0, { duration: 0, disableLerp: true })} // If you want to reset the scroll position to 0 for example
       // onUpdate={() => console.log('Updated, but not on location change!')} // Will trigger on      containerRef={containerRef}
     >
       <ScrollTriggerProxy />
       <Seo />
-      <div className="layout"
+      <div
+        className="layout"
         data-scroll-container
         ref={containerRef}
         id="scroll-container"
       >
-        <div className="bg"></div>
+        <div className="bg" />
         <ScrollProgressBar />
         <Navbar />
         <main>
@@ -172,8 +165,7 @@ const { pathname } = useLocation() // With react-router
         <Footer />
       </div>
     </LocomotiveScrollProvider>
-  )
-
-};
+  );
+}
 
 export default Layout;

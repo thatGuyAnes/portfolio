@@ -3,8 +3,7 @@ import ProjectsList from '../ProjectsList';
 
 import './style.scss';
 
-const Projects = () => {
-
+function Projects() {
   return (
     <section
       data-scroll-section=""
@@ -13,9 +12,7 @@ const Projects = () => {
       {/* List of projects */}
       <ProjectsList />
     </section>
-  )
-};
+  );
+}
 
 export default Projects;
-
-

@@ -70,6 +70,11 @@
   &__extLink {
     text-decoration: underline;
   }
+  & > ul {
+    font-family: 'Open Sans', sans-serif;
+    font-size: clamp(14px, 1.5vw, 40px);
+    list-style-type: square;
+  }
 }
 .c-project__info__heading {
   width: 100%;

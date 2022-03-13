@@ -22,7 +22,6 @@ function Contact() {
           scroller: scroll?.el,
           start: 'top 90%',
           animation: tltxtReveal,
-          markers: true,
         });
       } else {
         ScrollTrigger.create({
@@ -30,7 +29,6 @@ function Contact() {
           scroller: scroll?.el,
           start: 'top 30%',
           animation: tltxtReveal,
-          markers: true,
         });
       }
 

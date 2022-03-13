@@ -1,11 +1,12 @@
 import React from 'react';
-import ProjectsListItem from '../ProjectsListItem';
 import { Link } from 'gatsby';
+import ProjectsListItem from '../ProjectsListItem';
 
 import './style.scss';
 import blogImage from '../../images/blog.png';
 import folio from '../../images/webfolio.png';
 import udacity from '../../images/udacity2.png';
+import ordering from '../../images/order_app.png';
 
 // Collections of projects.
 const links = [
@@ -27,9 +28,15 @@ const links = [
     imageSrc: udacity,
     display: 'landscape',
   },
+  {
+    title: 'Full-Stack Nextjs',
+    href: '/projects/ordering',
+    imageSrc: ordering,
+    display: 'landscape',
+  },
 ];
 
-const ProjectsList = () => {
+function ProjectsList() {
   return (
     <div className="c-projects-list-container o-container" data-scroll="">
       <ul className="c-projects-list" role="list">
@@ -44,6 +51,6 @@ const ProjectsList = () => {
       </ul>
     </div>
   );
-};
+}
 
 export default ProjectsList;

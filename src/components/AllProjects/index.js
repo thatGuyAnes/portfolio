@@ -44,6 +44,14 @@ const images = [
     position: 5,
     local: false
   },
+  {
+    src: require('../../images/projects/06.png'),
+    path: '/projects/ordering',
+    desc: 'Full-Stack Nextjs ordering app',
+    title: 'Full-Stack Nextjs',
+    position: 6,
+    local: true
+  },
 ];
 
 const Box = ({ imageObj}) => {
