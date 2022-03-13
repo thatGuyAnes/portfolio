@@ -5,7 +5,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import './style.scss';
 
-const Contact = () => {
+function Contact() {
   const txtWrapperRef = useRef();
 
   gsap.registerPlugin(ScrollTrigger);
@@ -20,23 +20,25 @@ const Contact = () => {
         ScrollTrigger.create({
           trigger: document.querySelector('.c-contact'),
           scroller: scroll?.el,
-          start: 'top 80%',
+          start: 'top 90%',
           animation: tltxtReveal,
+          markers: true,
         });
       } else {
-      ScrollTrigger.create({
-        trigger: document.querySelector('.c-contact'),
-        scroller: scroll?.el,
-        start: 'top 30%',
-        animation: tltxtReveal,
-      });
+        ScrollTrigger.create({
+          trigger: document.querySelector('.c-contact'),
+          scroller: scroll?.el,
+          start: 'top 30%',
+          animation: tltxtReveal,
+          markers: true,
+        });
       }
 
       const lines = txtWrapper('span');
 
       tltxtReveal
-        .from( lines, { yPercent: 80, duration: 0.9, stagger: 0.1 })
-        .from(lines, {autoAlpha: 0, duration: 0.8}, '<+=60%')
+        .from(lines, { yPercent: 80, duration: 0.9, stagger: 0.1 })
+        .from(lines, { autoAlpha: 0, duration: 0.8 }, '<+=60%');
     }
   }, [scroll]);
 
@@ -54,7 +56,8 @@ const Contact = () => {
         <span className="c-contact__text__line">project inquiery,</span>
         <span className="c-contact__text__line">please feel free</span>
         <span className="c-contact__text__line">
-          to get in{' '}
+          to get in
+          {' '}
           <a
             className="js-hover c-contact__link"
             href="mailto:anesmarzuki@gmail.com?subject=Let's Talk"
@@ -65,6 +68,6 @@ const Contact = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Contact;
